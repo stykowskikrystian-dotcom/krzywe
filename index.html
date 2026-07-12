@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Krzywe Lake Houses | Zakładki strony</title>
+    <title>Krzywe Lake Houses | Domy na wynajem na Mazurach</title>
     <meta
       name="description"
-      content="Prototyp zakładek i paska nawigacji dla Krzywe Lake Houses Mazury."
+      content="Krzywe Lake Houses to nowoczesne domy nad jeziorem na Mazurach, blisko Mrągowa i Mikołajek. Spokojny wypoczynek nad Jeziorem Krzywe dla rodzin i grup."
     />
+    <link rel="icon" type="image/svg+xml" sizes="any" href="./assets/krzywe-favicon.svg" />
+    <link rel="icon" type="image/png" sizes="512x512" href="./assets/krzywe-favicon.png" />
+    <link rel="apple-touch-icon" sizes="512x512" href="./assets/krzywe-favicon.png" />
+    <meta property="og:image" content="./assets/krzywe-favicon.png" />
+    <meta name="twitter:image" content="./assets/krzywe-favicon.png" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
@@ -45,6 +50,13 @@
             </svg>
             <span>Zadzwoń</span>
           </a>
+          <a class="quiet-link email-link" href="mailto:kontakt@krzywelakehouses.pl">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="3" />
+              <path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span>Napisz e-mail</span>
+          </a>
           <a
             class="icon-link instagram-link"
             href="https://www.instagram.com/"
@@ -54,6 +66,15 @@
               <rect width="20" height="20" x="2" y="2" rx="5" />
               <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
               <path d="M17.5 6.5h.01" />
+            </svg>
+          </a>
+          <a
+            class="icon-link facebook-link"
+            href="https://www.facebook.com/"
+            aria-label="Facebook Krzywe Lake Houses"
+          >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3z" />
             </svg>
           </a>
           <a class="cta" href="#oferta" data-nav-link>Sprawdź terminy</a>
@@ -111,6 +132,25 @@
                 <path d="M17.5 6.5h.01" />
               </svg>
             </a>
+            <a
+              class="mobile-social-link"
+              href="https://www.facebook.com/"
+              aria-label="Facebook Krzywe Lake Houses"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a
+              class="mobile-social-link"
+              href="mailto:kontakt@krzywelakehouses.pl"
+              aria-label="Napisz e-mail do Krzywe Lake Houses"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect width="20" height="16" x="2" y="4" rx="3" />
+                <path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7" />
+              </svg>
+            </a>
           </div>
 
           <a class="mobile-cta" href="#oferta" data-nav-link>Sprawdź terminy</a>
@@ -120,31 +160,415 @@
 
     <main>
       <section
-        class="hero page-view is-active"
+        class="home-page page-view is-active"
         id="strona-glowna"
         data-page
         aria-labelledby="hero-title"
       >
-        <picture class="hero-media">
-          <img
-            src="./assets/krzywe-brand-hero.png"
-            alt="Nowoczesny dom typu stodoła położony nad jeziorem na Mazurach"
-          />
-        </picture>
+        <div class="hero">
+          <picture class="hero-media">
+            <img
+              src="./assets/krzywe-brand-hero.png"
+              alt="Nowoczesny dom typu stodoła położony nad jeziorem na Mazurach"
+            />
+          </picture>
 
-        <div class="hero-content">
-          <p class="eyebrow">Krzywe Lake Houses · Mazury</p>
-          <h1 id="hero-title">Domy nad samym jeziorem dla 10 osób.</h1>
-          <p class="lead">
-            Nowoczesna stodoła, prywatna przestrzeń i spokojny mazurski rytm
-            tuż przy linii wody.
-          </p>
-          <div class="hero-facts" aria-label="Najważniejsze informacje">
-            <span>10 osób</span>
-            <span>nad jeziorem</span>
-            <span>premium</span>
+          <div class="hero-content">
+            <p class="eyebrow">Krzywe Lake Houses · Mazury</p>
+            <h1 id="hero-title">Domy nad samym jeziorem dla 10 osób.</h1>
+            <p class="lead">
+              Nowoczesna stodoła, prywatna przestrzeń i spokojny mazurski rytm
+              tuż przy linii wody.
+            </p>
+            <div class="hero-facts" aria-label="Najważniejsze informacje">
+              <span>10 osób</span>
+              <span>nad jeziorem</span>
+              <span>premium</span>
+            </div>
           </div>
         </div>
+
+        <section class="home-tabs-section" aria-label="Skróty strony głównej">
+          <div class="home-tabs-shell">
+            <a class="home-tab-card" href="#domy-i-galeria" data-nav-link>
+              <span>01</span>
+              <strong>Domy i galeria</strong>
+              <p>Nowoczesna stodoła, przestrzeń dla 10 osób i kadry z miejsca.</p>
+            </a>
+            <a class="home-tab-card" href="#jezioro-krzywe" data-nav-link>
+              <span>02</span>
+              <strong>Jezioro Krzywe</strong>
+              <p>Woda, cisza, naturalne brzegi i mazurski rytm wypoczynku.</p>
+            </a>
+            <a class="home-tab-card" href="#dojazd">
+              <span>03</span>
+              <strong>Dojazd</strong>
+              <p>Mapa okolicy i szybka nawigacja prosto do punktu nad jeziorem.</p>
+            </a>
+            <a class="home-tab-card" href="#oferta" data-nav-link>
+              <span>04</span>
+              <strong>Oferta</strong>
+              <p>Terminy, zasady pobytu i informacje potrzebne przed rezerwacją.</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="home-lakefront-section" aria-labelledby="home-lakefront-title">
+          <div class="home-lakefront-shell">
+            <div class="home-section-copy home-lakefront-copy">
+              <p class="eyebrow">Pobyt nad samą wodą</p>
+              <h2 id="home-lakefront-title">Dwa domy stworzone z miłości do Mazur.</h2>
+              <p>
+                Krzywe Lake Houses powstały z prostego marzenia: zbudować nad
+                Jeziorem Krzywe miejsce, do którego chce się wracać nie tylko
+                latem. Miejsce dla ludzi, którzy kochają Mazury za ciszę po
+                zachodzie słońca, zapach jeziora po deszczu, rozmowy przy ogniu
+                i poranki, w których pierwszym widokiem jest woda.
+              </p>
+              <p>
+                To dwa domy na wynajem na Mazurach w stylu nowoczesnej stodoły.
+                Każdy dom mieści do 10 osób, ma 4 sypialnie, salon z aneksem
+                kuchennym, taras oraz bezpośredni dostęp do linii brzegowej.
+                Do dyspozycji gości są także prywatny pomost i palenisko, czyli
+                wszystko, co sprawia, że pobyt nad jeziorem staje się prawdziwym
+                odpoczynkiem, a nie tylko noclegiem. To adres dla osób szukających
+                domów nad jeziorem w okolicy Mrągowa, Mikołajek i Piecek, ale
+                także takiej mazurskiej ciszy, której nie da się zaplanować w
+                kalendarzu.
+              </p>
+              <div class="lakefront-feature-grid" aria-label="Najważniejsze informacje o domach">
+                <article>
+                  <span class="lakefront-feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64">
+                      <path d="M9 52V28l14-13 14 13v24" />
+                      <path d="M37 52V27l9-8 9 8v25" />
+                      <path d="M19 52V37h8v15" />
+                      <path class="icon-glow-line" d="M13 52h44" />
+                    </svg>
+                  </span>
+                  <span class="lakefront-feature-heading">
+                    <span class="lakefront-feature-value">2</span>
+                    <strong>domy</strong>
+                  </span>
+                  <p>nowoczesne stodoły nad Jeziorem Krzywe</p>
+                </article>
+                <article>
+                  <span class="lakefront-feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64">
+                      <circle cx="24" cy="20" r="7" />
+                      <circle cx="42" cy="22" r="6" />
+                      <path d="M12 49c2-12 8-18 12-18s10 6 12 18" />
+                      <path d="M34 49c1-9 5-14 9-14s8 5 9 14" />
+                      <path class="icon-glow-line" d="M16 53h36" />
+                    </svg>
+                  </span>
+                  <span class="lakefront-feature-heading">
+                    <span class="lakefront-feature-value">10</span>
+                    <strong>osób</strong>
+                  </span>
+                  <p>w każdym domu, wygodnie dla rodzin i grup</p>
+                </article>
+                <article>
+                  <span class="lakefront-feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64">
+                      <path d="M12 48V22" />
+                      <path d="M52 48V33a7 7 0 0 0-7-7H24v22" />
+                      <path d="M12 34h40" />
+                      <path d="M18 26h10" />
+                      <path class="icon-glow-line" d="M10 48h44" />
+                    </svg>
+                  </span>
+                  <span class="lakefront-feature-heading">
+                    <span class="lakefront-feature-value">4</span>
+                    <strong>sypialnie</strong>
+                  </span>
+                  <p>prywatna przestrzeń po wspólnym dniu</p>
+                </article>
+                <article>
+                  <span class="lakefront-feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 64 64">
+                      <path d="M12 38h19l8-10h13" />
+                      <path d="M30 38v12" />
+                      <path d="M44 28v22" />
+                      <path class="icon-wave" d="M8 53c6 0 6-3 12-3s6 3 12 3 6-3 12-3 6 3 12 3" />
+                      <path class="icon-flame" d="M20 32c-4-6 3-9 1-15 7 4 9 9 6 15" />
+                    </svg>
+                  </span>
+                  <span class="lakefront-feature-heading">
+                    <span class="lakefront-feature-value">1</span>
+                    <strong>linia brzegowa</strong>
+                  </span>
+                  <p>pomost, palenisko i jezioro tuż obok</p>
+                </article>
+              </div>
+            </div>
+            <div class="home-lakefront-panel">
+              <span>Krzywe Lake Houses</span>
+              <strong>domy nad jeziorem dla wspólnego czasu</strong>
+              <p>
+                Taras, salon z aneksem, prywatny pomost, palenisko i mazurska
+                przestrzeń, która pozwala naprawdę zwolnić.
+              </p>
+            </div>
+          </div>
+
+          <div class="lakefront-gallery-block">
+            <div class="lakefront-gallery-heading">
+              <p class="eyebrow">Mini galeria</p>
+              <h3>Klimat pobytu, który budujemy nad Jeziorem Krzywe.</h3>
+            </div>
+            <div class="gallery-swipe-hint" aria-hidden="true">
+              <span>Przesuń palcem</span>
+              <svg viewBox="0 0 42 18">
+                <path d="M2 9h35" />
+                <path d="m30 2 8 7-8 7" />
+              </svg>
+            </div>
+            <div class="lakefront-gallery-shell">
+              <button
+                class="gallery-arrow gallery-arrow-prev"
+                type="button"
+                aria-label="Poprzednie zdjęcie"
+                aria-controls="lakefront-gallery"
+                data-gallery-prev
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M15 18 9 12l6-6" />
+                </svg>
+              </button>
+              <div
+                class="lakefront-gallery"
+                id="lakefront-gallery"
+                aria-label="Przesuwana galeria klimatu Krzywe Lake Houses"
+                data-lakefront-gallery
+              >
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=82"
+                  alt="Dom nad jeziorem wśród zieleni"
+                  loading="lazy"
+                />
+                <figcaption>Dom blisko natury</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1518780664697-55e3ad937233?auto=format&fit=crop&w=900&q=82"
+                  alt="Nowoczesny dom w otoczeniu drzew"
+                  loading="lazy"
+                />
+                <figcaption>Nowoczesna stodoła</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=900&q=82"
+                  alt="Przytulna sypialnia w domu wypoczynkowym"
+                  loading="lazy"
+                />
+                <figcaption>4 sypialnie w każdym domu</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=82"
+                  alt="Salon z aneksem kuchennym"
+                  loading="lazy"
+                />
+                <figcaption>Salon z aneksem</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=82"
+                  alt="Ognisko nad wodą o zmierzchu"
+                  loading="lazy"
+                />
+                <figcaption>Palenisko i wieczory nad wodą</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=82"
+                  alt="Spokojne jezioro otoczone lasem"
+                  loading="lazy"
+                />
+                <figcaption>Poranki przy jeziorze</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=82"
+                  alt="Nowoczesny dom z dużymi przeszkleniami"
+                  loading="lazy"
+                />
+                <figcaption>Architektura blisko natury</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=82"
+                  alt="Jasny salon z wygodną częścią wypoczynkową"
+                  loading="lazy"
+                />
+                <figcaption>Wspólna przestrzeń dzienna</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=900&q=82"
+                  alt="Przytulne wnętrze domu wypoczynkowego"
+                  loading="lazy"
+                />
+                <figcaption>Wnętrza na spokojny pobyt</figcaption>
+                </figure>
+                <figure class="lakefront-gallery-card">
+                <img
+                  src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=900&q=82"
+                  alt="Wschód słońca nad wodą"
+                  loading="lazy"
+                />
+                <figcaption>Mazurski rytm dnia</figcaption>
+                </figure>
+              </div>
+              <button
+                class="gallery-arrow gallery-arrow-next"
+                type="button"
+                aria-label="Następne zdjęcie"
+                aria-controls="lakefront-gallery"
+                data-gallery-next
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="m9 18 6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-house-section" aria-labelledby="home-house-title">
+          <div class="home-house-shell">
+            <figure class="home-house-media">
+              <img
+                src="./assets/krzywe-brand-hero.png"
+                alt="Nowoczesna stodoła nad jeziorem na Mazurach"
+                loading="lazy"
+              />
+            </figure>
+            <div class="home-section-copy">
+              <p class="eyebrow">Nowoczesna stodoła</p>
+              <h2 id="home-house-title">Prosta architektura, dużo powietrza i wygoda dla 10 osób.</h2>
+              <p>
+                Dom ma działać naturalnie: wspólna część dzienna, miejsce na
+                spokojny sen, wygodne wyjście na zewnątrz i estetyka, która pasuje
+                do jeziora zamiast z nim konkurować.
+              </p>
+              <div class="home-feature-list">
+                <span>dla rodzin</span>
+                <span>dla grup</span>
+                <span>nad jeziorem</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="home-stay-section" aria-labelledby="home-stay-title">
+          <div class="home-section-copy home-section-copy-center">
+            <p class="eyebrow">Dla kogo</p>
+            <h2 id="home-stay-title">Dom na Mazurach dla wspólnego czasu.</h2>
+            <p>
+              To dobry wybór na rodzinny wyjazd, spokojny weekend ze znajomymi,
+              dłuższy pobyt wakacyjny albo pracę zdalną w miejscu, które pozwala
+              naprawdę odpocząć po zamknięciu laptopa.
+            </p>
+          </div>
+          <div class="home-stay-grid">
+            <article>
+              <span>Rodziny</span>
+              <p>Wspólna przestrzeń, bliskość natury i spokojne tempo dnia.</p>
+            </article>
+            <article>
+              <span>Grupy</span>
+              <p>Pobyt do 10 osób, wygodna baza i dużo miejsca na bycie razem.</p>
+            </article>
+            <article>
+              <span>Praca i reset</span>
+              <p>Jasny horyzont, cisza i przestrzeń, która pomaga złapać oddech.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="home-rhythm-section" aria-labelledby="home-rhythm-title">
+          <div class="home-section-copy">
+            <p class="eyebrow">Rytm pobytu</p>
+            <h2 id="home-rhythm-title">Od kawy przy wodzie po spokojny wieczór.</h2>
+          </div>
+          <div class="home-rhythm-line" aria-label="Plan dnia nad jeziorem">
+            <div>
+              <span>Rano</span>
+              <p>Kawa, widok na jezioro i cisza zanim dzień nabierze tempa.</p>
+            </div>
+            <div>
+              <span>W dzień</span>
+              <p>Woda, okolica Mrągowa, Mikołajki, Piecki i wiele atrakcji na Mazurach.</p>
+            </div>
+            <div>
+              <span>Wieczorem</span>
+              <p>Taras, miękkie światło, rozmowy i horyzont bez miejskiego napięcia.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="route-map-section" id="dojazd" aria-labelledby="route-title">
+          <div class="route-map-shell">
+            <div class="route-map-copy">
+              <p class="eyebrow">Dojazd nad jezioro</p>
+              <h2 id="route-title">Nawiguj prosto do Krzywe Lake Houses.</h2>
+              <p>
+                Domy znajdują się nad Jeziorem Krzywe w gminie Mrągowo, blisko
+                popularnych mazurskich miejsc: Mrągowa, Mikołajek i miejscowości
+                Piecki. To wygodna baza dla osób szukających domu na wynajem nad
+                jeziorem, spokojnej okolicy i dobrego dojazdu do wielu atrakcji
+                na Mazurach.
+              </p>
+              <dl class="route-map-facts" aria-label="Położenie">
+                <div>
+                  <dt>Okolica</dt>
+                  <dd>Mrągowo · Piecki · Mikołajki · Jezioro Krzywe</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="route-map-card">
+              <img
+                src="./assets/krzywe-route-map.png"
+                alt="Mapa dojazdu do Krzywe Lake Houses na Mazurach"
+                loading="lazy"
+              />
+              <div class="route-map-overlay">
+                <span>Krzywe Lake Houses</span>
+                <strong>Krzywe · gmina Mrągowo</strong>
+              </div>
+              <div class="route-slider-panel" data-route-navigate>
+                <div class="route-slider-copy">
+                  <span>Przesuń</span>
+                  <strong>i nawiguj na miejsce</strong>
+                </div>
+                <label class="route-slider" aria-label="Przesuń, aby otworzyć nawigację">
+                  <input
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="0"
+                    data-route-slider
+                  />
+                  <span class="route-slider-track" aria-hidden="true">
+                    <span class="route-slider-fill"></span>
+                    <span class="route-slider-thumb">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14" />
+                        <path d="m13 6 6 6-6 6" />
+                      </svg>
+                    </span>
+                    <span class="route-slider-label">Przesuń</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
       </section>
 
       <section class="page-panel page-view" id="domy-i-galeria" data-page>
@@ -543,6 +967,124 @@
         </div>
       </section>
     </main>
+
+    <footer class="site-footer" aria-labelledby="footer-title">
+      <div class="site-footer-inner">
+        <div class="footer-brand">
+          <a
+            class="footer-logo"
+            href="#strona-glowna"
+            data-nav-link
+            aria-label="Krzywe Lake Houses - strona główna"
+          >
+            <img
+              src="./assets/krzywe-logo-horizontal-transparent.png"
+              alt="Krzywe Lake Houses Mazury"
+              width="824"
+              height="247"
+            />
+          </a>
+          <h2 id="footer-title">Nowoczesne domy nad jeziorem na Mazurach.</h2>
+          <p>
+            Krzywe Lake Houses powstało z myślą o rodzinach i grupach, które
+            chcą odpocząć blisko natury, z widokiem na Jezioro Krzywe i dobrym
+            dojazdem od strony Mrągowa oraz Mikołajek.
+          </p>
+          <p class="footer-seo">
+            To propozycja dla osób szukających komfortowego domu na wynajem na
+            Mazurach: nad wodą, w spokojnej okolicy i w standardzie nowoczesnej
+            stodoły.
+          </p>
+        </div>
+
+        <nav class="footer-column footer-nav" aria-label="Nawigacja w stopce">
+          <span>Zakładki</span>
+          <a href="#strona-glowna" data-nav-link>Strona główna</a>
+          <a href="#domy-i-galeria" data-nav-link>Domy i galeria</a>
+          <a href="#jezioro-krzywe" data-nav-link>Jezioro Krzywe</a>
+          <a href="#atrakcje-w-okolicy" data-nav-link>Atrakcje w okolicy</a>
+          <a href="#oferta" data-nav-link>Oferta</a>
+          <a href="#kontakt" data-nav-link>Kontakt</a>
+        </nav>
+
+        <div class="footer-column footer-contact">
+          <span>Kontakt</span>
+          <a href="tel:+48000000000">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.42-1.18a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            <span>Zadzwoń</span>
+          </a>
+          <a href="https://www.instagram.com/" aria-label="Instagram Krzywe Lake Houses">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <path d="M17.5 6.5h.01" />
+            </svg>
+            <span>Instagram</span>
+          </a>
+          <a href="https://www.facebook.com/" aria-label="Facebook Krzywe Lake Houses">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+            <span>Facebook</span>
+          </a>
+          <a href="mailto:kontakt@krzywelakehouses.pl">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="3" />
+              <path d="m22 7-8.97 5.7a2 2 0 0 1-2.06 0L2 7" />
+            </svg>
+            <span>Napisz e-mail</span>
+          </a>
+          <p>Krzywe, gmina Mrągowo · Mazury</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Krzywe Lake Houses · Mazury</span>
+        <div class="footer-legal-links" aria-label="Linki prawne">
+          <a href="./polityka-prywatnosci.html">Polityka prywatności</a>
+          <a href="./pliki-cookies.html">Pliki cookie</a>
+        </div>
+      </div>
+
+    </footer>
+
+    <div class="hc-credit-bar" aria-label="Informacja o wykonawcy strony">
+      <a
+        class="hc-credit-brand"
+        href="https://www.hostcontrol.pl"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img src="./assets/hostcontrol-logo.svg" width="34" height="34" alt="" />
+        <span>Zaprojektowano przez <strong>HostControl</strong> Krystian Stykowski</span>
+      </a>
+      <div class="hc-credit-actions">
+        <a href="tel:+48692746031" aria-label="Zadzwoń do HostControl: 692 746 031">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0 1 22 16.92Z"
+            />
+          </svg>
+          <span>692 746 031</span>
+        </a>
+        <a
+          href="https://www.instagram.com/much4ty"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Instagram HostControl"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <circle class="icon-dot" cx="17.5" cy="6.5" r="1" />
+          </svg>
+        </a>
+      </div>
+    </div>
 
     <div class="tab-transition" data-tab-transition aria-hidden="true">
       <div class="transition-logo-stage">
