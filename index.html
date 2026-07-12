@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Krzywe Lake Houses | Zakładki strony</title>
+    <meta
+      name="description"
+      content="Prototyp zakładek i paska nawigacji dla Krzywe Lake Houses Mazury."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="Główna nawigacja">
+        <a
+          class="brand"
+          href="#strona-glowna"
+          aria-label="Krzywe Lake Houses - strona główna"
+          data-nav-link
+        >
+          <img
+            src="./assets/krzywe-logo-horizontal-transparent.png"
+            alt="Krzywe Lake Houses Mazury"
+            width="824"
+            height="247"
+          />
+        </a>
+
+        <div class="nav-links" aria-label="Sekcje strony">
+          <a href="#strona-glowna" data-nav-link>Strona główna</a>
+          <a href="#domy-i-galeria" data-nav-link>Domy i galeria</a>
+          <a href="#jezioro-krzywe" data-nav-link>Jezioro Krzywe</a>
+          <a href="#atrakcje-w-okolicy" data-nav-link>Atrakcje w okolicy</a>
+          <a href="#oferta" data-nav-link>Oferta</a>
+          <a href="#kontakt" data-nav-link>Kontakt</a>
+        </div>
+
+        <div class="nav-actions">
+          <a class="quiet-link phone-link" href="tel:+48000000000">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.42-1.18a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.92z"
+              />
+            </svg>
+            <span>Zadzwoń</span>
+          </a>
+          <a
+            class="icon-link instagram-link"
+            href="https://www.instagram.com/"
+            aria-label="Instagram Krzywe Lake Houses"
+          >
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <path d="M17.5 6.5h.01" />
+            </svg>
+          </a>
+          <a class="cta" href="#oferta" data-nav-link>Sprawdź terminy</a>
+        </div>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          data-menu-toggle
+        >
+          <span class="sr-only">Otwórz menu</span>
+          <span class="menu-label" aria-hidden="true">Menu</span>
+          <span class="menu-mark" aria-hidden="true">
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </nav>
+
+      <div class="mobile-panel" id="mobile-menu" data-mobile-panel>
+        <div class="mobile-panel-inner">
+          <div class="mobile-panel-heading">
+            <span>Menu</span>
+            <small>Krzywe Lake Houses</small>
+          </div>
+
+          <div class="mobile-links">
+            <a href="#strona-glowna" data-nav-link>Strona główna</a>
+            <a href="#domy-i-galeria" data-nav-link>Domy i galeria</a>
+            <a href="#jezioro-krzywe" data-nav-link>Jezioro Krzywe</a>
+            <a href="#atrakcje-w-okolicy" data-nav-link>Atrakcje w okolicy</a>
+            <a href="#oferta" data-nav-link>Oferta</a>
+            <a href="#kontakt" data-nav-link>Kontakt</a>
+          </div>
+
+          <div class="mobile-contact-row">
+            <a class="mobile-contact-link" href="tel:+48000000000">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.91.33 1.8.62 2.65a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.42-1.18a2 2 0 0 1 2.11-.45c.85.29 1.74.5 2.65.62A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              <span>Zadzwoń</span>
+            </a>
+            <a
+              class="mobile-social-link"
+              href="https://www.instagram.com/"
+              aria-label="Instagram Krzywe Lake Houses"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect width="20" height="20" x="2" y="2" rx="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <path d="M17.5 6.5h.01" />
+              </svg>
+            </a>
+          </div>
+
+          <a class="mobile-cta" href="#oferta" data-nav-link>Sprawdź terminy</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section
+        class="hero page-view is-active"
+        id="strona-glowna"
+        data-page
+        aria-labelledby="hero-title"
+      >
+        <picture class="hero-media">
+          <img
+            src="./assets/krzywe-brand-hero.png"
+            alt="Nowoczesny dom typu stodoła położony nad jeziorem na Mazurach"
+          />
+        </picture>
+
+        <div class="hero-content">
+          <p class="eyebrow">Krzywe Lake Houses · Mazury</p>
+          <h1 id="hero-title">Domy nad samym jeziorem dla 10 osób.</h1>
+          <p class="lead">
+            Nowoczesna stodoła, prywatna przestrzeń i spokojny mazurski rytm
+            tuż przy linii wody.
+          </p>
+          <div class="hero-facts" aria-label="Najważniejsze informacje">
+            <span>10 osób</span>
+            <span>nad jeziorem</span>
+            <span>premium</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel page-view" id="domy-i-galeria" data-page>
+        <div class="page-panel-inner">
+          <p class="eyebrow">Domy i galeria</p>
+          <h2>Nowoczesna stodoła dla 10 osób.</h2>
+          <p>
+            Tu pokażemy układ domu, pokoje, taras, strefę dzienną, zdjęcia
+            wnętrz i kadry z otoczenia.
+          </p>
+          <div class="page-tags">
+            <span>10 osób</span>
+            <span>nowoczesna stodoła</span>
+            <span>galeria</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="lake-page page-view"
+        id="jezioro-krzywe"
+        data-page
+        aria-labelledby="lake-title"
+      >
+        <div class="lake-hero">
+          <img
+            src="https://fishster.pl/_next/image?url=https%3A%2F%2Fmovyu-prod.s3.amazonaws.com%2Fsports%2Ffishing%2Flocation_380%2Fimages%2Fsliders%2Ff56c00d9-d299-4422-95c1-68bf1d32cc79&amp;w=1920&amp;q=90"
+            alt="Panorama Jeziora Krzywe w powiecie mrągowskim"
+            decoding="async"
+            onerror="this.onerror=null;this.src='./assets/lake-krzywe/lake-aerial.jpg';"
+          />
+          <div class="lake-hero-shell">
+            <div class="lake-hero-copy">
+              <p class="eyebrow">Jezioro Krzywe · Mazury prywatnie</p>
+              <h2 id="lake-title">Tu zaczyna się cisza.</h2>
+              <p>
+                Kilka minut po zjeździe z mrągowskiej drogi zostają tylko woda,
+                trzciny i szeroki horyzont. Krzywe jest jeziorem, przy którym
+                dzień zwalnia naturalnie: od pierwszej kawy na tarasie po
+                wieczorne światło gasnące nad taflą.
+              </p>
+              <div class="lake-hero-points" aria-label="Skrót informacji o jeziorze">
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12z" />
+                    <circle cx="12" cy="9" r="2.4" />
+                  </svg>
+                  gmina Mrągowo
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 16c3 0 3-2 6-2s3 2 6 2 3-2 6-2" />
+                    <path d="M4 20c2.6 0 2.6-1.6 5.2-1.6s2.6 1.6 5.2 1.6 2.6-1.6 5.2-1.6" />
+                  </svg>
+                  ok. 150 ha
+                </span>
+                <span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M7 3v18" />
+                    <path d="M7 18h10" />
+                    <path d="M10 7h4" />
+                    <path d="M10 12h7" />
+                  </svg>
+                  do 22,5 m
+                </span>
+              </div>
+            </div>
+
+            <aside class="lake-hero-card" aria-label="Jezioro Krzywe w skrócie">
+              <span>Nad samą wodą</span>
+              <strong>Krzywe</strong>
+              <p>
+                Rynnowe jezioro z naturalnymi brzegami, zatokami i trzema
+                niewielkimi wyspami. Wystarczająco blisko Mrągowa, żeby dojechać
+                wygodnie, i wystarczająco spokojne, żeby naprawdę odetchnąć.
+              </p>
+              <dl>
+                <div>
+                  <dt>brzeg</dt>
+                  <dd>13,9 km</dd>
+                </div>
+                <div>
+                  <dt>głębokość</dt>
+                  <dd>22,5 m</dd>
+                </div>
+                <div>
+                  <dt>do Mrągowa</dt>
+                  <dd>ok. 10 km</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+
+        <div class="lake-content">
+          <div class="lake-intro">
+            <div>
+              <p class="eyebrow">Najważniejsze o akwenie</p>
+              <h3>Nie tylko widok z tarasu, ale prawdziwy krajobraz Mazur.</h3>
+            </div>
+            <p>
+              Krzywe jest kameralnym jeziorem rynnowym położonym przy
+              miejscowościach Dłużec, Krzywe i Krzywy Róg. Brzegi są naturalne
+              i zmienne: miejscami otwarte, miejscami trzcinowe, z trzema
+              niewielkimi wyspami oraz łagodnym przejściem w pola i lasy. To
+              krajobraz, który nie potrzebuje wielu słów: szeroka tafla, ptaki
+              nad trzcinami i przestrzeń, która od pierwszego dnia obniża tempo.
+            </p>
+          </div>
+
+          <div class="lake-metrics" aria-label="Dane Jeziora Krzywe">
+            <article class="lake-metric-card">
+              <span class="lake-icon lake-icon-area" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle class="sun-pulse" cx="18" cy="17" r="5" />
+                  <path class="wave-line" d="M7 39c7 0 7-5 14-5s7 5 14 5 7-5 14-5 7 5 14 5" />
+                  <path class="wave-line delay" d="M4 49c7 0 7-4 14-4s7 4 14 4 7-4 14-4 7 4 14 4" />
+                </svg>
+              </span>
+              <span>Powierzchnia</span>
+              <strong>ok. 150 ha</strong>
+              <p>Dużo przestrzeni na widok i oddech, ale nadal kameralny, mazurski charakter.</p>
+            </article>
+
+            <article class="lake-metric-card">
+              <span class="lake-icon lake-icon-depth" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path d="M20 8v48" />
+                  <path d="M20 54h26" />
+                  <path class="depth-line" d="M27 17h12" />
+                  <path class="depth-line delay" d="M27 29h20" />
+                  <path class="depth-line" d="M27 41h14" />
+                  <path class="wave-line" d="M9 55c6 0 6-3 12-3s6 3 12 3 6-3 12-3 6 3 12 3" />
+                </svg>
+              </span>
+              <span>Głębokość</span>
+              <strong>5 m / 22,5 m</strong>
+              <p>Średnia głębokość to ok. 5 m, a najgłębsze partie schodzą do 22,5 m.</p>
+            </article>
+
+            <article class="lake-metric-card">
+              <span class="lake-icon lake-icon-shore" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path class="shore-line" d="M9 43c9-17 18 8 28-9 6-10 11-13 19-10" />
+                  <path class="wave-line" d="M7 52c7 0 7-4 14-4s7 4 14 4 7-4 14-4 7 4 14 4" />
+                  <circle class="pin-float" cx="44" cy="24" r="4" />
+                </svg>
+              </span>
+              <span>Linia brzegowa</span>
+              <strong>13,9 km</strong>
+              <p>Długa, nieregularna linia brzegu daje zatoki, cyple i dużo naturalnych kadrów.</p>
+            </article>
+
+            <article class="lake-metric-card">
+              <span class="lake-icon lake-icon-basin" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path class="basin-line" d="M9 32c8-14 17-14 25 0s15 14 21 0" />
+                  <path class="basin-line delay" d="M11 44c7-8 15-8 23 0s14 8 21 0" />
+                  <path d="M13 18h38" />
+                </svg>
+              </span>
+              <span>Typ jeziora</span>
+              <strong>rynnowe</strong>
+              <p>Charakterystyczny, wydłużony układ akwenów rynnowych buduje poczucie głębi i kameralności.</p>
+            </article>
+
+            <article class="lake-metric-card">
+              <span class="lake-icon lake-icon-water" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path class="drop-breathe" d="M32 8s14 17 14 29a14 14 0 0 1-28 0C18 25 32 8 32 8z" />
+                  <path class="wave-line" d="M21 38c5 0 5-3 10-3s5 3 10 3" />
+                </svg>
+              </span>
+              <span>Czystość wód</span>
+              <strong>II klasa</strong>
+              <p>Naturalna woda, trzcinowe brzegi i spokojne zatoki budują klimat miejsca.</p>
+            </article>
+          </div>
+
+          <div class="lake-story">
+            <div>
+              <p class="eyebrow">Charakter jeziora</p>
+              <h3>Urozmaicona linia brzegu, trzciny i cisza między polami.</h3>
+            </div>
+            <p>
+              Jezioro Krzywe nie jest miejskim kąpieliskiem z głośnym deptakiem.
+              To bardziej naturalny akwen z zatokami, trzcinowiskami, mulistym
+              i zmiennym dnem oraz spokojnym ruchem wody. Przy takiej scenerii
+              najlepiej działają proste rzeczy: drewno pod stopami, otwarte
+              okna, zapach jeziora po deszczu i wieczór, który można spędzić
+              bez pośpiechu.
+            </p>
+          </div>
+
+          <div class="lake-detail-grid">
+            <article class="lake-copy-block">
+              <div class="lake-block-heading">
+                <span class="lake-mini-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40">
+                    <g class="fish-swim">
+                      <path d="M7 22c5-7 15-9 23-2l5-4v12l-5-4c-8 7-18 5-23-2z" />
+                      <circle cx="25" cy="20" r="1.3" />
+                    </g>
+                  </svg>
+                </span>
+                <div>
+                  <p class="eyebrow">Rybostan</p>
+                  <h4>Dobre miejsce dla spokojnego wędkarstwa.</h4>
+                </div>
+              </div>
+              <p>
+                W wodach jeziora wymieniane są szczupaki, karasie, leszcze,
+                węgorze i miętusy. To dobry kierunek dla osób, które lubią
+                spokojne łowienie o świcie, bez miejskiego zgiełku i pośpiechu.
+              </p>
+              <div class="fish-tags" aria-label="Ryby występujące w jeziorze">
+                <span>Szczupak</span>
+                <span>Leszcz</span>
+                <span>Karaś</span>
+                <span>Węgorz</span>
+                <span>Miętus</span>
+              </div>
+            </article>
+
+            <article class="lake-copy-block">
+              <div class="lake-block-heading">
+                <span class="lake-mini-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40">
+                    <path class="reed-sway" d="M10 33c2-9 2-18-2-27" />
+                    <path class="reed-sway delay" d="M19 33c0-11 3-19 9-26" />
+                    <path class="reed-sway" d="M27 33c1-8 1-14-1-19" />
+                    <path d="M5 33h30" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="eyebrow">Ptaki i roślinność</p>
+                  <h4>Trzciny, wyspy i naturalne siedliska.</h4>
+                </div>
+              </div>
+              <p>
+                Wokół jeziora można spotkać ptaki związane z mokradłami
+                i otwartą wodą: czaplę siwą, żurawia, kormorana czy jastrzębia.
+                Przy brzegach pierwsze skrzypce grają pasy trzcin, zatoki
+                i ciche przejścia między wodą, łąką i lasem.
+              </p>
+              <ul class="lake-list">
+                <li>trzy niewielkie wyspy</li>
+                <li>zatoki i półwyspy</li>
+                <li>średnio zarośnięte brzegi</li>
+              </ul>
+            </article>
+
+            <article class="lake-copy-block">
+              <div class="lake-block-heading">
+                <span class="lake-mini-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40">
+                    <path d="M12 5v30" />
+                    <path class="line-cast" d="M12 9c9 1 16 6 19 15" />
+                    <path class="hook-swing" d="M31 24v6a4 4 0 0 1-8 0" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="eyebrow">Wędkowanie</p>
+                  <h4>Łowisko z konkretnymi zasadami sezonowymi.</h4>
+                </div>
+              </div>
+              <p>
+                Sezon wędkarski ma tu swój wyraźny rytm: z brzegu od wiosny do
+                późnej jesieni, z łodzi od początku czerwca, a zimą także
+                pod lodem. Aktualne zasady i opłaty najlepiej sprawdzić przed
+                wyjazdem u zarządcy łowiska.
+              </p>
+              <ul class="lake-list">
+                <li>właściciel łowiska: Gospodarstwo Rybackie sp. z o.o. w Mrągowie</li>
+                <li>połów nocny nie jest przewidziany w regulaminie łowiska</li>
+              </ul>
+            </article>
+
+            <article class="lake-copy-block lake-copy-block-accent">
+              <div class="lake-block-heading">
+                <span class="lake-mini-icon" aria-hidden="true">
+                  <svg viewBox="0 0 40 40">
+                    <path d="M6 25c4 0 4-3 8-3s4 3 8 3 4-3 8-3 4 3 8 3" />
+                    <path class="sun-pulse" d="M25 8a6 6 0 1 0 0 12 6 6 0 0 0 0-12z" />
+                    <path d="M8 32h25" />
+                  </svg>
+                </span>
+                <div>
+                  <p class="eyebrow">Dla gości</p>
+                  <h4>To jezioro jest osią całego pobytu.</h4>
+                </div>
+              </div>
+              <p>
+                Pobyt nad Krzywym układa się sam: rano kawa z widokiem na wodę,
+                w dzień odpoczynek między tarasem a brzegiem, wieczorem cisza
+                i światło odbijające się w tafli. To jest ten rodzaj Mazur,
+                do którego wraca się w myślach długo po wyjeździe.
+              </p>
+              <div class="lake-guest-row">
+                <span>cisza</span>
+                <span>widok</span>
+                <span>natura</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="lake-gallery" aria-label="Galeria Jeziora Krzywe">
+            <figure class="lake-photo lake-photo-large">
+              <img
+                src="./assets/lake-krzywe/lake-aerial.jpg"
+                alt="Widok z lotu ptaka na Jezioro Krzywe i wieś Krzywe"
+              />
+              <figcaption>Krzywe i linia jeziora w otwartym mazurskim krajobrazie.</figcaption>
+            </figure>
+            <figure class="lake-photo">
+              <img
+                src="./assets/lake-krzywe/lake-view.webp"
+                alt="Spokojna tafla Jeziora Krzywe otoczona zielenią"
+              />
+              <figcaption>Naturalne brzegi, zieleń i szeroka tafla wody.</figcaption>
+            </figure>
+            <figure class="lake-photo">
+              <img
+                src="./assets/lake-krzywe/lake-reeds.jpg"
+                alt="Trzciny i otwarta woda Jeziora Krzywe"
+              />
+              <figcaption>Brzeg z trzcinami i miękki, mazurski horyzont.</figcaption>
+            </figure>
+          </div>
+
+          <div class="lake-map-card">
+            <div>
+              <p class="eyebrow">Położenie</p>
+              <h3>Krzywe, Dłużec i Krzywy Róg przy jednym akwenie.</h3>
+              <p>
+                Akwen leży w gminie Mrągowo i od zachodu sąsiaduje z gminą
+                Piecki. Dojazd z Mrągowa prowadzi lokalnymi drogami przez
+                mazurskie pola i lasy, co od razu ustawia spokojniejszy rytm
+                podróży.
+              </p>
+            </div>
+            <img
+              src="./assets/lake-krzywe/lake-map.webp"
+              alt="Mapa okolic Jeziora Krzywe w gminie Mrągowo"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      <section class="page-panel page-view" id="atrakcje-w-okolicy" data-page>
+        <div class="page-panel-inner">
+          <p class="eyebrow">Atrakcje w okolicy</p>
+          <h2>Mazury blisko domu.</h2>
+          <p>
+            Miejsce na trasy spacerowe, żagle, rowery, restauracje, lokalne
+            atrakcje i propozycje wyjazdów na każdą pogodę.
+          </p>
+          <div class="page-tags">
+            <span>żagle</span>
+            <span>rowery</span>
+            <span>lokalne miejsca</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel page-view" id="oferta" data-page>
+        <div class="page-panel-inner">
+          <p class="eyebrow">Oferta</p>
+          <h2>Terminy, pakiety i zasady pobytu.</h2>
+          <p>
+            Zakładka pod cennik, dostępność, pakiety sezonowe, warunki
+            rezerwacji i najważniejsze informacje przed przyjazdem.
+          </p>
+          <div class="page-tags">
+            <span>cena</span>
+            <span>terminy</span>
+            <span>rezerwacja</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page-panel page-view" id="kontakt" data-page>
+        <div class="page-panel-inner">
+          <p class="eyebrow">Kontakt</p>
+          <h2>Zapytaj o pobyt nad Jeziorem Krzywe.</h2>
+          <p>
+            Zakładka na formularz, telefon, Instagram, e-mail i krótką ścieżkę
+            rezerwacji.
+          </p>
+          <div class="page-tags">
+            <span>telefon</span>
+            <span>Instagram</span>
+            <span>formularz</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="tab-transition" data-tab-transition aria-hidden="true">
+      <div class="transition-logo-stage">
+        <img
+          class="transition-logo-main"
+          src="./assets/krzywe-logo-horizontal-transparent.png"
+          alt=""
+          decoding="async"
+        />
+        <span class="transition-waterline"></span>
+      </div>
+    </div>
+
+    <a class="reserve-fab" href="#oferta" data-nav-link aria-label="Zarezerwuj pobyt">
+      <span class="reserve-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M8 2v4" />
+          <path d="M16 2v4" />
+          <rect width="18" height="18" x="3" y="4" rx="4" />
+          <path d="M3 10h18" />
+          <path d="m9 16 2 2 4-5" />
+        </svg>
+      </span>
+      <span class="reserve-copy">
+        <span>Zarezerwuj</span>
+        <small>termin pobytu</small>
+      </span>
+    </a>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
