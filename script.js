@@ -8,13 +8,18 @@ const routeSlider = document.querySelector("[data-route-slider]");
 const lakefrontGallery = document.querySelector("[data-lakefront-gallery]");
 const galleryPrevButton = document.querySelector("[data-gallery-prev]");
 const galleryNextButton = document.querySelector("[data-gallery-next]");
+const constructionModal = document.querySelector("[data-construction-modal]");
+const constructionCloseButtons = Array.from(document.querySelectorAll("[data-construction-close]"));
+const constructionHomeLinks = Array.from(document.querySelectorAll("[data-construction-home]"));
 const pageIds = new Set(pages.map((page) => page.id));
+const homePageId = "strona-glowna";
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 const introDuration = 5000;
 const routeCoordinates = "53.802408,21.263949";
 let activePageId = null;
 let transitionTimers = [];
 let routeNavigationArmed = true;
+let constructionReturnFocus = null;
 
 const syncHeaderState = () => {
   header.classList.toggle("is-scrolled", window.scrollY > 12);
@@ -30,9 +35,11 @@ const clearTransitionTimers = () => {
   transitionTimers = [];
 };
 
+const isLockedPage = (pageId) => pageIds.has(pageId) && pageId !== homePageId;
+
 const getPageIdFromHash = () => {
   const hash = window.location.hash.replace("#", "");
-  return pageIds.has(hash) ? hash : "strona-glowna";
+  return pageIds.has(hash) && !isLockedPage(hash) ? hash : homePageId;
 };
 
 const setActivePage = (pageId, shouldScroll = false) => {
@@ -79,8 +86,59 @@ const playIntroTransition = () => {
   );
 };
 
-const navigateToPage = (pageId, shouldPush = false) => {
+const showConstructionNotice = (trigger = null) => {
+  if (!constructionModal) {
+    return;
+  }
+
+  constructionReturnFocus = trigger instanceof HTMLElement ? trigger : document.activeElement;
+  constructionModal.hidden = false;
+  document.body.classList.add("construction-open");
+  window.setTimeout(() => {
+    constructionModal.classList.add("is-visible");
+    constructionModal.querySelector("[data-construction-home]")?.focus({ preventScroll: true });
+  }, 0);
+};
+
+const hideConstructionNotice = () => {
+  if (!constructionModal || constructionModal.hidden) {
+    return;
+  }
+
+  constructionModal.classList.remove("is-visible");
+  document.body.classList.remove("construction-open");
+
+  window.setTimeout(
+    () => {
+      constructionModal.hidden = true;
+      constructionReturnFocus?.focus?.({ preventScroll: true });
+      constructionReturnFocus = null;
+    },
+    reducedMotion.matches ? 0 : 180,
+  );
+};
+
+const keepHomeForLockedPage = (trigger = null) => {
+  closeMenu();
+
+  if (activePageId !== homePageId) {
+    setActivePage(homePageId, true);
+  }
+
+  if (window.location.hash !== `#${homePageId}`) {
+    window.history.replaceState(null, "", `#${homePageId}`);
+  }
+
+  showConstructionNotice(trigger);
+};
+
+const navigateToPage = (pageId, shouldPush = false, trigger = null) => {
   if (!pageIds.has(pageId)) {
+    return;
+  }
+
+  if (isLockedPage(pageId)) {
+    keepHomeForLockedPage(trigger);
     return;
   }
 
@@ -102,6 +160,11 @@ const handleHashChange = () => {
   const hash = window.location.hash.replace("#", "");
 
   if (!pageIds.has(hash)) {
+    return;
+  }
+
+  if (isLockedPage(hash)) {
+    keepHomeForLockedPage();
     return;
   }
 
@@ -193,12 +256,31 @@ navLinks.forEach((link) => {
     }
 
     event.preventDefault();
-    navigateToPage(pageId, true);
+    navigateToPage(pageId, true, link);
   });
+});
+
+constructionCloseButtons.forEach((button) => {
+  button.addEventListener("click", hideConstructionNotice);
+});
+
+constructionHomeLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    hideConstructionNotice();
+    navigateToPage(homePageId, true, link);
+  });
+});
+
+constructionModal?.addEventListener("click", (event) => {
+  if (event.target === constructionModal) {
+    hideConstructionNotice();
+  }
 });
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    hideConstructionNotice();
     closeMenu();
   }
 });
@@ -217,7 +299,15 @@ window.addEventListener("resize", updateGalleryControls);
 setRouteSliderProgress();
 updateGalleryControls();
 syncHeaderState();
+const initialHash = window.location.hash.replace("#", "");
 setActivePage(getPageIdFromHash());
+if (isLockedPage(initialHash)) {
+  window.history.replaceState(null, "", `#${homePageId}`);
+  window.setTimeout(
+    () => showConstructionNotice(),
+    reducedMotion.matches ? 0 : introDuration + 80,
+  );
+}
 if (window.location.hash && !pageIds.has(window.location.hash.replace("#", ""))) {
   window.setTimeout(() => {
     document.getElementById(window.location.hash.replace("#", ""))?.scrollIntoView({ block: "start" });
