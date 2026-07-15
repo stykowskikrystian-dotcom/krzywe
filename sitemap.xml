@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://krzywelakehouses.pl/</loc>
+    <lastmod>2026-07-15</lastmod>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/home-hero-lakehouse.webp</image:loc>
+      <image:title>Całoroczny dom nad jeziorem na Mazurach</image:title>
+      <image:caption>Krzywe Lake Houses nad Jeziorem Krzywe, blisko Mikołajek i Mrągowa.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/home-hero-house-sunset.webp</image:loc>
+      <image:title>Dom wakacyjny nad jeziorem o zachodzie słońca</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/water-story-wide-house.webp</image:loc>
+      <image:title>Dwa domy na wynajem nad Jeziorem Krzywe</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/barn-living-room.webp</image:loc>
+      <image:title>Salon całorocznego domu na Mazurach</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/barn-terrace-lake.webp</image:loc>
+      <image:title>Taras domu nad samą wodą</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/home-hero-pier.webp</image:loc>
+      <image:title>Bezpośredni dostęp do pomostu nad Jeziorem Krzywe</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://krzywelakehouses.pl/domy-i-galeria.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/water-story-wide-house.webp</image:loc>
+      <image:title>Dwa całoroczne domy nad Jeziorem Krzywe</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://krzywelakehouses.pl/jezioro-krzywe.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/lake-krzywe/lake-hero.webp</image:loc>
+      <image:title>Jezioro Krzywe na Mazurach</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/lake-krzywe/lake-aerial.jpg</image:loc>
+      <image:title>Panorama Jeziora Krzywe z lotu ptaka</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/home-hero-pier.webp</image:loc>
+      <image:title>Bezpośredni dostęp do pomostu Krzywe Lake Houses nad jeziorem</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://krzywelakehouses.pl/atrakcje-w-okolicy.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/rhythm-day-sail.webp</image:loc>
+      <image:title>Atrakcje Mazur blisko Mikołajek i Mrągowa</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/attractions/attraction-01.webp</image:loc>
+      <image:title>Park Wodny Tropikana w Mikołajkach</image:title>
+      <image:caption>Całoroczna atrakcja rodzinna w Hotelu Gołębiewski w Mikołajkach.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/attractions/attraction-20.webp</image:loc>
+      <image:title>Park Dzikich Zwierząt w Kadzidłowie</image:title>
+      <image:caption>Rodzinna atrakcja przyrodnicza w Puszczy Piskiej niedaleko Piecek.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/attractions/attraction-21.webp</image:loc>
+      <image:title>Spływ kajakowy rzeką Krutynią</image:title>
+      <image:caption>Jedna z najbardziej znanych atrakcji aktywnych południowych Mazur.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/attractions/attraction-13.webp</image:loc>
+      <image:title>Wieża Bismarcka w Mrągowie</image:title>
+      <image:caption>Punkt widokowy i zabytek w Mrągowie.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://krzywelakehouses.pl/oferta.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/barn-terrace-lake.webp</image:loc>
+      <image:title>Oferta domów na wynajem nad jeziorem</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://krzywelakehouses.pl/kontakt.html</loc>
+    <lastmod>2026-07-15</lastmod>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/home-hero-house-sunset.webp</image:loc>
+      <image:title>Kontakt i rezerwacja domów nad jeziorem na Mazurach</image:title>
+      <image:caption>Całoroczne domy Krzywe Lake Houses nad Jeziorem Krzywe, blisko Mikołajek, Mrągowa i Piecek.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://krzywelakehouses.pl/assets/krzywe-route-map.webp</image:loc>
+      <image:title>Dojazd do Krzywe Lake Houses</image:title>
+      <image:caption>Mapa dojazdu do domów nad jeziorem między Piecekami, Mrągowem i Mikołajkami.</image:caption>
+    </image:image>
+  </url>
+</urlset>

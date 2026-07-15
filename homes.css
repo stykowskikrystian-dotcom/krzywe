@@ -1,0 +1,74 @@
+.homes-page .homes-hero {
+  min-height: min(880px, 96vh);
+  padding: 170px clamp(22px, 6vw, 88px) 66px;
+  color: var(--homes-forest);
+  background: #ddd8d0;
+}
+
+.homes-page .homes-hero::after {
+  background:
+    linear-gradient(90deg, rgba(248, 244, 239, 0.96) 0%, rgba(248, 244, 239, 0.84) 38%, rgba(248, 244, 239, 0.22) 70%, rgba(248, 244, 239, 0.08) 100%),
+    linear-gradient(0deg, rgba(247, 243, 238, 0.34), transparent 48%);
+}
+
+.homes-page .homes-hero > img {
+  object-position: center 54%;
+}
+
+.homes-page .homes-hero .eyebrow {
+  color: var(--homes-copper);
+}
+
+.homes-page .homes-hero h1 {
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: var(--homes-forest);
+  font-size: clamp(3.3rem, 6.5vw, 5.9rem);
+  line-height: 0.94;
+}
+
+.homes-page .homes-hero p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 26px 0 0;
+  color: rgba(38, 55, 51, 0.7);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.72;
+}
+
+.homes-page .homes-cta {
+  padding: clamp(98px, 12vw, 178px) 22px;
+  color: #fff;
+  background:
+    linear-gradient(rgba(23, 40, 37, 0.72), rgba(23, 40, 37, 0.88)),
+    url("./assets/home-hero-house-sunset.webp") center 62%/cover;
+}
+
+@media (max-width: 720px) {
+  .homes-page .homes-hero {
+    min-height: 790px;
+    padding: 136px 18px 42px;
+  }
+
+  .homes-page .homes-hero::after {
+    background:
+      linear-gradient(180deg, rgba(248, 244, 239, 0.94) 0%, rgba(248, 244, 239, 0.78) 50%, rgba(248, 244, 239, 0.93) 100%),
+      linear-gradient(90deg, rgba(248, 244, 239, 0.4), transparent);
+  }
+
+  .homes-page .homes-hero > img {
+    object-position: 58% center;
+  }
+
+  .homes-page .homes-hero h1 {
+    max-width: 350px;
+    margin-top: 19px;
+    font-size: clamp(3.05rem, 14vw, 4rem);
+  }
+
+  .homes-page .homes-hero p:not(.eyebrow) {
+    max-width: 350px;
+    margin-top: 20px;
+    font-size: 0.91rem;
+    line-height: 1.58;
+  }
+}

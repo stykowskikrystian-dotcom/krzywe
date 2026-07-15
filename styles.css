@@ -838,7 +838,7 @@ a {
   background:
     linear-gradient(180deg, rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.58) 60%, rgba(255, 250, 244, 0.3)),
     linear-gradient(90deg, rgba(255, 250, 244, 0.82), rgba(255, 250, 244, 0.36), rgba(255, 250, 244, 0.78)),
-    url("./assets/water-story-benefits-lake.png") center center / cover no-repeat;
+    url("./assets/water-story-benefits-lake.webp") center center / cover no-repeat;
   box-shadow: 0 20px 62px rgba(21, 28, 29, 0.1);
 }
 
@@ -1191,8 +1191,16 @@ a {
   z-index: 1;
   display: grid;
   place-items: center;
+  box-sizing: border-box;
   width: 68px;
   height: 68px;
+  min-width: 68px;
+  min-height: 68px;
+  max-width: 68px;
+  max-height: 68px;
+  aspect-ratio: 1;
+  flex: 0 0 68px;
+  align-self: start;
   border: 1px solid rgba(166, 100, 47, 0.22);
   border-radius: 50%;
   color: rgba(166, 100, 47, 0.86);
@@ -1218,6 +1226,12 @@ a {
 .rhythm-step-icon svg {
   width: 38px;
   height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  max-width: 38px;
+  max-height: 38px;
+  aspect-ratio: 1;
+  flex: none;
   stroke-width: 1.5;
 }
 
@@ -1426,7 +1440,7 @@ a {
   background:
     linear-gradient(180deg, rgba(255, 250, 244, 0.92), rgba(255, 250, 244, 0.48)),
     linear-gradient(90deg, rgba(255, 250, 244, 0.86), rgba(255, 250, 244, 0.5), rgba(255, 250, 244, 0.86)),
-    url("./assets/rhythm-reeds-bg.png") center center / cover no-repeat;
+    url("./assets/rhythm-reeds-bg.webp") center center / cover no-repeat;
 }
 
 .rhythm-why-card h3 {
@@ -2583,7 +2597,7 @@ a {
   margin-top: clamp(2px, 1vw, 10px);
 }
 
-.barn-design-card span {
+.barn-design-card > div {
   display: grid;
   justify-items: center;
   align-content: start;
@@ -2594,7 +2608,7 @@ a {
   text-align: center;
 }
 
-.barn-design-card span + span {
+.barn-design-card > div + div {
   border-left: 1px solid rgba(37, 44, 46, 0.08);
 }
 
@@ -2707,7 +2721,7 @@ a {
   gap: 0;
 }
 
-.barn-amenities-list span {
+.barn-amenities-list > div {
   display: grid;
   justify-items: center;
   gap: 10px;
@@ -2717,7 +2731,7 @@ a {
   text-align: center;
 }
 
-.barn-amenities-list span + span {
+.barn-amenities-list > div + div {
   border-left: 1px solid rgba(37, 44, 46, 0.09);
 }
 
@@ -2756,7 +2770,7 @@ a {
   background:
     linear-gradient(180deg, rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.58) 55%, rgba(255, 250, 244, 0.32)),
     linear-gradient(90deg, rgba(255, 250, 244, 0.82), rgba(255, 250, 244, 0.38) 46%, rgba(255, 250, 244, 0.82)),
-    url("./assets/barn-why-panorama.png") center center / cover no-repeat;
+    url("./assets/barn-why-panorama.webp") center center / cover no-repeat;
 }
 
 .barn-why-card::after {
@@ -2885,11 +2899,11 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .barn-design-card span:nth-child(odd) {
+  .barn-design-card > div:nth-child(odd) {
     border-left: 0;
   }
 
-  .barn-design-card span:nth-child(n + 3) {
+  .barn-design-card > div:nth-child(n + 3) {
     border-top: 1px solid rgba(37, 44, 46, 0.08);
   }
 
@@ -2909,7 +2923,7 @@ a {
     gap: 22px 0;
   }
 
-  .barn-amenities-list span:nth-child(4) {
+  .barn-amenities-list > div:nth-child(4) {
     border-left: 0;
   }
 
@@ -3218,7 +3232,7 @@ a {
   background:
     linear-gradient(180deg, rgba(255, 250, 244, 0.9), rgba(255, 250, 244, 0.62) 56%, rgba(255, 250, 244, 0.38)),
     linear-gradient(90deg, rgba(255, 250, 244, 0.86), rgba(255, 250, 244, 0.42) 45%, rgba(255, 250, 244, 0.84)),
-    url("./assets/together-why-terrace.png") center center / cover no-repeat;
+    url("./assets/together-why-terrace.webp") center center / cover no-repeat;
   box-shadow: 0 24px 64px rgba(21, 28, 29, 0.1);
 }
 
@@ -3662,7 +3676,7 @@ a {
       rgba(247, 243, 238, 0.9) 47%,
       rgba(247, 243, 238, 0.54) 100%
     ),
-    url("./assets/krzywe-brand-hero.png");
+    url("./assets/krzywe-brand-hero.webp");
   background-size: cover;
   background-position: 58% center;
   filter: saturate(0.84) contrast(0.96);
@@ -3997,7 +4011,7 @@ a {
   opacity: 0.44;
   background:
     linear-gradient(180deg, transparent, rgba(255, 250, 244, 0.94)),
-    url("./assets/rhythm-reeds-bg.png") center bottom / cover no-repeat;
+    url("./assets/rhythm-reeds-bg.webp") center bottom / cover no-repeat;
   pointer-events: none;
 }
 
@@ -6018,9 +6032,9 @@ a {
     grid-template-columns: 1fr;
   }
 
-  .barn-design-card span,
-  .barn-design-card span + span,
-  .barn-design-card span:nth-child(n + 3) {
+  .barn-design-card > div,
+  .barn-design-card > div + div,
+  .barn-design-card > div:nth-child(n + 3) {
     grid-template-columns: 58px minmax(0, 1fr);
     justify-items: start;
     align-items: center;
@@ -6031,7 +6045,7 @@ a {
     text-align: left;
   }
 
-  .barn-design-card span:first-child {
+  .barn-design-card > div:first-child {
     border-top: 0;
   }
 
@@ -6086,12 +6100,12 @@ a {
     gap: 20px 0;
   }
 
-  .barn-amenities-list span {
+  .barn-amenities-list > div {
     min-height: 150px;
     padding: 0 10px;
   }
 
-  .barn-amenities-list span:nth-child(odd) {
+  .barn-amenities-list > div:nth-child(odd) {
     border-left: 0;
   }
 
@@ -6107,7 +6121,7 @@ a {
     background:
       linear-gradient(180deg, rgba(255, 250, 244, 0.76), rgba(255, 250, 244, 0.44) 58%, rgba(255, 250, 244, 0.18)),
       linear-gradient(90deg, rgba(255, 250, 244, 0.58), rgba(255, 250, 244, 0.18), rgba(255, 250, 244, 0.54)),
-      url("./assets/barn-why-panorama.png") center center / cover no-repeat;
+      url("./assets/barn-why-panorama.webp") center center / cover no-repeat;
   }
 
   .barn-why-list {
@@ -6233,7 +6247,7 @@ a {
     background:
       linear-gradient(180deg, rgba(255, 250, 244, 0.78), rgba(255, 250, 244, 0.46) 58%, rgba(255, 250, 244, 0.2)),
       linear-gradient(90deg, rgba(255, 250, 244, 0.62), rgba(255, 250, 244, 0.2), rgba(255, 250, 244, 0.58)),
-      url("./assets/together-why-terrace.png") 44% center / cover no-repeat;
+      url("./assets/together-why-terrace.webp") 44% center / cover no-repeat;
   }
 
   .together-why-card h3 {
@@ -6943,7 +6957,6 @@ a {
 @media (min-width: 1560px) {
   .hero-showcase-shell,
   .water-story-shell,
-  .rhythm-feature-shell,
   .home-barn-shell,
   .home-together-shell {
     width: 100%;
@@ -7237,11 +7250,20 @@ a {
   .rhythm-step-icon {
     width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    max-width: 60px;
+    max-height: 60px;
+    flex-basis: 60px;
   }
 
   .rhythm-step-icon svg {
     width: 33px;
     height: 33px;
+    min-width: 33px;
+    min-height: 33px;
+    max-width: 33px;
+    max-height: 33px;
   }
 
   .rhythm-step-copy h3 {
@@ -7397,7 +7419,7 @@ a {
     background:
       linear-gradient(180deg, rgba(255, 250, 244, 0.78), rgba(255, 250, 244, 0.48) 58%, rgba(255, 250, 244, 0.22)),
       linear-gradient(90deg, rgba(255, 250, 244, 0.64), rgba(255, 250, 244, 0.24), rgba(255, 250, 244, 0.6)),
-      url("./assets/water-story-benefits-lake.png") 58% center / cover no-repeat;
+      url("./assets/water-story-benefits-lake.webp") 58% center / cover no-repeat;
   }
 
   .water-story-benefits h3 {
@@ -7539,8 +7561,8 @@ a {
 
 .footer-top-grid {
   display: grid;
-  grid-template-columns: minmax(290px, 1.3fr) minmax(180px, 0.72fr) minmax(210px, 0.72fr) minmax(260px, 0.86fr);
-  gap: clamp(28px, 4vw, 66px);
+  grid-template-columns: minmax(380px, 1.35fr) minmax(170px, 0.68fr) minmax(200px, 0.72fr) minmax(250px, 0.86fr);
+  gap: clamp(24px, 3.2vw, 52px);
   align-items: start;
 }
 
@@ -7593,6 +7615,7 @@ a {
 }
 
 .footer-contact-list {
+  font-style: normal;
   display: grid;
   gap: 15px;
   max-width: 430px;
@@ -7601,8 +7624,17 @@ a {
   border-top: 1px solid rgba(37, 44, 46, 0.12);
 }
 
-.footer-contact-list a,
-.footer-contact-list span,
+.footer-contact-list > * {
+  min-width: 0;
+}
+
+.footer-contact-list > a > span,
+.footer-contact-list > span {
+  overflow-wrap: anywhere;
+}
+
+.footer-contact-list > a,
+.footer-contact-list > span,
 .footer-link-column a,
 .footer-info span {
   display: grid;
@@ -7613,6 +7645,21 @@ a {
   color: rgba(37, 44, 46, 0.74);
   font-size: clamp(0.88rem, 1vw, 0.98rem);
   line-height: 1.38;
+}
+
+.footer-contact-list > a > span {
+  display: block;
+  min-width: 0;
+}
+
+@media (min-width: 761px) {
+  .footer-contact-list > a > span {
+    white-space: nowrap;
+  }
+
+  .footer-contact-list > a:nth-child(2) > span {
+    font-size: clamp(0.78rem, 0.86vw, 0.9rem);
+  }
 }
 
 .footer-contact-list svg,
@@ -7742,7 +7789,7 @@ a {
   background:
     linear-gradient(180deg, rgba(247, 243, 238, 0.18), rgba(37, 44, 46, 0.28) 44%, rgba(37, 44, 46, 0.64)),
     linear-gradient(90deg, rgba(166, 100, 47, 0.2), rgba(104, 115, 93, 0.2)),
-    url("./assets/footer-reeds-sunset.png") center center / cover no-repeat;
+    url("./assets/footer-reeds-sunset.webp") center center / cover no-repeat;
   box-shadow: 0 24px 58px rgba(21, 28, 29, 0.12);
 }
 
@@ -7874,7 +7921,7 @@ a {
   background:
     linear-gradient(180deg, rgba(242, 233, 223, 0.12), rgba(242, 233, 223, 0.8) 58%, rgba(222, 214, 204, 0.95)),
     linear-gradient(90deg, rgba(247, 243, 238, 0.52), rgba(247, 243, 238, 0.18), rgba(247, 243, 238, 0.62)),
-    url("./assets/footer-reeds-sunset.png") center 62% / cover no-repeat;
+    url("./assets/footer-reeds-sunset.webp") center 62% / cover no-repeat;
   mask-image: linear-gradient(180deg, transparent 0%, black 16%, black 100%);
 }
 
@@ -7934,11 +7981,11 @@ a {
 }
 
 .water-story-benefits {
-  background-image: url("./assets/water-story-benefits-lake.png");
+  background-image: url("./assets/water-story-benefits-lake.webp");
 }
 
 .barn-why-card {
-  background-image: url("./assets/barn-why-panorama.png");
+  background-image: url("./assets/barn-why-panorama.webp");
 }
 
 .water-story-benefits::before,
@@ -7983,7 +8030,7 @@ a {
   }
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 1320px) {
   .footer-top-grid,
   .footer-mid-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -8012,7 +8059,7 @@ a {
 
 @media (max-width: 760px) {
   .premium-footer {
-    padding: 46px 16px 0;
+    padding: 30px 14px 0;
     text-align: center;
   }
 
@@ -8021,20 +8068,22 @@ a {
     width: 100%;
   }
 
-  .footer-top-grid,
-  .footer-mid-grid,
-  .footer-info {
+  .footer-top-grid {
     grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .footer-info {
-    grid-column: auto;
+  .footer-brand-panel,
+  .footer-info,
+  .footer-mid-grid,
+  .footer-nav {
+    grid-column: 1 / -1;
   }
 
   .footer-link-column,
   .footer-location-card,
   .footer-newsletter {
-    padding: 28px 0 0;
+    padding: 22px 0 0;
     border-top: 1px solid rgba(37, 44, 46, 0.1);
     border-left: 0;
   }
@@ -8045,23 +8094,147 @@ a {
   }
 
   .premium-footer .footer-logo {
-    width: min(285px, 78vw);
-    margin-left: 0;
+    width: min(235px, 68vw);
+    margin: -8px 0 0;
   }
 
-  .footer-brand-panel h2,
-  .footer-brand-panel > p,
+  .footer-brand-panel h2 {
+    max-width: 330px;
+    margin-top: 14px;
+    font-size: 0.98rem;
+    line-height: 1.55;
+  }
+
+  .footer-brand-panel > p {
+    display: none;
+  }
+
   .footer-contact-list {
-    max-width: 360px;
+    width: 100%;
+    max-width: 390px;
+    gap: 5px;
+    margin-top: 17px;
+    padding: 7px;
+    border: 1px solid rgba(37, 44, 46, 0.09);
+    border-radius: 18px;
+    background: rgba(255, 250, 244, 0.44);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.58);
   }
 
   .footer-contact-list a,
-  .footer-contact-list span,
-  .footer-link-column a,
-  .footer-info span {
-    grid-template-columns: 24px minmax(0, max-content);
-    justify-content: center;
+  .footer-contact-list > span {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 10px;
+    width: 100%;
+    min-height: 42px;
+    padding: 7px 9px;
+    border-radius: 12px;
     text-align: left;
+  }
+
+  .footer-contact-list a:hover,
+  .footer-contact-list a:focus-visible {
+    transform: none;
+    background: rgba(255, 250, 244, 0.65);
+  }
+
+  .footer-contact-list svg {
+    width: 19px;
+    height: 19px;
+    justify-self: center;
+  }
+
+  .footer-contact-list a:nth-child(2) span {
+    font-size: clamp(0.66rem, 3.15vw, 0.84rem);
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
+
+  .footer-reserve {
+    width: min(100%, 390px);
+    min-height: 45px;
+    margin-top: 12px;
+  }
+
+  .footer-link-column {
+    gap: 11px;
+    text-align: left;
+  }
+
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 14px;
+    margin-top: 22px;
+    padding: 18px;
+    border: 1px solid rgba(37, 44, 46, 0.09);
+    border-radius: 18px;
+    background: rgba(255, 250, 244, 0.34);
+  }
+
+  .footer-nav h3 {
+    grid-column: 1 / -1;
+  }
+
+  .footer-houses {
+    display: none;
+  }
+
+  .footer-link-column h3 {
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  .footer-link-column a {
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 8px;
+    min-height: 30px;
+    font-size: 0.76rem;
+  }
+
+  .footer-link-column svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .footer-houses a:not(.footer-outline-button) {
+    min-height: 48px;
+  }
+
+  .footer-houses small {
+    margin-top: 2px;
+    font-size: 0.72rem;
+  }
+
+  .footer-outline-button {
+    display: none !important;
+  }
+
+  .footer-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 12px;
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(37, 44, 46, 0.1);
+    text-align: left;
+  }
+
+  .footer-info h3 {
+    grid-column: 1 / -1;
+    margin-bottom: 4px;
+  }
+
+  .footer-info span {
+    grid-template-columns: 17px minmax(0, 1fr);
+    gap: 7px;
+    min-height: 30px;
+    font-size: 0.72rem;
+  }
+
+  .footer-info svg {
+    width: 16px;
+    height: 16px;
   }
 
   .footer-outline-button,
@@ -8069,35 +8242,79 @@ a {
     margin-inline: auto;
   }
 
+  .footer-mid-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 26px;
+    padding-top: 20px;
+  }
+
   .footer-photo-card {
-    min-height: 310px;
+    min-height: 205px;
+    padding: 22px;
     text-align: left;
   }
 
+  .footer-photo-card > span {
+    margin-bottom: 12px;
+  }
+
+  .footer-photo-card h3 {
+    max-width: 290px;
+    margin-bottom: 0;
+    font-size: clamp(1.55rem, 8vw, 2.15rem);
+  }
+
+  .footer-photo-card p {
+    display: none;
+  }
+
+  .footer-location-card {
+    padding-top: 18px;
+    text-align: left;
+  }
+
+  .footer-location-card p {
+    font-size: 0.86rem;
+    line-height: 1.55;
+  }
+
   .footer-distance-row {
-    grid-template-columns: 1fr;
-    gap: 12px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 18px;
   }
 
   .footer-distance-row span + span {
-    padding-top: 12px;
-    border-top: 1px solid rgba(37, 44, 46, 0.1);
-    border-left: 0;
+    border-top: 0;
+    border-left: 1px solid rgba(37, 44, 46, 0.1);
   }
 
-  .footer-newsletter-form {
-    max-width: 380px;
-    margin-inline: auto;
+  .footer-distance-row span {
+    min-height: 68px;
+    gap: 3px;
+    padding: 0 5px;
+    font-size: 0.72rem;
   }
 
-  .footer-newsletter small {
-    justify-content: center;
+  .footer-distance-row svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .footer-newsletter {
+    display: none;
   }
 
   .footer-landscape {
-    height: 172px;
-    margin-inline: -16px;
+    height: 104px;
+    margin: 22px -14px 0;
     background-position: 42% center;
+  }
+
+  .premium-footer .footer-bottom {
+    gap: 11px;
+    padding: 16px 4px 18px;
+    font-size: 0.7rem;
   }
 
   .premium-footer .footer-legal-links {
@@ -8116,6 +8333,496 @@ a {
     width: min(88vw, 520px);
     max-height: 26vh;
     mix-blend-mode: normal;
+  }
+}
+
+.local-seo-section {
+  position: relative;
+  padding: clamp(76px, 10vw, 138px) clamp(20px, 5vw, 72px);
+  overflow: hidden;
+  color: var(--charcoal);
+  background:
+    radial-gradient(circle at 88% 14%, rgba(120, 145, 155, 0.18), transparent 30%),
+    linear-gradient(145deg, #f2ece4, var(--paper) 58%, #ede7de);
+}
+
+.local-seo-section::before {
+  position: absolute;
+  top: -90px;
+  right: -70px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid rgba(104, 115, 93, 0.18);
+  border-radius: 50%;
+  content: "";
+}
+
+.local-seo-shell {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 100%);
+  margin: 0 auto;
+}
+
+.local-seo-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: clamp(28px, 6vw, 84px);
+  align-items: end;
+}
+
+.local-seo-header .eyebrow {
+  grid-column: 1 / -1;
+  margin: 0 0 -12px;
+  color: var(--copper);
+}
+
+.local-seo-header h2 {
+  max-width: 780px;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.5rem, 5.4vw, 5.25rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.local-seo-header > p:not(.eyebrow) {
+  margin: 0;
+  color: rgba(37, 44, 46, 0.76);
+  font-size: clamp(1rem, 1.35vw, 1.16rem);
+  line-height: 1.76;
+}
+
+.local-seo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: clamp(44px, 7vw, 84px);
+}
+
+.local-seo-grid article {
+  min-height: 300px;
+  padding: clamp(26px, 3.2vw, 42px);
+  border: 1px solid rgba(104, 115, 93, 0.2);
+  border-radius: 6px;
+  background: rgba(255, 250, 244, 0.72);
+  box-shadow: 0 18px 46px rgba(37, 44, 46, 0.07);
+}
+
+.local-seo-grid article > span {
+  color: var(--copper);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.local-seo-grid h3 {
+  margin: 22px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.65rem, 2.4vw, 2.35rem);
+  font-weight: 400;
+  line-height: 1.08;
+}
+
+.local-seo-grid p {
+  margin: 20px 0 0;
+  color: rgba(37, 44, 46, 0.72);
+  line-height: 1.7;
+}
+
+@media (max-width: 900px) {
+  .local-seo-header {
+    grid-template-columns: 1fr;
+  }
+
+  .local-seo-header .eyebrow {
+    grid-column: auto;
+    margin-bottom: -4px;
+  }
+
+  .local-seo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .local-seo-grid article {
+    min-height: 0;
+  }
+}
+
+/* Unified premium icon system */
+:root {
+  --icon-copper: #ad672f;
+  --icon-copper-soft: rgba(173, 103, 47, 0.12);
+  --icon-water-soft: rgba(120, 145, 155, 0.14);
+  --icon-border: rgba(166, 100, 47, 0.22);
+  --icon-surface: rgba(255, 250, 244, 0.78);
+  --icon-shadow: 0 12px 28px rgba(37, 44, 46, 0.09);
+}
+
+.site-header svg *,
+main svg *,
+.premium-footer svg *,
+.reserve-fab svg * {
+  vector-effect: non-scaling-stroke;
+}
+
+.site-header .quiet-link .icon {
+  width: 27px;
+  height: 27px;
+  padding: 6px;
+  border: 1px solid var(--icon-border);
+  border-radius: 9px;
+  color: var(--icon-copper);
+  background:
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.94), transparent 48%),
+    var(--icon-copper-soft);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.site-header .icon-link,
+.mobile-social-link {
+  border-color: rgba(166, 100, 47, 0.2);
+  color: var(--icon-copper);
+  background:
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.94), transparent 46%),
+    rgba(255, 250, 244, 0.82);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    0 8px 18px rgba(37, 44, 46, 0.07);
+}
+
+.site-header .icon-link .icon,
+.mobile-social-link .icon {
+  width: 17px;
+  height: 17px;
+  stroke-width: 1.8;
+}
+
+.hero-primary svg,
+.hero-secondary svg,
+.barn-reserve svg,
+.together-reserve svg,
+.rhythm-activity-panel a svg,
+.footer-outline-button svg,
+.footer-reserve svg {
+  transition: transform 220ms ease;
+}
+
+.hero-benefit-icon,
+.rhythm-step-icon,
+.together-icon,
+.together-card-icon,
+.lakefront-feature-icon,
+.lake-icon,
+.lake-mini-icon {
+  position: relative;
+  isolation: isolate;
+  transition:
+    color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.hero-benefit-icon::after,
+.rhythm-step-icon::after,
+.together-icon::after,
+.together-card-icon::after,
+.lakefront-feature-icon::after,
+.lake-icon::after,
+.lake-mini-icon::after {
+  position: absolute;
+  inset: 5px;
+  z-index: -1;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.hero-benefit-icon svg,
+.rhythm-step-icon svg,
+.together-icon svg,
+.together-card-icon svg,
+.lakefront-feature-icon svg,
+.lake-icon svg,
+.lake-mini-icon svg {
+  filter: drop-shadow(0 3px 5px rgba(166, 100, 47, 0.14));
+}
+
+.water-story-facts span > svg,
+.water-rest-icons span > svg,
+.hero-map-distances span > svg,
+.water-benefits-row svg,
+.rhythm-mini-features svg,
+.rhythm-why-list svg {
+  color: var(--icon-copper);
+  background:
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.96), transparent 48%),
+    linear-gradient(145deg, rgba(255, 250, 244, 0.88), var(--icon-copper-soft));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    var(--icon-shadow);
+  filter: drop-shadow(0 3px 5px rgba(166, 100, 47, 0.08));
+  transition:
+    color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.rhythm-activity-list span {
+  grid-template-columns: 40px minmax(0, 1fr);
+}
+
+.rhythm-activity-list svg {
+  box-sizing: border-box;
+  width: 38px;
+  height: 38px;
+  padding: 7px;
+  border: 1px solid rgba(166, 100, 47, 0.18);
+  border-radius: 12px;
+  color: var(--icon-copper);
+  background: linear-gradient(145deg, rgba(255, 250, 244, 0.92), var(--icon-copper-soft));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.84);
+}
+
+.barn-design-card svg {
+  box-sizing: border-box;
+  width: 72px;
+  height: 72px;
+  padding: 14px;
+  border: 1px solid var(--icon-border);
+  border-radius: 22px;
+  color: var(--icon-copper);
+  background:
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.94), transparent 48%),
+    linear-gradient(145deg, rgba(255, 250, 244, 0.86), var(--icon-copper-soft));
+  box-shadow: var(--icon-shadow);
+  filter: drop-shadow(0 3px 5px rgba(166, 100, 47, 0.08));
+  transition:
+    color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.barn-amenities-list svg {
+  box-sizing: border-box;
+  width: 70px;
+  height: 70px;
+  padding: 16px;
+  border-color: var(--icon-border);
+  color: var(--icon-copper);
+  background:
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.94), transparent 48%),
+    linear-gradient(145deg, rgba(255, 250, 244, 0.86), var(--icon-copper-soft));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    var(--icon-shadow);
+  transition:
+    color 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease;
+}
+
+.home-barn-tags svg,
+.together-why-list svg,
+.lake-hero-points svg {
+  color: var(--icon-copper);
+  filter: drop-shadow(0 3px 5px rgba(166, 100, 47, 0.12));
+}
+
+.lake-icon {
+  border-color: rgba(120, 145, 155, 0.34);
+  background:
+    radial-gradient(circle at 32% 22%, rgba(255, 255, 255, 0.94), transparent 48%),
+    linear-gradient(145deg, rgba(255, 250, 244, 0.88), var(--icon-water-soft));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    0 12px 28px rgba(71, 100, 113, 0.12);
+}
+
+.gallery-arrow,
+.footer-socials a,
+.footer-newsletter-form button,
+.reserve-icon {
+  transition:
+    color 220ms ease,
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+}
+
+.premium-footer .footer-contact-list > a,
+.premium-footer .footer-contact-list > span {
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.premium-footer .footer-contact-list svg,
+.premium-footer .footer-link-column > a:not(.footer-outline-button) > svg,
+.premium-footer .footer-info > span > svg {
+  box-sizing: border-box;
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  border: 1px solid rgba(166, 100, 47, 0.18);
+  border-radius: 11px;
+  color: var(--icon-copper);
+  background: linear-gradient(145deg, rgba(255, 250, 244, 0.88), var(--icon-copper-soft));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+}
+
+.premium-footer .footer-link-column > a:not(.footer-outline-button),
+.premium-footer .footer-info > span {
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 12px;
+}
+
+.footer-distance-row svg {
+  box-sizing: border-box;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border: 1px solid rgba(104, 115, 93, 0.18);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(255, 250, 244, 0.82), rgba(104, 115, 93, 0.1));
+}
+
+@media (hover: hover) {
+  .site-header .quiet-link:hover .icon,
+  .site-header .icon-link:hover,
+  .mobile-social-link:hover {
+    border-color: rgba(166, 100, 47, 0.42);
+    color: #945420;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.88),
+      0 10px 22px rgba(166, 100, 47, 0.16);
+    transform: translateY(-2px);
+  }
+
+  :is(
+      .hero-benefits article,
+      .water-story-facts span,
+      .water-benefits-row span,
+      .water-rest-icons span,
+      .rhythm-step,
+      .rhythm-mini-features span,
+      .barn-design-card > div,
+      .barn-amenities-list > div,
+      .together-value-strip article,
+      .together-stay-card,
+      .lake-metric-card,
+      .lake-copy-block
+    ):hover
+    :is(
+      .hero-benefit-icon,
+      .rhythm-step-icon,
+      .together-icon,
+      .together-card-icon,
+      .lake-icon,
+      .lake-mini-icon,
+      svg
+    ) {
+    color: #945420;
+    border-color: rgba(166, 100, 47, 0.38);
+    transform: translateY(-3px) scale(1.025);
+  }
+
+  .lakefront-feature-grid article:hover .lakefront-feature-icon,
+  .together-stay-card:hover .together-card-icon {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.9),
+      0 18px 34px rgba(166, 100, 47, 0.18);
+  }
+
+  .hero-primary:hover svg,
+  .barn-reserve:hover svg,
+  .together-reserve:hover svg,
+  .footer-outline-button:hover svg,
+  .footer-reserve:hover svg,
+  .rhythm-activity-panel a:hover svg {
+    transform: translateX(3px);
+  }
+
+  .hero-secondary:hover svg {
+    transform: translateX(-2px);
+  }
+
+  .gallery-arrow:hover,
+  .footer-socials a:hover,
+  .footer-newsletter-form button:hover,
+  .reserve-fab:hover .reserve-icon {
+    transform: translateY(-2px) scale(1.04);
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header .quiet-link .icon {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+  }
+
+  .hero-benefit-icon::after,
+  .rhythm-step-icon::after,
+  .together-icon::after,
+  .together-card-icon::after,
+  .lakefront-feature-icon::after,
+  .lake-icon::after,
+  .lake-mini-icon::after {
+    inset: 4px;
+  }
+
+  .rhythm-activity-list span {
+    grid-template-columns: 36px minmax(0, 1fr);
+  }
+
+  .rhythm-activity-list svg {
+    width: 34px;
+    height: 34px;
+    padding: 6px;
+  }
+
+  .barn-design-card svg {
+    width: 62px;
+    height: 62px;
+    padding: 12px;
+    border-radius: 18px;
+  }
+
+  .barn-amenities-list svg {
+    width: 58px;
+    height: 58px;
+    padding: 13px;
+  }
+
+  .premium-footer .footer-contact-list > a,
+  .premium-footer .footer-contact-list > span {
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 9px;
+  }
+
+  .premium-footer .footer-contact-list svg {
+    width: 32px;
+    height: 32px;
+    padding: 7px;
+  }
+
+  .premium-footer .footer-link-column > a:not(.footer-outline-button),
+  .premium-footer .footer-info > span {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .premium-footer .footer-link-column > a:not(.footer-outline-button) > svg,
+  .premium-footer .footer-info > span > svg {
+    width: 27px;
+    height: 27px;
+    padding: 6px;
+    border-radius: 9px;
   }
 }
 
