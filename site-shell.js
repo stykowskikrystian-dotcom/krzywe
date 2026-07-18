@@ -167,6 +167,12 @@ const createHeroBookingModule = () => {
   const hero = document.querySelector(".home-hero, .subpage-hero");
   if (!hero || document.querySelector(".hero-booking-module")) return null;
 
+  const heroContent = hero.querySelector(".home-hero-content, .subpage-hero-content");
+  const heroFacts = hero.querySelector(
+    ".home-hero-facts, .homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats"
+  );
+  if (!heroContent) return null;
+
   const button = document.createElement("button");
   button.className = "hero-booking-module";
   button.type = "button";
@@ -198,7 +204,8 @@ const createHeroBookingModule = () => {
       </span>
     </span>`;
 
-  hero.insertAdjacentElement("afterend", button);
+  if (heroFacts) heroFacts.insertAdjacentElement("afterend", button);
+  else heroContent.append(button);
   return button;
 };
 

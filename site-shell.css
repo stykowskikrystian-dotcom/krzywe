@@ -2440,3 +2440,194 @@
     font-size: 0.44rem;
   }
 }
+
+/* Shell 13: the availability panel belongs to the hero.
+   Desktop: a lower-right stack, directly below the three fact pills.
+   Mobile: an accessible, in-flow stack below the pills with no overlap. */
+@media (min-width: 900px) {
+  .home-v2 .home-hero-content,
+  .subpage-main .subpage-hero-content {
+    position: static;
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts,
+  .home-v2.hero-in-view .home-hero-content > .home-hero-facts,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats),
+  .hero-in-view .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) {
+    position: absolute;
+    right: clamp(24px, 4vw, 90px);
+    bottom: 142px;
+    left: auto;
+    width: clamp(440px, 44vw, 590px);
+    margin: 0;
+  }
+
+  .hero-booking-module,
+  .hero-booking-module:hover,
+  .hero-booking-module:focus-visible {
+    position: absolute;
+    right: clamp(24px, 4vw, 90px);
+    bottom: clamp(18px, 2vw, 26px);
+    left: auto;
+    display: block;
+    width: clamp(440px, 44vw, 590px);
+    max-width: none;
+    min-height: 104px;
+    margin: 0;
+    padding: 9px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 18px;
+    box-shadow: 0 18px 48px rgba(6, 11, 12, 0.3);
+    transform: none;
+  }
+
+  .hero-booking-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr) minmax(108px, 0.72fr);
+    gap: 7px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .hero-booking-heading {
+    grid-column: 1 / -1;
+  }
+
+  .hero-booking-date {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 6px;
+    padding-inline: 7px;
+  }
+
+  .hero-booking-date > svg {
+    width: 27px;
+    height: 27px;
+    padding: 5px;
+  }
+
+  .hero-booking-date strong {
+    font-size: clamp(0.7rem, 0.78vw, 0.82rem);
+  }
+
+  .hero-booking-arrow {
+    width: 24px;
+  }
+
+  .hero-booking-submit {
+    min-width: 108px;
+    padding-inline: 10px;
+  }
+}
+
+@media (max-width: 899px) {
+  .home-v2 .home-hero-content,
+  .subpage-main .subpage-hero-content {
+    padding-bottom: 16px;
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts,
+  .home-v2.hero-in-view .home-hero-content > .home-hero-facts,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats),
+  .hero-in-view .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    margin: 12px 0 0;
+  }
+
+  .hero-booking-module,
+  .hero-booking-module:hover,
+  .hero-booking-module:focus-visible {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    display: block;
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    margin: 8px 0 0;
+    padding: 7px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 13px 34px rgba(6, 11, 12, 0.24);
+    transform: none;
+  }
+
+  .hero-booking-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20px minmax(0, 1fr) minmax(62px, auto);
+    gap: 5px;
+    width: 100%;
+    margin: 0;
+  }
+
+  .hero-booking-heading {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-v2 .home-hero-content,
+  .subpage-main .subpage-hero-content {
+    padding-top: 108px;
+    padding-bottom: 12px;
+  }
+
+  .hero-booking-module,
+  .hero-booking-module:hover,
+  .hero-booking-module:focus-visible {
+    margin-top: 7px;
+    padding: 6px;
+    border-radius: 14px;
+  }
+
+  .hero-booking-inner {
+    grid-template-columns: minmax(0, 1fr) 17px minmax(0, 1fr) 58px;
+    gap: 4px;
+  }
+
+  .hero-booking-heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+    min-height: 19px;
+    padding-inline: 2px;
+  }
+
+  .hero-booking-heading-icon,
+  .hero-booking-heading small {
+    display: none;
+  }
+
+  .hero-booking-heading > span:nth-child(2) {
+    display: block;
+  }
+
+  .hero-booking-heading strong {
+    font-size: 0.76rem;
+  }
+
+  .hero-booking-heading em {
+    font-size: 0.4rem;
+    white-space: nowrap;
+  }
+
+  .hero-booking-date,
+  .hero-booking-submit,
+  .hero-booking-arrow {
+    min-height: 40px;
+  }
+}
+
+/* The hero panel is the primary booking action while the hero is visible.
+   Reveal the floating shortcut only after the visitor scrolls farther. */
+.hero-in-view .reserve-fab {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  animation-play-state: paused;
+  transform: translateY(14px);
+}
