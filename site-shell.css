@@ -1773,3 +1773,136 @@
     line-height: 42px;
   }
 }
+
+/* Stable global hero information bar.
+   Desktop: actions on the left, facts at the same height on the right.
+   Mobile/tablet: one solid bar above the floating reservation trigger. */
+@media (min-width: 900px) {
+  .home-v2 .home-hero-content,
+  .subpage-main .subpage-hero-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(390px, 590px);
+    grid-template-rows: auto auto auto auto;
+    column-gap: clamp(26px, 4vw, 76px);
+    align-content: center;
+  }
+
+  .home-v2 .home-hero-content > :is(.home-eyebrow, h1, .home-hero-lead),
+  .subpage-main .subpage-hero-content > :is(.eyebrow, h1, p:not(.eyebrow)) {
+    grid-column: 1 / -1;
+  }
+
+  .home-v2 .home-hero-content > .home-actions,
+  .subpage-main .subpage-hero-content > .subpage-actions {
+    grid-row: 4;
+    grid-column: 1;
+    align-self: start;
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats),
+  .hero-in-view .home-v2 .home-hero-content > .home-hero-facts,
+  .hero-in-view .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    z-index: 2;
+    grid-row: 4;
+    grid-column: 2;
+    align-self: start;
+    width: 100%;
+    min-width: 0;
+    margin: 30px 0 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 999px;
+    color: rgba(255, 249, 240, 0.74);
+    background: #151d1d;
+    box-shadow: 0 16px 40px rgba(6, 11, 12, 0.25);
+    backdrop-filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts span,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) span {
+    min-height: 56px;
+    height: 100%;
+    padding: 9px 15px;
+    color: rgba(255, 249, 240, 0.72);
+    background: #151d1d;
+    font-size: 0.61rem;
+    line-height: 1.25;
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts span + span,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) span + span {
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts b,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) strong {
+    color: #fffaf2;
+    font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  }
+}
+
+@media (max-width: 899px) {
+  .home-v2 .home-hero-content > .home-hero-facts,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats),
+  .hero-in-view .home-v2 .home-hero-content > .home-hero-facts,
+  .hero-in-view .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) {
+    position: absolute;
+    right: 14px;
+    bottom: max(68px, env(safe-area-inset-bottom));
+    left: 14px;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 14px;
+    color: rgba(255, 249, 240, 0.74);
+    background: #151d1d;
+    box-shadow: 0 15px 36px rgba(6, 11, 12, 0.28);
+    backdrop-filter: none;
+    transform: none;
+    transition: none;
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts span,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) span {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    gap: 4px;
+    min-width: 0;
+    min-height: 64px;
+    padding: 8px 5px;
+    color: rgba(255, 249, 240, 0.72);
+    background: #151d1d;
+    font-size: clamp(0.47rem, 1.7vw, 0.58rem);
+    line-height: 1.25;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts span + span,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) span + span {
+    border-top: 0;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .home-v2 .home-hero-content > .home-hero-facts b,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) strong {
+    min-width: 0;
+    color: #fffaf2;
+    font-size: clamp(0.94rem, 3.8vw, 1.15rem);
+    text-align: center;
+  }
+}
