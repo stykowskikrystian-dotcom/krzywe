@@ -164,17 +164,8 @@ const createReserveButton = () => {
 };
 
 const createHeroBookingModule = () => {
-  const heroContent = document.querySelector(".home-hero-content, .subpage-hero-content");
-  if (!heroContent || heroContent.querySelector(".hero-booking-module")) return null;
-
-  const facts = heroContent.querySelector([
-    ".home-hero-facts",
-    ".homes-hero-stats",
-    ".lake-hero-stats",
-    ".attraction-hero-stats",
-    ".offer-hero-stats",
-    ".contact-hero-stats",
-  ].join(","));
+  const hero = document.querySelector(".home-hero, .subpage-hero");
+  if (!hero || document.querySelector(".hero-booking-module")) return null;
 
   const button = document.createElement("button");
   button.className = "hero-booking-module";
@@ -182,31 +173,32 @@ const createHeroBookingModule = () => {
   button.dataset.bookingModal = "";
   button.setAttribute("aria-label", "Sprawdź termin — system rezerwacji online wkrótce");
   button.innerHTML = `
-    <span class="hero-booking-heading">
-      <span class="hero-booking-heading-icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="4"/><path d="M3 10h18m-12 4h2m3 0h2m-9 4h2m3 0h2"/></svg>
+    <span class="hero-booking-inner">
+      <span class="hero-booking-heading">
+        <span class="hero-booking-heading-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="4"/><path d="M3 10h18m-12 4h2m3 0h2m-9 4h2m3 0h2"/></svg>
+        </span>
+        <span><small>Rezerwacja pobytu</small><strong>Znajdź dogodny termin</strong></span>
+        <em><i aria-hidden="true"></i> System wkrótce</em>
       </span>
-      <span><small>Rezerwacja pobytu</small><strong>Znajdź dogodny termin</strong></span>
-      <em><i aria-hidden="true"></i> System wkrótce</em>
-    </span>
-    <span class="hero-booking-date">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="4"/><path d="M3 10h18"/></svg>
-      <span><small>Przyjazd</small><strong>Wybierz datę</strong></span>
-    </span>
-    <span class="hero-booking-arrow" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
-    </span>
-    <span class="hero-booking-date">
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="4"/><path d="M3 10h18"/></svg>
-      <span><small>Wyjazd</small><strong>Wybierz datę</strong></span>
-    </span>
-    <span class="hero-booking-submit">
-      <span>Sprawdź termin</span>
-      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      <span class="hero-booking-date">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="4"/><path d="M3 10h18"/></svg>
+        <span><small>Przyjazd</small><strong>Wybierz datę</strong></span>
+      </span>
+      <span class="hero-booking-arrow" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </span>
+      <span class="hero-booking-date">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="4"/><path d="M3 10h18"/></svg>
+        <span><small>Wyjazd</small><strong>Wybierz datę</strong></span>
+      </span>
+      <span class="hero-booking-submit">
+        <span>Sprawdź termin</span>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+      </span>
     </span>`;
 
-  if (facts) facts.before(button);
-  else heroContent.append(button);
+  hero.insertAdjacentElement("afterend", button);
   return button;
 };
 
