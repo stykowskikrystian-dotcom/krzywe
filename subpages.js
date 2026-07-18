@@ -311,11 +311,41 @@ if (attractionsGrid) {
     .replace(/[\u0300-\u036f]/g, "")
     .trim();
 
+  const regionOverrides = new Map([
+    ["ferma jeleniowatych w kosewie", "kosewo"],
+    ["jezioro nidzkie i puszcza piska", "ruciane"],
+  ]);
+
   cards.forEach((card, index) => {
-    const titleSlug = normalize(card.querySelector("h3")?.textContent || `miejsce-${index + 1}`)
+    const title = card.querySelector("h3")?.textContent?.trim() || `Miejsce ${index + 1}`;
+    const normalizedTitle = normalize(title);
+    const titleSlug = normalizedTitle
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
     if (!card.id) card.id = `attraction-${titleSlug}`;
+    if (regionOverrides.has(normalizedTitle)) card.dataset.region = regionOverrides.get(normalizedTitle);
+
+    // The photo and the main source led to the same page. Keep the photo clickable,
+    // but remove the duplicate visible call-to-action and add useful navigation instead.
+    card.querySelector(".attraction-photo-link > span")?.remove();
+    const primaryLink = card.querySelector(":scope > .attraction-link");
+    if (primaryLink && !card.querySelector(".attraction-card-actions")) {
+      const metaLocation = card.querySelector(".attraction-card-meta span")?.textContent?.trim() || "Mazury";
+      const destination = card.dataset.address || `${title}, ${metaLocation}`;
+      const actions = document.createElement("div");
+      actions.className = "attraction-card-actions";
+      primaryLink.before(actions);
+      actions.append(primaryLink);
+
+      const navigationLink = document.createElement("a");
+      navigationLink.className = "attraction-nav";
+      navigationLink.href = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}`;
+      navigationLink.target = "_blank";
+      navigationLink.rel = "noopener noreferrer";
+      navigationLink.setAttribute("aria-label", `Nawiguj do: ${title}`);
+      navigationLink.innerHTML = 'Nawiguj <svg aria-hidden="true"><use href="#attraction-icon-map"/></svg>';
+      actions.append(navigationLink);
+    }
     card.dataset.searchText = normalize(`${card.dataset.name || ""} ${card.textContent || ""}`);
   });
 

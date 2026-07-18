@@ -326,3 +326,143 @@ body.home-v2 { margin: 0; color: #293031; background: #f7f3ed; }
   .home-v2 .home-hero-image { animation: none !important; }
   .home-v2 * { scroll-behavior: auto !important; }
 }
+
+/* A calmer desktop density — close to the clarity previously visible at 75% zoom. */
+@media (min-width: 1070px) {
+  .home-shell,
+  .home-hero-content {
+    width: min(1320px, calc(100% - clamp(48px, 7vw, 108px)));
+  }
+
+  .home-heading h2,
+  .home-story-copy h2,
+  .home-location-copy h2,
+  .home-faq-copy h2,
+  .home-closing h2 {
+    font-size: clamp(2.55rem, 4.65vw, 5.25rem);
+  }
+
+  .home-hero-content {
+    padding-top: clamp(138px, 16vh, 190px);
+    padding-bottom: clamp(142px, 16vh, 185px);
+  }
+
+  .home-hero-content h1 {
+    max-width: 920px;
+    font-size: clamp(3.45rem, 6.45vw, 7.35rem);
+    line-height: 0.88;
+  }
+
+  .home-hero-lead {
+    max-width: 610px;
+    font-size: clamp(0.96rem, 1.05vw, 1.1rem);
+  }
+
+  .home-button {
+    min-height: 51px;
+    padding-inline: 21px;
+  }
+
+  .home-hero-facts {
+    min-width: min(530px, 43vw);
+  }
+
+  .home-hero-facts span {
+    padding: 15px 18px;
+  }
+
+  .home-intro {
+    padding: clamp(76px, 8vw, 120px) 0 clamp(72px, 7.5vw, 112px);
+  }
+
+  .home-intro-grid {
+    margin-top: clamp(38px, 4.8vw, 60px);
+  }
+
+  .home-intro-grid article {
+    min-height: 260px;
+    padding: clamp(24px, 2.4vw, 34px);
+  }
+
+  .home-intro-grid article > span {
+    margin-bottom: 36px;
+  }
+
+  .home-story {
+    padding: clamp(38px, 4.8vw, 68px) 0 clamp(82px, 8.5vw, 130px);
+  }
+
+  .home-story-grid {
+    gap: clamp(40px, 5.8vw, 86px);
+  }
+
+  .home-story-media {
+    min-height: clamp(520px, 48vw, 680px);
+  }
+
+  .home-rhythm,
+  .home-seasons {
+    padding: clamp(78px, 8vw, 120px) 0;
+  }
+
+  .home-rhythm-panels article {
+    min-height: clamp(450px, 38vw, 575px);
+  }
+
+  .home-rhythm-tabs button {
+    min-height: 84px;
+    padding: 14px 17px;
+  }
+
+  .home-stays,
+  .home-location {
+    padding: clamp(82px, 8.5vw, 132px) 0;
+  }
+
+  .home-stays-grid > a {
+    min-height: clamp(455px, 39vw, 570px);
+  }
+
+  .home-seasons-track > a {
+    grid-template-rows: clamp(225px, 22vw, 330px) auto auto 1fr;
+  }
+
+  .home-location-grid {
+    gap: clamp(44px, 5.8vw, 88px);
+  }
+
+  .home-location-cards a {
+    min-height: clamp(445px, 41vw, 620px);
+  }
+
+  .home-location-cards a:last-child {
+    min-height: clamp(370px, 33vw, 510px);
+  }
+
+  .home-practical {
+    padding: clamp(70px, 7.5vw, 105px) 0;
+  }
+
+  .home-practical-grid > span {
+    min-height: 158px;
+  }
+
+  .home-faq {
+    padding: clamp(80px, 8vw, 125px) 0;
+  }
+
+  .home-faq-grid {
+    gap: clamp(46px, 6vw, 94px);
+  }
+
+  .home-closing {
+    min-height: clamp(540px, 54vw, 730px);
+  }
+}
+
+@media (min-width: 1760px) {
+  .home-shell,
+  .home-hero-content {
+    width: min(1460px, calc(100% - 180px));
+  }
+}
