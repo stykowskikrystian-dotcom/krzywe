@@ -522,6 +522,15 @@ if (attractionsGrid) {
     });
   });
 
+  document.querySelectorAll(".attraction-faq .contact-faq-list details").forEach((details) => {
+    details.addEventListener("toggle", () => {
+      if (!details.open) return;
+      document.querySelectorAll(".attraction-faq .contact-faq-list details").forEach((other) => {
+        if (other !== details) other.open = false;
+      });
+    });
+  });
+
   updateSavedUi();
   render();
 }

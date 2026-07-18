@@ -8843,3 +8843,16 @@ main svg *,
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Laptop density tuned to the clear proportions preferred at roughly 75% browser zoom. */
+@media (min-width: 900px) and (max-width: 1599px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1600px) {
+  html {
+    font-size: 15px;
+  }
+}
