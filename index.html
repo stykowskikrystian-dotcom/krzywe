@@ -110,7 +110,7 @@
     </script>
     <link rel="stylesheet" href="./styles.css?v=20260718-density2" />
     <link rel="stylesheet" href="./homepage.css?v=20260718-home4" />
-    <link rel="stylesheet" href="./site-shell.css?v=20260719-shell14" />
+    <link rel="stylesheet" href="./site-shell.css?v=20260719-shell16" />
   </head>
   <body class="home-v2">
     <header class="site-header nav-v2" data-header>
@@ -151,6 +151,16 @@
           <p class="home-hero-lead">Całoroczne domy wakacyjne nad Jeziorem Krzywe — dla rodzin, przyjaciół i grup, które chcą być blisko wody, natury i siebie.</p>
           <div class="home-actions"><a class="home-button home-button-primary" href="./kontakt.html#zapytanie">Zapytaj o termin <svg><use href="#home-icon-arrow" /></svg></a><a class="home-button home-button-glass" href="./domy-i-galeria.html">Poznaj domy</a></div>
           <div class="home-hero-facts" aria-label="Najważniejsze informacje"><span><b>02</b> niezależne domy</span><span><b>10</b> osób w każdym</span><span><b>0 min</b> do jeziora</span></div>
+          <div id="widgetHolder_mwczl89f2" class="hero-booking-module bedbooking-widget-holder" tabindex="-1" data-widget-state="loading" aria-label="Kalendarz rezerwacji BedBooking"></div>
+          <script>
+            (function (w, d, s, o, f, js, fjs) {
+              if (w[o]) return;
+              w['BB-Widget'] = o; w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+              js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+              js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+            }(window, document, 'script', 'w1', 'https://bed-booking.com/widget/widget.js'));
+            w1('init', {targetElementId: 'widgetHolder_mwczl89f2',widgetId: 'fdcbe00b103f474c172bcf0455bca64a2ef0705b', type:'simple', staticWidget: 0})
+          </script>
         </div>
         <a class="home-hero-scroll" href="#miejsce"><span></span>Odkryj miejsce</a>
       </section>
@@ -238,6 +248,6 @@
     </footer>
 
     <script type="module" src="./script.js?v=20260715-home3"></script>
-    <script type="module" src="./site-shell.js?v=20260719-shell14"></script>
+    <script type="module" src="./site-shell.js?v=20260719-shell16"></script>
   </body>
 </html>

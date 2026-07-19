@@ -54,7 +54,7 @@ const enhanceMobileNavigation = () => {
 
   panel.querySelectorAll(".mobile-cta").forEach((link) => {
     link.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#rezerwacja");
+    link.setAttribute("href", "#widgetHolder_mwczl89f2");
     link.removeAttribute("data-booking-modal");
     link.dataset.bookingWidget = "";
   });
@@ -143,17 +143,17 @@ const createReserveButton = () => {
   return button;
 };
 
-const initialiseBedBookingWidget = (module, hero) => {
-  const holder = module.querySelector("#widgetHolder_mwczl89f2");
-  const scriptUrl = "https://bed-booking.com/widget/widget.js";
-  if (!holder) return;
+const enhanceDirectBedBookingWidget = () => {
+  const hero = document.querySelector(".home-hero, .subpage-hero");
+  const module = document.querySelector("#widgetHolder_mwczl89f2.hero-booking-module");
+  if (!hero || !module) return null;
 
   const markAsLoaded = () => {
-    if (!holder.children.length) return;
-    module.dataset.widgetState = "ready";
+    if (module.children.length) module.dataset.widgetState = "ready";
   };
 
-  new MutationObserver(markAsLoaded).observe(holder, { childList: true, subtree: true });
+  markAsLoaded();
+  new MutationObserver(markAsLoaded).observe(module, { childList: true, subtree: true });
 
   if ("ResizeObserver" in window) {
     const syncPanelHeight = () => {
@@ -163,86 +163,30 @@ const initialiseBedBookingWidget = (module, hero) => {
     requestAnimationFrame(syncPanelHeight);
   }
 
-  (function (w, d, s, o, f, js, fjs) {
-    if (w[o]) return;
-    w["BB-Widget"] = o;
-    w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments); };
-    js = d.createElement(s);
-    fjs = d.getElementsByTagName(s)[0];
-    js.id = o;
-    js.src = f;
-    js.async = 1;
-    js.addEventListener("error", () => { module.dataset.widgetState = "error"; }, { once: true });
-    fjs.parentNode.insertBefore(js, fjs);
-  }(window, document, "script", "w1", scriptUrl));
-
-  window.w1("init", {
-    targetElementId: "widgetHolder_mwczl89f2",
-    widgetId: "fdcbe00b103f474c172bcf0455bca64a2ef0705b",
-    type: "simple",
-    staticWidget: 0,
-  });
-
   window.setTimeout(() => {
     if (module.dataset.widgetState === "loading") module.dataset.widgetState = "error";
   }, 15000);
-};
 
-const createHeroBookingModule = () => {
-  const hero = document.querySelector(".home-hero, .subpage-hero");
-  if (!hero || document.querySelector(".hero-booking-module")) return null;
-
-  const heroContent = hero.querySelector(".home-hero-content, .subpage-hero-content");
-  const heroFacts = hero.querySelector(
-    ".home-hero-facts, .homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats"
-  );
-  if (!heroContent) return null;
-
-  const module = document.createElement("section");
-  module.className = "hero-booking-module";
-  module.id = "rezerwacja";
-  module.tabIndex = -1;
-  module.dataset.widgetState = "loading";
-  module.setAttribute("aria-labelledby", "hero-booking-title");
-  module.innerHTML = `
-    <div class="hero-booking-inner">
-      <div class="hero-booking-heading">
-        <span class="hero-booking-heading-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="4"/><path d="M3 10h18m-12 4h2m3 0h2m-9 4h2m3 0h2"/></svg>
-        </span>
-        <span><small>Rezerwacja pobytu</small><strong id="hero-booking-title">Znajdź dogodny termin</strong></span>
-        <em><i aria-hidden="true"></i> Dostępność online</em>
-      </div>
-      <div class="bedbooking-widget-frame">
-        <div id="widgetHolder_mwczl89f2" class="bedbooking-widget-holder"></div>
-        <span class="bedbooking-widget-loading" role="status">Ładowanie kalendarza…</span>
-        <span class="bedbooking-widget-error">Kalendarz nie został załadowany. Odśwież stronę lub zadzwoń: <a href="tel:+48505586950">505 586 950</a>.</span>
-      </div>
-    </div>`;
-
-  if (heroFacts) heroFacts.insertAdjacentElement("afterend", module);
-  else heroContent.append(module);
-  initialiseBedBookingWidget(module, hero);
   return module;
 };
 
 const normaliseBookingControls = () => {
   document.querySelectorAll(".site-header .cta").forEach((link) => {
     link.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#rezerwacja");
+    link.setAttribute("href", "#widgetHolder_mwczl89f2");
     link.removeAttribute("data-booking-modal");
     link.dataset.bookingWidget = "";
   });
   document.querySelectorAll(".offer-booking-button").forEach((link) => {
     const label = link.querySelector("span");
     if (label) label.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#rezerwacja");
+    link.setAttribute("href", "#widgetHolder_mwczl89f2");
     link.removeAttribute("data-booking-modal");
     link.dataset.bookingWidget = "";
   });
   document.querySelectorAll("[data-main-booking]").forEach((link) => {
     link.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#rezerwacja");
+    link.setAttribute("href", "#widgetHolder_mwczl89f2");
     link.removeAttribute("data-booking-modal");
     link.dataset.bookingWidget = "";
   });
@@ -254,7 +198,7 @@ enhanceFooter();
 normaliseBookingControls();
 
 createReserveButton();
-createHeroBookingModule();
+enhanceDirectBedBookingWidget();
 const hero = document.querySelector(".home-hero, .subpage-hero");
 if (hero) document.body.classList.add("hero-in-view");
 if (hero && "IntersectionObserver" in window) {
@@ -287,8 +231,8 @@ const showBookingWidget = () => {
 
 document.querySelectorAll("a, button").forEach((element) => {
   if (!isBookingTrigger(element)) return;
-  element.setAttribute("aria-controls", "rezerwacja");
-  if (element instanceof HTMLAnchorElement) element.setAttribute("href", "#rezerwacja");
+  element.setAttribute("aria-controls", "widgetHolder_mwczl89f2");
+  if (element instanceof HTMLAnchorElement) element.setAttribute("href", "#widgetHolder_mwczl89f2");
 });
 
 document.addEventListener("click", (event) => {
