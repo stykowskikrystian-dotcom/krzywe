@@ -2631,3 +2631,198 @@
   animation-play-state: paused;
   transform: translateY(14px);
 }
+
+/* Shell 14: live BedBooking widget.
+   Only the frame is branded here; the vendor widget and its booking logic stay untouched. */
+.hero-booking-module,
+.hero-booking-module:hover,
+.hero-booking-module:focus-visible {
+  color: #fffaf2;
+  background:
+    radial-gradient(circle at 92% 5%, rgba(181, 113, 65, 0.2), transparent 28%),
+    linear-gradient(135deg, rgba(39, 52, 49, 0.98), rgba(20, 29, 29, 0.98));
+  cursor: default;
+}
+
+.hero-booking-module {
+  scroll-margin-top: 110px;
+}
+
+.hero-booking-module:focus {
+  outline: 0;
+}
+
+.hero-booking-module:focus-visible,
+.hero-booking-module.is-booking-highlighted {
+  border-color: rgba(232, 183, 141, 0.82);
+  box-shadow:
+    0 18px 48px rgba(6, 11, 12, 0.34),
+    0 0 0 4px rgba(184, 117, 68, 0.2);
+}
+
+.hero-booking-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 7px;
+  width: 100%;
+  margin: 0;
+}
+
+.hero-booking-heading {
+  grid-column: 1;
+  min-height: 30px;
+}
+
+.hero-booking-heading > span:nth-child(2) {
+  min-width: 0;
+}
+
+.hero-booking-heading em {
+  white-space: nowrap;
+}
+
+.bedbooking-widget-frame {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  min-height: 62px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  background: rgba(255, 252, 247, 0.98);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  contain: layout paint;
+}
+
+.bedbooking-widget-holder {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  min-width: 0;
+  min-height: 62px;
+  overflow: hidden;
+}
+
+.bedbooking-widget-holder iframe {
+  display: block;
+  width: 100% !important;
+  max-width: 100% !important;
+  border: 0 !important;
+}
+
+.bedbooking-widget-loading,
+.bedbooking-widget-error {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  color: rgba(41, 50, 49, 0.68);
+  font-size: 0.66rem;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.bedbooking-widget-loading::before {
+  width: 15px;
+  height: 15px;
+  margin-right: 9px;
+  border: 2px solid rgba(167, 104, 58, 0.2);
+  border-top-color: #a7683a;
+  border-radius: 50%;
+  content: "";
+  animation: bedbooking-loader 750ms linear infinite;
+}
+
+.bedbooking-widget-error {
+  z-index: 3;
+  display: none;
+  color: #614a39;
+  background: #fff8ef;
+  line-height: 1.45;
+}
+
+.bedbooking-widget-error a {
+  margin-left: 4px;
+  color: #92562d;
+  font-weight: 850;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.hero-booking-module[data-widget-state="ready"] .bedbooking-widget-loading {
+  display: none;
+}
+
+.hero-booking-module[data-widget-state="error"] .bedbooking-widget-loading,
+.hero-booking-module[data-widget-state="error"] .bedbooking-widget-holder {
+  display: none;
+}
+
+.hero-booking-module[data-widget-state="error"] .bedbooking-widget-error {
+  display: flex;
+}
+
+@keyframes bedbooking-loader {
+  to { transform: rotate(1turn); }
+}
+
+@media (min-width: 900px) {
+  .home-v2 .home-hero-content > .home-hero-facts,
+  .home-v2.hero-in-view .home-hero-content > .home-hero-facts,
+  .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats),
+  .hero-in-view .subpage-main .subpage-hero-content > :is(.homes-hero-stats, .lake-hero-stats, .attraction-hero-stats, .offer-hero-stats, .contact-hero-stats) {
+    bottom: calc(clamp(18px, 2vw, 26px) + var(--hero-booking-panel-height, 112px) + 9px);
+  }
+
+  .hero-booking-module,
+  .hero-booking-module:hover,
+  .hero-booking-module:focus-visible {
+    min-height: 0;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 899px) {
+  .hero-booking-module,
+  .hero-booking-module:hover,
+  .hero-booking-module:focus-visible {
+    min-height: 0;
+    padding: 7px;
+  }
+
+  .hero-booking-heading {
+    min-height: 27px;
+  }
+
+  .bedbooking-widget-frame,
+  .bedbooking-widget-holder {
+    min-height: 58px;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero-booking-heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .hero-booking-heading strong {
+    font-size: 0.78rem;
+  }
+
+  .hero-booking-heading em {
+    font-size: 0.39rem;
+  }
+
+  .bedbooking-widget-frame,
+  .bedbooking-widget-holder {
+    min-height: 56px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bedbooking-widget-loading::before { animation: none; }
+}
