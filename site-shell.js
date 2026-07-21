@@ -1,243 +1,122 @@
-const BOOKING_TRIGGER_SELECTOR = [
-  ".site-header .cta",
-  ".mobile-cta",
-  ".footer-v2-hero > a",
-  ".footer-reserve",
-  ".reserve-fab",
-  ".offer-booking-button",
-  "[data-main-booking]",
-].join(",");
+(() => {
+  const currentPage = document.body.dataset.page || 'home';
+  const pages = [
+    ['home', 'index.html', 'Strona główna', 'Strona główna'],
+    ['houses', 'domy-i-galeria.html', 'Domy i galeria', 'Domy i galeria'],
+    ['lake', 'jezioro-krzywe.html', 'Jezioro', 'Jezioro Krzywe'],
+    ['attractions', 'atrakcje-w-okolicy.html', 'Atrakcje', 'Atrakcje w okolicy'],
+    ['offer', 'oferta.html', 'Oferta', 'Oferta'],
+    ['contact', 'kontakt.html', 'Kontakt', 'Kontakt'],
+    ['blog', 'blog.html', 'Blog', 'Blog']
+  ];
 
-const BOOKING_LABEL = /(?:zarezerwuj|sprawdź\s+termin(?:y)?|sprawdź\s+dostępność)/i;
+  const navLinks = (mobile = false) => pages.map(([key, href, shortLabel, longLabel]) => {
+    const active = currentPage === key ? ' class="active" aria-current="page"' : '';
+    const label = mobile ? longLabel : shortLabel;
+    return mobile
+      ? `<a${active} href="${href}"><b>${label}</b><i aria-hidden="true">↗</i></a>`
+      : `<a${active} href="${href}">${label}</a>`;
+  }).join('');
 
-const normaliseLabel = (element) => (element.textContent || "").replace(/\s+/g, " ").trim();
+  const phoneIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.1 3.5 9.5 7 7.8 9.2c1.4 3 3.6 5.2 6.6 6.6l2.2-1.7 3.5 2.4c.4.3.6.8.4 1.3-.5 1.5-1.9 2.5-3.5 2.5C9.7 20.3 3.7 14.3 3.7 7c0-1.6 1-3 2.5-3.5.4-.2.8-.1.9 0Z"/></svg>';
+  const mailIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18v13H3zM3.5 6l8.5 7 8.5-7"/></svg>';
+  const instagramIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="fill-dot" cx="17.4" cy="6.8" r="1"/></svg>';
+  const facebookIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.6 20v-7h2.5l.4-3h-2.9V8.1c0-.9.3-1.6 1.5-1.6h1.6V3.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V10H9v3h2.5v7"/></svg>';
 
-const enhanceMobileNavigation = () => {
-  const header = document.querySelector("[data-header]");
-  const toggle = header?.querySelector("[data-menu-toggle]");
-  const panel = header?.querySelector("[data-mobile-panel]");
-  if (!header || !toggle || !panel || panel.dataset.enhanced === "true") return;
-
-  panel.dataset.enhanced = "true";
-  panel.setAttribute("aria-label", "Menu mobilne");
-  header.querySelectorAll([
-    ".instagram-link",
-    ".facebook-link",
-    '.mobile-social-link[href*="instagram.com"]',
-    '.mobile-social-link[href*="facebook.com"]',
-  ].join(",")).forEach((link) => link.remove());
-  const heading = panel.querySelector(".mobile-panel-heading");
-  if (heading) {
-    heading.innerHTML = `
-      <span><small>Nawigacja</small><strong>Odkryj Krzywe</strong></span>
-      <button class="mobile-panel-close" type="button" aria-label="Zamknij menu">×</button>`;
+  const headerTarget = document.getElementById('siteHeader');
+  if (headerTarget) {
+    headerTarget.outerHTML = `
+      <a class="skip" href="#main">Przejdź do treści</a>
+      <header class="topbar" id="topbar">
+        <div class="nav-shell">
+          <a class="brand" href="index.html" aria-label="Krzywe Lake Houses — strona główna">
+            <img src="assets/krzywe-logo-light-v3.png" alt="Krzywe Lake Houses Mazury" />
+          </a>
+          <nav class="desktop-nav" aria-label="Główna nawigacja">${navLinks()}</nav>
+          <div class="header-actions">
+            <a class="nav-icon contact-link" href="tel:+48505586950" aria-label="Zadzwoń: 505 586 950" data-tip="505 586 950">${phoneIcon}</a>
+            <a class="nav-icon contact-link mail-link" href="mailto:krzywelakehouses@gmail.com" aria-label="Napisz e-mail: krzywelakehouses@gmail.com" data-tip="krzywelakehouses@gmail.com">${mailIcon}</a>
+            <span class="action-separator" aria-hidden="true"></span>
+            <a class="nav-icon social-link" href="#instagram" aria-label="Instagram">${instagramIcon}</a>
+            <a class="nav-icon social-link" href="#facebook" aria-label="Facebook">${facebookIcon}</a>
+            <button class="menu-btn" aria-label="Otwórz menu" aria-expanded="false"><span class="menu-label">Menu</span><span class="menu-glyph"><i></i><i></i></span></button>
+          </div>
+        </div>
+        <div class="booking-drawer" id="bookingDrawer">
+          <div class="booking-drawer-content" id="bookingPanel"><div class="booking-widget"><div id="widgetHolder_o71a3abns"></div></div></div>
+          <button class="booking-toggle" id="bookingToggle" type="button" aria-expanded="true" aria-controls="bookingPanel" aria-label="Zwiń moduł rezerwacji"><span>TERMIN</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+        </div>
+      </header>
+      <div class="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-inner">
+          <div class="mobile-menu-intro"><span>NAWIGACJA</span><p>Krzywe · Mazury</p></div>
+          <div class="mobile-menu-layout">
+            <nav aria-label="Menu mobilne">${navLinks(true)}</nav>
+            <aside class="menu-contact">
+              <div class="mobile-booking-module">
+                <div class="mobile-booking-heading"><span>REZERWACJA ONLINE</span><strong>Sprawdź wolny termin</strong></div>
+                <div class="mobile-booking-slot" id="mobileBookingSlot"></div>
+              </div>
+              <p>Kontakt i dojazd</p>
+              <div class="menu-quick-actions">
+                <a href="tel:+48505586950" aria-label="Zadzwoń: 505 586 950"><span>${phoneIcon}</span><small>Telefon</small></a>
+                <a href="mailto:krzywelakehouses@gmail.com" aria-label="Napisz e-mail"><span>${mailIcon}</span><small>E-mail</small></a>
+                <a href="#instagram" aria-label="Instagram"><span>${instagramIcon}</span><small>Instagram</small></a>
+                <a href="#facebook" aria-label="Facebook"><span>${facebookIcon}</span><small>Facebook</small></a>
+                <a class="navigate-action" href="https://www.google.com/maps/dir/?api=1&amp;destination=53.802389%2C21.263815" target="_blank" rel="noopener noreferrer" aria-label="Nawiguj do Krzywe Lake Houses"><span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m20 4-7.1 16-2.2-6.7L4 11.1 20 4Z"/><path d="m10.7 13.3 4.1-4.1"/></svg></span><small>Nawiguj</small></a>
+              </div>
+            </aside>
+          </div>
+          <div class="menu-landscape" aria-hidden="true"><svg viewBox="0 0 900 120" preserveAspectRatio="none"><path d="M0 88c110-20 181 20 285 0s172-7 263 6 193-29 352-3M0 103c95-17 177 11 263 0s169-12 263 2 201-19 374-5"/><path d="M685 76 705 26l20 50m-29-23h19m-13-13h7M752 79l17-40 17 40m-27-21h19m-15-10h12"/></svg></div>
+          <nav class="mobile-menu-legal" aria-label="Informacje prawne">
+            <a href="#polityka-prywatnosci" data-legal-link>Polityka prywatności</a>
+            <a href="#pliki-cookie" data-legal-link>Pliki cookie</a>
+            <a href="#regulamin-obiektu" data-legal-link>Regulamin obiektu</a>
+          </nav>
+          <div class="mobile-menu-footer"><span>53.802389° N · 21.263815° E</span><span>Krzywe Lake Houses</span></div>
+        </div>
+      </div>`;
   }
 
-  const phone = panel.querySelector(".mobile-contact-link");
-  const phoneCopy = phone?.querySelector("span");
-  if (phoneCopy) phoneCopy.innerHTML = "<small>Telefon</small><strong>505 586 950</strong>";
-
-  const email = panel.querySelector('.mobile-social-link[href^="mailto:"]');
-  if (email) {
-    email.removeAttribute("aria-label");
-    email.insertAdjacentHTML("beforeend", "<span><small>E-mail</small><strong>krzywelakehouses@icloud.com</strong></span>");
+  const subpageHeroCopy = document.querySelector('.subpage-hero-copy');
+  if (subpageHeroCopy && !document.getElementById('ambientToggle')) {
+    subpageHeroCopy.insertAdjacentHTML('beforeend', '<button class="ambient-control ambient-page-control" id="ambientToggle" type="button" aria-label="Wyłącz dźwięk tła" aria-pressed="false"><span class="ambient-eq" aria-hidden="true"><i></i><i></i><i></i></span><b>Wyłącz dźwięk</b></button>');
   }
 
-  const contactRow = panel.querySelector(".mobile-contact-row");
-  if (contactRow && !panel.querySelector(".mobile-address-link")) {
-    contactRow.insertAdjacentHTML("afterend", `
-      <a class="mobile-address-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=53.802408%2C21.263949" target="_blank" rel="noopener">
-        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-13A7 7 0 0 0 5 9c0 6.8 7 13 7 13Z"/><circle cx="12" cy="9" r="2.3"/></svg>
-        <span><small>Adres</small><strong>ul. Zwycięstwa, 11-710 Piecki</strong></span>
-      </a>`);
+  const footerTarget = document.getElementById('siteFooter');
+  if (footerTarget) {
+    footerTarget.outerHTML = `
+      <footer id="kontakt">
+        <div class="footer-top">
+          <a class="brand footer-brand" href="index.html"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M5 32V18L21 6l16 12v14M12 32V20l9-7 9 7v12M4 32h34"/></svg><span><b>KRZYWE</b><small>LAKE HOUSES</small></span></a>
+          <h2>Do zobaczenia<br><em>nad jeziorem.</em></h2>
+          <a class="circle-link" href="index.html#rezerwacja">REZERWUJ<br>POBYT ↗</a>
+        </div>
+        <div class="footer-grid">
+          <div><small>KONTAKT</small><p><a href="tel:+48505586950">+48 505 586 950</a><br><a href="mailto:krzywelakehouses@gmail.com">krzywelakehouses@gmail.com</a></p></div>
+          <div><small>LOKALIZACJA</small><p>Jezioro Krzywe<br>53.802389° N · 21.263815° E</p></div>
+          <div><small>NAWIGACJA</small><a href="domy-i-galeria.html">Domy</a><a href="jezioro-krzywe.html">Jezioro</a><a href="oferta.html">Oferta</a></div>
+          <div><small>OBSERWUJ</small><a href="#instagram">Instagram ↗</a><a href="#facebook">Facebook ↗</a></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 KRZYWE LAKE HOUSES</span><span>PRYWATNOŚĆ · REGULAMIN</span><span>MADE WITH CARE IN MASURIA</span></div>
+      </footer>`;
   }
 
-  panel.querySelectorAll(".mobile-cta").forEach((link) => {
-    link.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#widgetHolder_mwczl89f2");
-    link.removeAttribute("data-booking-modal");
-    link.dataset.bookingWidget = "";
-  });
-
-  const closeMenu = () => {
-    header.classList.remove("menu-open");
-    toggle.setAttribute("aria-expanded", "false");
-  };
-  const syncMenuA11y = () => {
-    const open = header.classList.contains("menu-open");
-    panel.setAttribute("aria-hidden", String(!open));
-    const label = toggle.querySelector(".sr-only");
-    if (label) label.textContent = open ? "Zamknij menu" : "Otwórz menu";
-  };
-  new MutationObserver(syncMenuA11y).observe(header, { attributes: true, attributeFilter: ["class"] });
-  syncMenuA11y();
-  panel.querySelector(".mobile-panel-close")?.addEventListener("click", closeMenu);
-  document.addEventListener("click", (event) => {
-    if (header.classList.contains("menu-open") && event.target instanceof Node && !header.contains(event.target)) closeMenu();
-  });
-};
-
-const enhanceDocumentLandmarks = () => {
-  const main = document.querySelector("main");
-  if (!main) return;
-  if (!main.id) main.id = "main-content";
-  if (document.querySelector(".skip-link")) return;
-  const link = document.createElement("a");
-  link.className = "skip-link";
-  link.href = `#${main.id}`;
-  link.textContent = "Przejdź do treści";
-  document.body.prepend(link);
-};
-
-const enhanceFooter = () => {
-  const footer = document.querySelector(".footer-v2");
-  const grid = footer?.querySelector(".footer-v2-grid");
-  if (!footer || !grid || footer.dataset.enhanced === "true") return;
-  footer.dataset.enhanced = "true";
-
-  const brand = grid.querySelector(".footer-v2-brand");
-  brand?.querySelector("a")?.insertAdjacentHTML("afterend", '<span class="footer-v2-brand-kicker">Całoroczne domy · pierwsza linia jeziora</span>');
-  brand?.insertAdjacentHTML("beforeend", `
-    <nav class="footer-v2-socials" aria-label="Media społecznościowe">
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram Krzywe Lake Houses">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg><span>Instagram</span>
-      </a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook Krzywe Lake Houses">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.5l.5-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span>Facebook</span>
-      </a>
-    </nav>`);
-
-  grid.insertAdjacentHTML("beforeend", `
-    <section class="footer-v2-location">
-      <h3>Tu jesteśmy</h3>
-      <a class="footer-v2-map-card" href="https://www.google.com/maps/dir/?api=1&amp;destination=53.802408%2C21.263949" target="_blank" rel="noopener">
-        <span aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-13A7 7 0 0 0 5 9c0 6.8 7 13 7 13Z"/><circle cx="12" cy="9" r="2.3"/></svg></span>
-        <div><small>Krzywe Lake Houses</small><strong>ul. Zwycięstwa<br>11-710 Piecki</strong></div>
-      </a>
-      <p>Spokojna baza na Pojezierzu Mrągowskim — blisko Piecek, Mrągowa i Mikołajek.</p>
-      <a class="footer-v2-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=53.802408%2C21.263949" target="_blank" rel="noopener">Wyznacz trasę <span aria-hidden="true">↗</span></a>
-    </section>`);
-
-  grid.insertAdjacentHTML("afterend", `
-    <div class="footer-v2-highlights" aria-label="Najważniejsze informacje o obiekcie">
-      <article><span>01</span><div><strong>Bezpośredni dostęp</strong><small>do jeziora i pomostu</small></div></article>
-      <article><span>02</span><div><strong>Dwa domy</strong><small>jeden lub oba razem</small></div></article>
-      <article><span>20</span><div><strong>Do 20 gości</strong><small>rodziny i grupy</small></div></article>
-      <article><span>365</span><div><strong>Cały rok</strong><small>cztery pory Mazur</small></div></article>
-    </div>`);
-};
-
-const createReserveButton = () => {
-  document.querySelectorAll(".reserve-fab").forEach((element) => element.remove());
-  const button = document.createElement("button");
-  button.className = "reserve-fab";
-  button.type = "button";
-  button.dataset.bookingWidget = "";
-  button.setAttribute("aria-label", "Przejdź do kalendarza rezerwacji");
-  button.innerHTML = `
-    <span class="reserve-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24"><path d="M8 2v4M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="4" /><path d="M3 10h18m-9 6 2 2 4-5" /></svg>
-    </span>
-    <span class="reserve-copy"><span>Zarezerwuj</span><small>sprawdź termin online</small></span>`;
-  document.body.append(button);
-  return button;
-};
-
-const enhanceDirectBedBookingWidget = () => {
-  const hero = document.querySelector(".home-hero, .subpage-hero");
-  const module = document.querySelector("#widgetHolder_mwczl89f2.hero-booking-module");
-  if (!hero || !module) return null;
-
-  const markAsLoaded = () => {
-    if (module.children.length) module.dataset.widgetState = "ready";
-  };
-
-  markAsLoaded();
-  new MutationObserver(markAsLoaded).observe(module, { childList: true, subtree: true });
-
-  if ("ResizeObserver" in window) {
-    const syncPanelHeight = () => {
-      hero.style.setProperty("--hero-booking-panel-height", `${Math.ceil(module.getBoundingClientRect().height)}px`);
-    };
-    new ResizeObserver(syncPanelHeight).observe(module);
-    requestAnimationFrame(syncPanelHeight);
+  if (document.getElementById('widgetHolder_o71a3abns')) {
+    window['BB-Widget'] = 'w1';
+    window.w1 = window.w1 || function () { (window.w1.q = window.w1.q || []).push(arguments); };
+    if (!document.getElementById('w1')) {
+      const widgetScript = document.createElement('script');
+      widgetScript.id = 'w1';
+      widgetScript.src = 'https://bed-booking.com/widget/widget.js';
+      widgetScript.async = true;
+      document.head.appendChild(widgetScript);
+    }
+    window.w1('init', {
+      targetElementId: 'widgetHolder_o71a3abns',
+      widgetId: 'fdcbe00b103f474c172bcf0455bca64a2ef0705b',
+      type: 'simple',
+      staticWidget: 1
+    });
   }
-
-  window.setTimeout(() => {
-    if (module.dataset.widgetState === "loading") module.dataset.widgetState = "error";
-  }, 15000);
-
-  return module;
-};
-
-const normaliseBookingControls = () => {
-  document.querySelectorAll(".site-header .cta").forEach((link) => {
-    link.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#widgetHolder_mwczl89f2");
-    link.removeAttribute("data-booking-modal");
-    link.dataset.bookingWidget = "";
-  });
-  document.querySelectorAll(".offer-booking-button").forEach((link) => {
-    const label = link.querySelector("span");
-    if (label) label.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#widgetHolder_mwczl89f2");
-    link.removeAttribute("data-booking-modal");
-    link.dataset.bookingWidget = "";
-  });
-  document.querySelectorAll("[data-main-booking]").forEach((link) => {
-    link.textContent = "Sprawdź termin";
-    link.setAttribute("href", "#widgetHolder_mwczl89f2");
-    link.removeAttribute("data-booking-modal");
-    link.dataset.bookingWidget = "";
-  });
-};
-
-enhanceDocumentLandmarks();
-enhanceMobileNavigation();
-enhanceFooter();
-normaliseBookingControls();
-
-createReserveButton();
-enhanceDirectBedBookingWidget();
-const hero = document.querySelector(".home-hero, .subpage-hero");
-if (hero) document.body.classList.add("hero-in-view");
-if (hero && "IntersectionObserver" in window) {
-  new IntersectionObserver(([entry]) => {
-    document.body.classList.toggle("hero-in-view", entry.isIntersecting);
-  }, { threshold: 0.18 }).observe(hero);
-}
-
-const isBookingTrigger = (element) => {
-  if (!(element instanceof HTMLElement)) return false;
-  if (element.closest(".hero-booking-module")) return false;
-  if (element.matches(BOOKING_TRIGGER_SELECTOR) || element.hasAttribute("data-booking-widget") || element.hasAttribute("data-booking-modal")) return true;
-  return element.matches("a, button") && BOOKING_LABEL.test(normaliseLabel(element));
-};
-
-const showBookingWidget = () => {
-  const module = document.querySelector(".hero-booking-module");
-  if (!module) return;
-
-  const header = document.querySelector("[data-header]");
-  header?.classList.remove("menu-open");
-  header?.querySelector("[data-menu-toggle]")?.setAttribute("aria-expanded", "false");
-
-  module.classList.remove("is-booking-highlighted");
-  module.focus({ preventScroll: true });
-  module.scrollIntoView({ behavior: "smooth", block: "center" });
-  requestAnimationFrame(() => module.classList.add("is-booking-highlighted"));
-  window.setTimeout(() => module.classList.remove("is-booking-highlighted"), 1300);
-};
-
-document.querySelectorAll("a, button").forEach((element) => {
-  if (!isBookingTrigger(element)) return;
-  element.setAttribute("aria-controls", "widgetHolder_mwczl89f2");
-  if (element instanceof HTMLAnchorElement) element.setAttribute("href", "#widgetHolder_mwczl89f2");
-});
-
-document.addEventListener("click", (event) => {
-  const trigger = event.target instanceof Element ? event.target.closest("a, button") : null;
-  if (!trigger || !isBookingTrigger(trigger)) return;
-  event.preventDefault();
-  showBookingWidget();
-});
+})();
