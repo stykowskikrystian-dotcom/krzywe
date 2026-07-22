@@ -90,13 +90,13 @@
         <div class="footer-top">
           <a class="brand footer-brand" href="index.html"><svg viewBox="0 0 42 42" aria-hidden="true"><path d="M5 32V18L21 6l16 12v14M12 32V20l9-7 9 7v12M4 32h34"/></svg><span><b>KRZYWE</b><small>LAKE HOUSES</small></span></a>
           <h2>Do zobaczenia<br><em>nad jeziorem.</em></h2>
-          <a class="circle-link" href="index.html#rezerwacja">REZERWUJ<br>POBYT ↗</a>
+          <a class="circle-link" href="index.html#rezerwacja">REZERWUJ<br>POBYT</a>
         </div>
         <div class="footer-grid">
           <div><small>KONTAKT</small><p><a href="tel:+48505586950">+48 505 586 950</a><br><a href="mailto:krzywelakehouses@gmail.com">krzywelakehouses@gmail.com</a></p></div>
           <div><small>LOKALIZACJA</small><p>Jezioro Krzywe<br>53.802389° N · 21.263815° E</p></div>
           <div><small>NAWIGACJA</small><a href="domy-i-galeria.html">Domy</a><a href="jezioro-krzywe.html">Jezioro</a><a href="oferta.html">Oferta</a></div>
-          <div><small>OBSERWUJ</small><a href="#instagram">Instagram ↗</a><a href="#facebook">Facebook ↗</a></div>
+          <div><small>OBSERWUJ</small><a href="#instagram">Instagram</a><a href="#facebook">Facebook</a></div>
         </div>
         <div class="footer-bottom"><span>© 2026 KRZYWE LAKE HOUSES</span><span>PRYWATNOŚĆ · REGULAMIN</span><span>MADE WITH CARE IN MASURIA</span></div>
       </footer>`;

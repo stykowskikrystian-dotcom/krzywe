@@ -314,6 +314,7 @@ if (matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motio
   });
 }
 
+const getJourneyViewportHeight = () => window.visualViewport?.height || window.innerHeight;
 const dayJourney = document.querySelector('[data-day-journey]');
 const dayJourneyTrack = document.querySelector('[data-day-track]');
 const dayJourneyPanels = [...document.querySelectorAll('[data-day-panel]')];
@@ -328,7 +329,7 @@ function updateDayJourney() {
   if (!dayJourney || !dayJourneyTrack || !dayJourneyPanels.length) return;
 
   const rect = dayJourney.getBoundingClientRect();
-  const verticalDistance = Math.max(1, dayJourney.offsetHeight - window.innerHeight);
+  const verticalDistance = Math.max(1, dayJourney.offsetHeight - getJourneyViewportHeight());
   const progress = Math.min(1, Math.max(0, -rect.top / verticalDistance));
   const horizontalDistance = Math.max(0, dayJourneyTrack.scrollWidth - window.innerWidth);
   dayJourneyTrack.style.transform = `translate3d(${-progress * horizontalDistance}px, 0, 0)`;
@@ -355,7 +356,7 @@ dayJourneyButtons.forEach((button, index) => {
   button.addEventListener('click', () => {
     if (!dayJourney) return;
     const sectionTop = window.scrollY + dayJourney.getBoundingClientRect().top;
-    const verticalDistance = Math.max(1, dayJourney.offsetHeight - window.innerHeight);
+    const verticalDistance = Math.max(1, dayJourney.offsetHeight - getJourneyViewportHeight());
     const panelProgress = dayJourneyButtons.length > 1 ? index / (dayJourneyButtons.length - 1) : 0;
     window.scrollTo({
       top: sectionTop + verticalDistance * panelProgress,
@@ -387,7 +388,7 @@ function updateAttractionsJourney() {
   if (!attractionsJourney || !attractionsTrack || !attractionPanels.length) return;
 
   const rect = attractionsJourney.getBoundingClientRect();
-  const verticalDistance = Math.max(1, attractionsJourney.offsetHeight - window.innerHeight);
+  const verticalDistance = Math.max(1, attractionsJourney.offsetHeight - getJourneyViewportHeight());
   const progress = Math.min(1, Math.max(0, -rect.top / verticalDistance));
   const horizontalDistance = Math.max(0, attractionsTrack.scrollWidth - window.innerWidth);
   attractionsTrack.style.transform = `translate3d(${-progress * horizontalDistance}px, 0, 0)`;
@@ -422,7 +423,7 @@ function requestAttractionsUpdate() {
 function goToAttractionPanel(index) {
   if (!attractionsJourney) return;
   const sectionTop = window.scrollY + attractionsJourney.getBoundingClientRect().top;
-  const verticalDistance = Math.max(1, attractionsJourney.offsetHeight - window.innerHeight);
+  const verticalDistance = Math.max(1, attractionsJourney.offsetHeight - getJourneyViewportHeight());
   const panelProgress = attractionButtons.length > 1 ? index / (attractionButtons.length - 1) : 0;
   window.scrollTo({
     top: sectionTop + verticalDistance * panelProgress,
@@ -468,7 +469,7 @@ function updateOffersJourney() {
   if (!offersJourney || !offersTrack || !offerPanels.length) return;
 
   const rect = offersJourney.getBoundingClientRect();
-  const verticalDistance = Math.max(1, offersJourney.offsetHeight - window.innerHeight);
+  const verticalDistance = Math.max(1, offersJourney.offsetHeight - getJourneyViewportHeight());
   const progress = Math.min(1, Math.max(0, -rect.top / verticalDistance));
   const horizontalDistance = Math.max(0, offersTrack.scrollWidth - window.innerWidth);
   offersTrack.style.transform = `translate3d(${-progress * horizontalDistance}px, 0, 0)`;
@@ -503,7 +504,7 @@ function requestOffersUpdate() {
 function goToOfferPanel(index) {
   if (!offersJourney) return;
   const sectionTop = window.scrollY + offersJourney.getBoundingClientRect().top;
-  const verticalDistance = Math.max(1, offersJourney.offsetHeight - window.innerHeight);
+  const verticalDistance = Math.max(1, offersJourney.offsetHeight - getJourneyViewportHeight());
   const panelProgress = offerButtons.length > 1 ? index / (offerButtons.length - 1) : 0;
   window.scrollTo({
     top: sectionTop + verticalDistance * panelProgress,
@@ -533,9 +534,99 @@ if (offersJourney) {
   updateOffersJourney();
 }
 
+const chapterFiveJourney = document.querySelector('[data-houses-journey]');
+const chapterFiveTrack = document.querySelector('[data-houses-track]');
+const chapterFivePanels = [...document.querySelectorAll('[data-house-panel]')];
+const chapterFiveButtons = [...document.querySelectorAll('[data-house-goto]')];
+const chapterFiveProgress = document.querySelector('[data-houses-progress]');
+const chapterFiveCurrent = document.querySelector('[data-house-current]');
+const chapterFiveTitle = document.querySelector('[data-house-title]');
+const chapterFiveNav = document.querySelector('.houses-journey-nav');
+let chapterFiveFrame = 0;
+let activeChapterFivePanel = -1;
+
+function updateChapterFiveJourney() {
+  chapterFiveFrame = 0;
+  if (!chapterFiveJourney || !chapterFiveTrack || !chapterFivePanels.length) return;
+
+  const rect = chapterFiveJourney.getBoundingClientRect();
+  const verticalDistance = Math.max(1, chapterFiveJourney.offsetHeight - getJourneyViewportHeight());
+  const progress = Math.min(1, Math.max(0, -rect.top / verticalDistance));
+  const horizontalDistance = Math.max(0, chapterFiveTrack.scrollWidth - window.innerWidth);
+  chapterFiveTrack.style.transform = `translate3d(${-progress * horizontalDistance}px, 0, 0)`;
+  chapterFiveProgress?.style.setProperty('--house-progress', progress.toFixed(4));
+
+  const nextActivePanel = Math.min(chapterFivePanels.length - 1, Math.round(progress * (chapterFivePanels.length - 1)));
+  if (nextActivePanel === activeChapterFivePanel) return;
+  activeChapterFivePanel = nextActivePanel;
+  chapterFivePanels.forEach((panel, index) => panel.classList.toggle('is-active', index === activeChapterFivePanel));
+  chapterFiveButtons.forEach((button, index) => {
+    const isActive = index === activeChapterFivePanel;
+    button.classList.toggle('is-active', isActive);
+    if (isActive) button.setAttribute('aria-current', 'step');
+    else button.removeAttribute('aria-current');
+  });
+  if (chapterFiveCurrent) chapterFiveCurrent.textContent = String(activeChapterFivePanel + 1).padStart(2, '0');
+  if (chapterFiveTitle) chapterFiveTitle.textContent = chapterFiveButtons[activeChapterFivePanel]?.dataset.houseLabel || '';
+  if (chapterFiveNav && window.innerWidth <= 760) {
+    const activeButton = chapterFiveButtons[activeChapterFivePanel];
+    const targetLeft = activeButton.offsetLeft - (chapterFiveNav.clientWidth - activeButton.offsetWidth) / 2;
+    chapterFiveNav.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  }
+}
+
+function requestChapterFiveUpdate() {
+  if (!chapterFiveFrame) chapterFiveFrame = requestAnimationFrame(updateChapterFiveJourney);
+}
+
+function goToChapterFivePanel(index) {
+  if (!chapterFiveJourney) return;
+  const sectionTop = window.scrollY + chapterFiveJourney.getBoundingClientRect().top;
+  const verticalDistance = Math.max(1, chapterFiveJourney.offsetHeight - getJourneyViewportHeight());
+  const panelProgress = chapterFiveButtons.length > 1 ? index / (chapterFiveButtons.length - 1) : 0;
+  window.scrollTo({
+    top: sectionTop + verticalDistance * panelProgress,
+    behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+  });
+}
+
+chapterFiveButtons.forEach((button, index) => {
+  button.addEventListener('click', () => goToChapterFivePanel(index));
+  button.addEventListener('keydown', (event) => {
+    let nextIndex = index;
+    if (event.key === 'ArrowLeft') nextIndex = Math.max(0, index - 1);
+    else if (event.key === 'ArrowRight') nextIndex = Math.min(chapterFiveButtons.length - 1, index + 1);
+    else if (event.key === 'Home') nextIndex = 0;
+    else if (event.key === 'End') nextIndex = chapterFiveButtons.length - 1;
+    else return;
+    event.preventDefault();
+    chapterFiveButtons[nextIndex].focus();
+    goToChapterFivePanel(nextIndex);
+  });
+});
+
+if (chapterFiveJourney) {
+  window.addEventListener('scroll', requestChapterFiveUpdate, { passive: true });
+  window.addEventListener('resize', requestChapterFiveUpdate, { passive: true });
+  window.addEventListener('pageshow', requestChapterFiveUpdate);
+  updateChapterFiveJourney();
+}
+
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', () => {
+    requestDayJourneyUpdate();
+    requestAttractionsUpdate();
+    requestOffersUpdate();
+    requestChapterFiveUpdate();
+  }, { passive: true });
+}
+
 const houses = [
-  { name: 'Brzoza', desc: 'Jasny, miękki, pełen porannego słońca.', img: 'assets/interior.png', details: ['10 gości', '3 sypialnie', 'prywatna sauna'] },
-  { name: 'Sosna', desc: 'Głęboki, spokojny, otwarty na wieczorne światło.', img: 'assets/hero-lake-houses.png', details: ['10 gości', '3 sypialnie', 'kominek i sauna'] }
+  { name: 'Modern', desc: 'Jasny, miękki, pełen porannego słońca.', img: 'assets/interior.png', details: ['10 gości', '4 sypialnie', '3 łazienki'] },
+  { name: 'Loft', desc: 'Głęboki, spokojny, otwarty na wieczorne światło.', img: 'assets/hero-lake-houses.png', details: ['10 gości', '4 sypialnie', '3 łazienki'] }
 ];
 let currentHouse = 0;
 

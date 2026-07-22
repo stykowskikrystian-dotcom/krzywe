@@ -5,3 +5,44 @@ Source: https://commons.wikimedia.org/wiki/File:Wszystkie_drogi_prowadz%C4%85_do
 License: Creative Commons Attribution 3.0 Unported
 License URL: https://creativecommons.org/licenses/by/3.0/
 Changes: displayed with CSS crop, contrast, saturation and brightness adjustments.
+
+Chapter 05 temporary imagery — MODERN / LOFT
+License for all photographs below: Unsplash License
+License information: https://unsplash.com/license
+Changes: responsive crop, color grading, contrast, brightness and saturation adjustments in CSS.
+
+chapter-05-modern-exterior.jpg — Hans
+https://unsplash.com/photos/VTuQ_b6pyYY
+
+chapter-05-loft-exterior.jpg — Barnabas Davoti
+https://unsplash.com/photos/vu_1CFfK6Rk
+
+chapter-05-living-modern.jpg — Michael Brown
+https://unsplash.com/photos/jCU14DTFaC4
+
+chapter-05-living-loft.jpg — Michael Brown
+https://unsplash.com/photos/MvbPr7OisLA
+
+chapter-05-kitchen-modern.jpg — The Prototype
+https://unsplash.com/photos/3fn2K0h4bZg
+
+chapter-05-kitchen-loft.jpg — Caroline Badran
+https://unsplash.com/photos/UBoDgr8Y0YA
+
+chapter-05-bedroom-modern.jpg — Michael Brown
+https://unsplash.com/photos/oBbLUxAUJnc
+
+chapter-05-bedroom-loft.jpg — Marc Wieland
+https://unsplash.com/photos/tCP55pYoiJg
+
+chapter-05-bathroom-modern.jpg — Smart Renovations
+https://unsplash.com/photos/vkIgPbAIcoE
+
+chapter-05-bathroom-loft.jpg — Ela De Pure
+https://unsplash.com/photos/yKKT1HvKyEE
+
+chapter-05-terrace-modern.jpg — September Fifth
+https://unsplash.com/photos/LsPFC8_o-EA
+
+chapter-05-terrace-loft.jpg — Benjamin Chambon
+https://unsplash.com/photos/4iWgH8cGD8Q
