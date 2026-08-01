@@ -1,0 +1,116 @@
+/*
+ * One shared rhythm for every top-level page hero.
+ * The serif line has generous descenders, so the headline reserves visual
+ * breathing room before the lead instead of relying on a fragile margin alone.
+ */
+.home-hero__copy h1,
+.houses-hero__copy h1,
+.attractions-hero__copy h1,
+.blog-hero__copy h1,
+.lake-hero__copy h1,
+.offer-hero h1,
+.contact-hero h1 {
+  max-width: 720px;
+  font-size: clamp(3.15rem, 4.25vw, 5.15rem) !important;
+  font-weight: 500;
+  letter-spacing: -0.074em;
+  line-height: 0.9;
+  padding-bottom: clamp(22px, 2.35vw, 36px);
+}
+
+:is(
+  .home-hero__copy,
+  .houses-hero__copy,
+  .attractions-hero__copy,
+  .blog-hero__copy,
+  .lake-hero__copy,
+  .offer-hero,
+  .contact-hero
+) h1 > .hero-title__primary {
+  display: block;
+  white-space: nowrap;
+  line-height: 0.9;
+}
+
+:is(
+  .home-hero__copy,
+  .houses-hero__copy,
+  .attractions-hero__copy,
+  .blog-hero__copy,
+  .lake-hero__copy,
+  .offer-hero,
+  .contact-hero
+) h1 > em {
+  display: block;
+  margin: 0.2em 0 0 0.12em !important;
+  font-size: 0.66em !important;
+  line-height: 1;
+}
+
+.home-hero__lead,
+.houses-hero__lead,
+.attractions-hero__lead,
+.blog-hero__lead,
+.lake-hero__lead,
+.offer-hero__lead,
+.contact-hero__lead {
+  margin-top: clamp(20px, 2.15vw, 34px);
+}
+
+@media (max-width: 900px) {
+  .home-hero__copy h1,
+  .houses-hero__copy h1,
+  .attractions-hero__copy h1,
+  .blog-hero__copy h1,
+  .lake-hero__copy h1,
+  .offer-hero h1,
+  .contact-hero h1 {
+    font-size: clamp(3rem, 7.5vw, 4.8rem) !important;
+    padding-bottom: clamp(15px, 4vw, 22px);
+  }
+
+  .home-hero__lead,
+  .houses-hero__lead,
+  .attractions-hero__lead,
+  .blog-hero__lead,
+  .lake-hero__lead,
+  .offer-hero__lead,
+  .contact-hero__lead {
+    margin-top: clamp(18px, 5vw, 26px);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero__copy h1,
+  .houses-hero__copy h1,
+  .attractions-hero__copy h1,
+  .blog-hero__copy h1,
+  .lake-hero__copy h1,
+  .offer-hero h1,
+  .contact-hero h1 {
+    font-size: clamp(2.15rem, 9.1vw, 2.9rem) !important;
+  }
+
+  :is(
+    .home-hero__copy,
+    .houses-hero__copy,
+    .attractions-hero__copy,
+    .blog-hero__copy,
+    .lake-hero__copy,
+    .offer-hero,
+    .contact-hero
+  ) h1 > em {
+    margin-left: 0.08em !important;
+    font-size: 0.64em !important;
+  }
+
+  .home-hero__lead,
+  .houses-hero__lead,
+  .attractions-hero__lead,
+  .blog-hero__lead,
+  .lake-hero__lead,
+  .offer-hero__lead,
+  .contact-hero__lead {
+    margin-top: 20px;
+  }
+}
