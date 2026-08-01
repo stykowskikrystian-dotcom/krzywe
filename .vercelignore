@@ -1,0 +1,15 @@
+.git
+.github
+.openai
+.vinext
+.wrangler
+dist
+node_modules
+worker
+build
+examples
+tests
+scripts
+vite.config.ts
+drizzle.config.ts
+npm-debug.log*

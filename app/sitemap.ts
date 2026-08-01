@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 import { blogArticles } from "./blog/articles";
+import { SITE_URL, absoluteUrl } from "./lib/seo";
 
-const SITE_URL = "https://www.krzywelakehouses.pl";
-const LAST_CONTENT_UPDATE = new Date("2026-07-29T00:00:00+02:00");
+const LAST_CONTENT_UPDATE = new Date("2026-08-01T00:00:00+02:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
@@ -18,12 +18,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ] as const;
 
   const pages: MetadataRoute.Sitemap = routes.map((route) => ({
-    url: `${SITE_URL}${route.path}`,
+    url: absoluteUrl(route.path || "/"),
     lastModified: LAST_CONTENT_UPDATE,
     changeFrequency: route.changeFrequency,
     priority: route.priority,
     images: "image" in route && route.image
-      ? [`${SITE_URL}/krzywe-hero.webp`]
+      ? [`${SITE_URL}/krzywe-hero.webp`, `${SITE_URL}/brand-logo.png`]
       : undefined,
   }));
 
@@ -32,6 +32,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(`${article.updatedAt}T12:00:00+02:00`),
     changeFrequency: "monthly",
     priority: 0.72,
+    images: article.image.startsWith("http")
+      ? [article.image]
+      : [absoluteUrl(article.image)],
   }));
 
   return [...pages, ...articles];
