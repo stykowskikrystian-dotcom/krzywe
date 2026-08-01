@@ -114,3 +114,191 @@
     margin-top: 20px;
   }
 }
+
+/*
+ * One scroll cue for every top-level hero. Keeping it in normal document flow
+ * prevents the control from slipping underneath overlapping image collages.
+ */
+:is(
+  .home-hero,
+  .houses-hero,
+  .attractions-hero,
+  .blog-hero,
+  .lake-hero,
+  .offer-hero,
+  .contact-hero
+) > .hero-scroll-cue {
+  position: relative !important;
+  right: auto !important;
+  bottom: auto !important;
+  left: auto !important;
+  z-index: 60 !important;
+  isolation: isolate;
+  width: max-content !important;
+  min-width: 190px;
+  min-height: 54px !important;
+  margin: 18px auto 20px !important;
+  padding: 6px 7px 6px 22px !important;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px !important;
+  overflow: visible !important;
+  color: #5d6760 !important;
+  border: 1px solid rgba(31, 37, 33, 0.12) !important;
+  border-radius: 999px !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 13px 34px rgba(31, 43, 35, 0.12) !important;
+  backdrop-filter: blur(18px) saturate(130%);
+  font-size: 0.64rem !important;
+  font-weight: 680 !important;
+  letter-spacing: 0.105em !important;
+  line-height: 1;
+  text-transform: uppercase;
+  transform: none !important;
+  transition: color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease !important;
+}
+
+:is(
+  .home-hero,
+  .houses-hero,
+  .attractions-hero,
+  .blog-hero,
+  .lake-hero,
+  .offer-hero,
+  .contact-hero
+) > .hero-scroll-cue > span {
+  position: relative;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+:is(
+  .home-hero,
+  .houses-hero,
+  .attractions-hero,
+  .blog-hero,
+  .lake-hero,
+  .offer-hero,
+  .contact-hero
+) > .hero-scroll-cue i {
+  width: 42px !important;
+  height: 42px !important;
+  display: grid !important;
+  place-items: center;
+  flex: 0 0 42px;
+  color: var(--ink) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  font-style: normal;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+:is(
+  .home-hero,
+  .houses-hero,
+  .attractions-hero,
+  .blog-hero,
+  .lake-hero,
+  .offer-hero,
+  .contact-hero
+) > .hero-scroll-cue:hover {
+  color: var(--ink) !important;
+  border-color: rgba(164, 93, 43, 0.22) !important;
+  box-shadow: 0 14px 34px rgba(31, 43, 35, 0.12) !important;
+  transform: translateY(-2px) !important;
+}
+
+:is(
+  .home-hero,
+  .houses-hero,
+  .attractions-hero,
+  .blog-hero,
+  .lake-hero,
+  .offer-hero,
+  .contact-hero
+) > .hero-scroll-cue:hover i {
+  color: #fff !important;
+  background: var(--copper) !important;
+  transform: translateY(2px);
+}
+
+@media (max-width: 640px) {
+  :is(
+    .home-hero,
+    .houses-hero,
+    .attractions-hero,
+    .blog-hero,
+    .lake-hero,
+    .offer-hero,
+    .contact-hero
+  ) > .hero-scroll-cue {
+    min-width: 172px;
+    min-height: 48px !important;
+    margin: 12px auto 14px !important;
+    padding: 5px 6px 5px 18px !important;
+    gap: 14px !important;
+    font-size: 0.58rem !important;
+  }
+
+  :is(
+    .home-hero,
+    .houses-hero,
+    .attractions-hero,
+    .blog-hero,
+    .lake-hero,
+    .offer-hero,
+    .contact-hero
+  ) > .hero-scroll-cue i {
+    width: 36px !important;
+    height: 36px !important;
+    flex-basis: 36px;
+  }
+}
+
+/*
+ * Desktop-only fluid scale. It keeps notebooks compact, gives Full HD screens
+ * their intended 16px rhythm, and stops ultra-wide displays from stretching
+ * content beyond a comfortable reading width. Mobile rules remain untouched.
+ */
+@media (min-width: 901px) {
+  html {
+    font-size: clamp(15px, 0.833333vw, 17px);
+  }
+
+  :is(.home-shell, .section-shell, .offer-shell, .contact-shell) {
+    width: min(1480px, calc(100% - clamp(42px, 6vw, 120px))) !important;
+  }
+
+  :is(
+    .home-hero__grid,
+    .houses-hero__grid,
+    .attractions-hero__grid,
+    .blog-hero__grid,
+    .lake-hero__grid,
+    .offer-hero__grid,
+    .contact-hero__grid
+  ) {
+    width: min(100%, 1600px);
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: 1920px) {
+  :is(.home-shell, .section-shell, .offer-shell, .contact-shell) {
+    width: min(1560px, calc(100% - 144px)) !important;
+  }
+
+  :is(
+    .home-hero__grid,
+    .houses-hero__grid,
+    .attractions-hero__grid,
+    .blog-hero__grid,
+    .lake-hero__grid,
+    .offer-hero__grid,
+    .contact-hero__grid
+  ) {
+    max-width: 1680px;
+  }
+}

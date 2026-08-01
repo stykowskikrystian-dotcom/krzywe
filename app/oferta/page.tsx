@@ -251,7 +251,7 @@ export default function OfferPage() {
             </div>
           </div>
         </div>
-        <a className="offer-hero__scroll" href="#pory-roku">
+        <a className="offer-hero__scroll hero-scroll-cue" href="#pory-roku">
           <span>Znajdź swoją porę</span><i aria-hidden="true">↓</i>
         </a>
       </section>

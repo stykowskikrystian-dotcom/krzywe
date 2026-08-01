@@ -204,7 +204,7 @@ export default function HousesPage() {
             </div>
           </div>
         </div>
-        <a className="houses-hero__scroll" href="#poznaj-domy" aria-label="Przewiń do prezentacji domów">
+        <a className="houses-hero__scroll hero-scroll-cue" href="#poznaj-domy" aria-label="Przewiń do prezentacji domów">
           <span>Poznaj domy</span>
           <i>↓</i>
         </a>

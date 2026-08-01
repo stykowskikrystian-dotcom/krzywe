@@ -245,8 +245,8 @@ export default function Home() {
           <div className="home-hero__visual">
             <figure className="home-hero__main">
               <img
-                src="/krzywe-hero.webp"
-                alt="Dwa nowoczesne domy Krzywe Lake Houses nad Jeziorem Krzywe"
+                src="/home-hero-main.webp"
+                alt="Dwa nowoczesne domy Krzywe Lake Houses pośród ogrodu nad Jeziorem Krzywe"
                 fetchPriority="high"
               />
               <span className="home-hero__main-shade" />
@@ -262,7 +262,6 @@ export default function Home() {
                 alt="Panoramiczna sypialnia domu Modern z widokiem na Jezioro Krzywe"
                 fetchPriority="high"
               />
-              <figcaption>Modern · sypialnia z widokiem</figcaption>
             </figure>
 
             <figure className="home-hero__detail">
@@ -270,7 +269,6 @@ export default function Home() {
                 src={image("photo-1505691938895-1758d7feb511", 800)}
                 alt="Jasna sypialnia z dużym przeszkleniem"
               />
-              <figcaption>Panoramiczna sypialnia</figcaption>
             </figure>
 
             <div className="home-hero__water-note">
@@ -288,7 +286,7 @@ export default function Home() {
           />
         </div>
 
-        <a className="home-hero__scroll" href="#domy">
+        <a className="home-hero__scroll hero-scroll-cue" href="#domy">
           <span>Zobacz więcej</span><i aria-hidden="true">↓</i>
         </a>
       </section>

@@ -157,7 +157,7 @@ export default function AttractionsPage() {
             </div>
           </div>
         </div>
-        <a className="attractions-hero__scroll" href="#kategorie">
+        <a className="attractions-hero__scroll hero-scroll-cue" href="#kategorie">
           <span>Przewiń po inspiracje</span>
           <i aria-hidden="true">↓</i>
         </a>
