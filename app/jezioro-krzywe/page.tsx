@@ -224,7 +224,7 @@ export default function LakePage() {
             </div>
           </div>
         </div>
-        <a className="lake-hero__scroll" href="#poznaj-jezioro">
+        <a className="lake-hero__scroll hero-scroll-cue" href="#poznaj-jezioro">
           <span>Przewiń nad wodę</span><i aria-hidden="true">↓</i>
         </a>
       </section>

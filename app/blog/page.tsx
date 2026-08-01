@@ -175,7 +175,7 @@ export default function BlogPage() {
             </figure>
           </div>
         </div>
-        <a className="blog-hero__scroll" href="#artykuly">
+        <a className="blog-hero__scroll hero-scroll-cue" href="#artykuly">
           <span>Przewiń do dziennika</span>
           <i aria-hidden="true">↓</i>
         </a>

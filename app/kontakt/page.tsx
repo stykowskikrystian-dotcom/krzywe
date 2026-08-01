@@ -235,7 +235,7 @@ export default function ContactPage() {
             </figure>
           </div>
         </div>
-        <a className="contact-hero__scroll" href="#dane-kontaktowe">
+        <a className="contact-hero__scroll hero-scroll-cue" href="#dane-kontaktowe">
           <span>Wszystkie dane</span>
           <i aria-hidden="true">↓</i>
         </a>
