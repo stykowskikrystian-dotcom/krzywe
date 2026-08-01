@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { BlogIcon } from "./BlogIcons";
+import { ArrowUpRight } from "../components/Icons";
 import type { BlogCategory } from "./articles";
 
 export type BlogCardData = {
@@ -119,7 +120,7 @@ export function BlogExplorer({ articles }: { articles: BlogCardData[] }) {
                   <h3><Link href={`/blog/${article.slug}`}>{article.title}</Link></h3>
                   <p>{article.excerpt}</p>
                   <Link className="blog-card__read" href={`/blog/${article.slug}`}>
-                    Czytaj artykuł <BlogIcon type="arrow" />
+                    Czytaj artykuł <ArrowUpRight />
                   </Link>
                 </div>
               </article>

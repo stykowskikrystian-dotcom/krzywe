@@ -10,6 +10,7 @@ import "./direct-booking.css";
 import "./hero-consistency.css";
 import "./entry-intro.css";
 import { FirstEntryExperience } from "./components/FirstEntryExperience";
+import { LanguageController } from "./components/LanguageController";
 import {
   CONTACT,
   SITE_DESCRIPTION,
@@ -179,13 +180,19 @@ const globalStructuredData = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="pl">
+    <html lang="pl" suppressHydrationWarning>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "try{var l=localStorage.getItem('klh-language')==='en'?'en':'pl';document.documentElement.lang=l;document.documentElement.dataset.language=l}catch(e){}",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(globalStructuredData) }}
         />
         <FirstEntryExperience />
+        <LanguageController />
         {children}
       </body>
     </html>

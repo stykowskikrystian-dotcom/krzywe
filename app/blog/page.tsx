@@ -4,6 +4,7 @@ import { SiteHeader } from "../components/SiteHeader";
 import { BOOKING_URL } from "../lib/booking";
 import { BlogExplorer, type BlogCardData } from "./BlogExplorer";
 import { BlogIcon } from "./BlogIcons";
+import { ArrowDown, ArrowUpRight } from "../components/Icons";
 import { blogArticles, formatBlogDate } from "./articles";
 
 export const metadata: Metadata = {
@@ -143,10 +144,10 @@ export default function BlogPage() {
             </p>
             <div className="blog-hero__actions">
               <a className="button button--primary" href="#artykuly">
-                Znajdź artykuł <span aria-hidden="true">↓</span>
+                Znajdź artykuł <ArrowDown />
               </a>
               <Link className="button button--quiet" href="/atrakcje">
-                Odkryj atrakcje <span aria-hidden="true">↗</span>
+                Odkryj atrakcje <ArrowUpRight />
               </Link>
             </div>
             <div className="blog-hero__stats" aria-label="Zawartość dziennika">
@@ -162,7 +163,7 @@ export default function BlogPage() {
               <figcaption>
                 <span>Przewodnik główny · {articles[0].readingTime} min</span>
                 <strong>{articles[0].shortTitle}</strong>
-                <Link href={`/blog/${articles[0].slug}`}>Czytaj teraz <BlogIcon type="arrow" /></Link>
+                <Link href={`/blog/${articles[0].slug}`}>Czytaj teraz <ArrowUpRight /></Link>
               </figcaption>
             </figure>
             <figure className="blog-hero__small blog-hero__small--top">
@@ -177,7 +178,7 @@ export default function BlogPage() {
         </div>
         <a className="blog-hero__scroll hero-scroll-cue" href="#artykuly">
           <span>Przewiń do dziennika</span>
-          <i aria-hidden="true">↓</i>
+          <i aria-hidden="true"><ArrowDown /></i>
         </a>
       </section>
 
@@ -251,7 +252,7 @@ export default function BlogPage() {
               <div>
                 <h3>Mikołajki</h3>
                 <p>Port, promenada, rejsy i atrakcje na mniej pewną pogodę.</p>
-                <Link href="/blog/mikolajki-na-weekend-plan-bez-pospiechu">Czytaj przewodnik <BlogIcon type="arrow" /></Link>
+                <Link href="/blog/mikolajki-na-weekend-plan-bez-pospiechu">Czytaj przewodnik <ArrowUpRight /></Link>
               </div>
             </article>
             <article>
@@ -262,7 +263,7 @@ export default function BlogPage() {
               <div>
                 <h3>Mrągowo</h3>
                 <p>Kultura, widoki i spacerowa trasa przez miasto nad wodą.</p>
-                <Link href="/blog/mragowo-atrakcje-nad-jeziorem-czos">Czytaj przewodnik <BlogIcon type="arrow" /></Link>
+                <Link href="/blog/mragowo-atrakcje-nad-jeziorem-czos">Czytaj przewodnik <ArrowUpRight /></Link>
               </div>
             </article>
             <article>
@@ -273,7 +274,7 @@ export default function BlogPage() {
               <div>
                 <h3>Krutyń</h3>
                 <p>Kajaki, rezerwaty i aktywny dzień blisko Piecek.</p>
-                <Link href="/blog/splyw-krutynia-poradnik-pierwszy-raz">Czytaj przewodnik <BlogIcon type="arrow" /></Link>
+                <Link href="/blog/splyw-krutynia-poradnik-pierwszy-raz">Czytaj przewodnik <ArrowUpRight /></Link>
               </div>
             </article>
           </div>
@@ -298,10 +299,10 @@ export default function BlogPage() {
             </p>
             <div className="blog-cta__actions">
               <Link className="button button--primary" href="/domy-i-galeria">
-                Zobacz domy <BlogIcon type="arrow" />
+                Zobacz domy <ArrowUpRight />
               </Link>
               <a className="button blog-cta__secondary" href={BOOKING_URL}>
-                Sprawdź termin <span aria-hidden="true">→</span>
+                Sprawdź termin <ArrowUpRight />
               </a>
             </div>
           </div>

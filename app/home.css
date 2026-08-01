@@ -47,12 +47,12 @@
   min-height: 0;
   padding: clamp(20px, 2.8vw, 46px) 0 25px;
   display: grid;
-  grid-template-columns: minmax(370px, .82fr) minmax(540px, 1.18fr);
+  grid-template-columns: minmax(650px, .95fr) minmax(620px, 1.05fr);
   gap: clamp(26px, 3.6vw, 58px);
 }
 
 .home-hero__copy {
-  max-width: 680px;
+  max-width: 760px;
   padding: clamp(16px, 3vw, 48px) 0 15px clamp(18px, 4vw, 62px);
   display: flex;
   flex-direction: column;
@@ -152,7 +152,9 @@
 }
 
 .home-hero__main img {
-  object-position: 50% 56%;
+  object-position: 60% 56%;
+  transform: scale(1.055);
+  transform-origin: 60% 56%;
 }
 
 .home-hero__main-shade {
@@ -526,6 +528,10 @@ html.bed-booking-picker-open .home-hero__water-note {
 
 .home-signature__image img {
   transition: transform 800ms cubic-bezier(.2,.7,.2,1);
+}
+
+.home-signature__image--tall img {
+  object-position: 50% 58%;
 }
 
 .home-signature__image:hover img {
@@ -1030,6 +1036,10 @@ html.bed-booking-picker-open .home-hero__water-note {
   height: 305px;
   overflow: hidden;
   border-radius: 20px;
+}
+
+.home-rhythm__grid article:last-child figure img {
+  object-position: 50% 56%;
 }
 
 .home-rhythm__image--day {
@@ -1913,6 +1923,17 @@ html.bed-booking-picker-open .home-hero__water-note {
   box-shadow: 0 28px 75px rgba(31, 45, 36, .12);
 }
 
+.home-longstay__visual > img {
+  object-position: 50% 60%;
+}
+
+@media (min-width: 1181px) {
+  .home-hero__copy h1 {
+    max-width: 760px;
+    font-size: clamp(3.75rem, 4vw, 4.8rem) !important;
+  }
+}
+
 .home-longstay__shade {
   position: absolute;
   inset: 0;
@@ -2447,6 +2468,7 @@ html.bed-booking-picker-open .home-hero__water-note {
 
   .home-hero__main img {
     object-position: 51% center;
+    transform: none;
   }
 
   .home-hero__lake {

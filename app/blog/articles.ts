@@ -1,4 +1,7 @@
 import { attractions } from "../atrakcje/attractions";
+import { additionalBlogArticles } from "./additional-articles";
+import { enrichBlogArticle } from "./article-enrichments";
+import { deepenBlogArticle } from "./article-deepening";
 
 export type BlogCategory =
   | "Przewodniki"
@@ -46,7 +49,7 @@ const image = (index: number) => ({
   imageCredit: attractions[index].imageArtist,
 });
 
-export const blogArticles: BlogArticle[] = [
+const baseBlogArticles: BlogArticle[] = [
   {
     slug: "domy-nad-jeziorem-na-mazurach-jak-wybrac",
     title: "Domy nad jeziorem na Mazurach — jak wybrać miejsce, do którego naprawdę chce się wracać?",
@@ -772,7 +775,12 @@ export const blogArticles: BlogArticle[] = [
       },
     ],
   },
+  ...additionalBlogArticles,
 ];
+
+export const blogArticles: BlogArticle[] = baseBlogArticles
+  .map(enrichBlogArticle)
+  .map(deepenBlogArticle);
 
 export const blogCategories: Array<BlogCategory | "Wszystkie"> = [
   "Wszystkie",

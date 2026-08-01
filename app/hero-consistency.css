@@ -203,6 +203,24 @@
   .lake-hero,
   .offer-hero,
   .contact-hero
+) > .hero-scroll-cue i svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:is(
+  .home-hero,
+  .houses-hero,
+  .attractions-hero,
+  .blog-hero,
+  .lake-hero,
+  .offer-hero,
+  .contact-hero
 ) > .hero-scroll-cue:hover {
   color: var(--ink) !important;
   border-color: rgba(164, 93, 43, 0.22) !important;

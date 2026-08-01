@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, Waves } from "../components/Icons";
+import { ArrowDown, ArrowDownRight, ArrowUpRight, Waves } from "../components/Icons";
 import { SiteHeader } from "../components/SiteHeader";
 import { BOOKING_URL } from "../lib/booking";
 import { HouseGallery } from "./HouseGallery";
@@ -206,7 +206,7 @@ export default function HousesPage() {
         </div>
         <a className="houses-hero__scroll hero-scroll-cue" href="#poznaj-domy" aria-label="Przewiń do prezentacji domów">
           <span>Poznaj domy</span>
-          <i>↓</i>
+          <i><ArrowDown /></i>
         </a>
       </section>
 

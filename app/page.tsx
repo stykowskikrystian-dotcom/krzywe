@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { attractions } from "./atrakcje/attractions";
-import { ArrowDownRight, ArrowUpRight, Facebook, Instagram, Mail, MapPin, Phone, Waves } from "./components/Icons";
+import { ArrowDown, ArrowDownRight, ArrowUpRight, Facebook, Instagram, Mail, MapPin, Phone, Waves } from "./components/Icons";
 import { HomeIcon, type HomeIconName } from "./components/HomeIcon";
 import { DirectBookingPanel } from "./components/DirectBookingPanel";
 import { SiteHeader } from "./components/SiteHeader";
@@ -287,7 +287,7 @@ export default function Home() {
         </div>
 
         <a className="home-hero__scroll hero-scroll-cue" href="#domy">
-          <span>Zobacz więcej</span><i aria-hidden="true">↓</i>
+          <span>Zobacz więcej</span><i aria-hidden="true"><ArrowDown /></i>
         </a>
       </section>
 
@@ -313,8 +313,8 @@ export default function Home() {
           <div className="home-signature__gallery">
             <figure className="home-signature__image home-signature__image--tall">
               <img
-                src={lakeImages.pier}
-                alt="Pomost nad Jeziorem Krzywe wśród zieleni"
+                src="/home-signature-rhythm.webp"
+                alt="Spokojny odpoczynek na pomoście nad mazurskim jeziorem"
                 loading="lazy"
               />
               <figcaption><span>01</span>Własny rytm nad wodą</figcaption>
@@ -607,8 +607,8 @@ export default function Home() {
           </div>
           <figure className="home-longstay__visual">
             <img
-              src={lakeImages.bay}
-              alt="Spokojna zatoka Jeziora Krzywe otoczona mazurską zielenią"
+              src="/home-longstay-directions.webp"
+              alt="Aktywny dzień na mazurskim jeziorze niedaleko Krzywe"
               loading="lazy"
             />
             <span className="home-longstay__shade" />
@@ -649,7 +649,7 @@ export default function Home() {
               <p>Kajak na Krutyni, promenada w Mikołajkach, Mrągowo albo dzień bez wyjazdu — nad wodą i w ogrodzie.</p>
             </article>
             <article>
-              <figure><img src="/home-rhythm-evening.webp" alt="Nastrojowy pomost nad jeziorem po zachodzie słońca" loading="lazy" /></figure>
+              <figure><img src="/home-rhythm-evening-family.webp" alt="Rodzinny wieczór przy ognisku na Mazurach" loading="lazy" /></figure>
               <div className="home-rhythm__top"><HomeIcon name="moon" /><span>Wieczorem</span></div>
               <h3>Wróć do ciszy</h3>
               <p>Jacuzzi, ognisko i rozmowy na tarasie. Wszystko, czego potrzeba, czeka tuż przy domu.</p>

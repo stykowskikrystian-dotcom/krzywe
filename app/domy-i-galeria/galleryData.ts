@@ -1,11 +1,12 @@
-export type HouseName = "modern" | "loft";
+export type HouseName = "modern" | "loft" | "teren";
 export type GalleryRoom =
   | "kuchnia-salon"
   | "sypialnia-glowna"
   | "pozostale-sypialnie"
   | "lazienki"
   | "taras"
-  | "ogrod";
+  | "ogrod"
+  | "teren";
 
 export type GalleryImage = {
   id: number;
@@ -24,5 +25,21 @@ export const galleryImages: GalleryImage[] = [
     src: "/modern-sypialnia-glowna.webp",
     alt: "Panoramiczne przeszklenie w sypialni głównej domu Modern z widokiem na Jezioro Krzywe",
     caption: "Modern · sypialnia główna",
+  },
+  {
+    id: 2,
+    house: "teren",
+    room: "teren",
+    src: "/home-hero-main.webp",
+    alt: "Teren Krzywe Lake Houses z dwoma domami położonymi przy jeziorze na Mazurach",
+    caption: "Teren · domy przy jeziorze",
+  },
+  {
+    id: 3,
+    house: "teren",
+    room: "teren",
+    src: "/krzywe-hero.webp",
+    alt: "Otoczenie dwóch domów Krzywe Lake Houses nad Jeziorem Krzywe",
+    caption: "Teren · otoczenie domów",
   },
 ];

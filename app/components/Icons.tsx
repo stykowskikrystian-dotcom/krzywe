@@ -16,6 +16,30 @@ export function ArrowDownRight({ className }: IconProps) {
   );
 }
 
+export function ArrowRight({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
+export function ArrowLeft({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M19 12H5m6 6-6-6 6-6" />
+    </svg>
+  );
+}
+
+export function ArrowDown({ className }: IconProps) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 5v14m6-6-6 6-6-6" />
+    </svg>
+  );
+}
+
 export function MapPin({ className }: IconProps) {
   return (
     <svg className={className} viewBox="0 0 24 24" aria-hidden="true">

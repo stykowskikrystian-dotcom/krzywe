@@ -90,7 +90,7 @@ export function LegalPage({
           ))}
 
           <section className="legal-sources" aria-labelledby="legal-sources-title">
-            <span>↗</span>
+            <span><ArrowUpRight /></span>
             <div>
               <h2 id="legal-sources-title">Dokumenty i informacje zewnętrzne</h2>
               <p>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SiteHeader } from "../../components/SiteHeader";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "../../components/Icons";
 import { BOOKING_URL } from "../../lib/booking";
 import { BlogIcon } from "../BlogIcons";
 import { articleInsights } from "../article-insights";
@@ -189,7 +190,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           <div className="section-shell article-hero__grid">
             <div className="article-hero__copy">
               <Link className="article-back" href="/blog">
-                <span aria-hidden="true">←</span> Wróć do dziennika
+                <ArrowLeft /> Wróć do dziennika
               </Link>
               <p className="eyebrow">{article.category}</p>
               <h1>{article.title}</h1>
@@ -205,7 +206,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <figcaption>
                 <span>{article.imageCredit}</span>
                 {article.imageSource && (
-                  <a href={article.imageSource} target="_blank" rel="noreferrer">Źródło zdjęcia ↗</a>
+                  <a href={article.imageSource} target="_blank" rel="noreferrer">Źródło zdjęcia <ArrowUpRight /></a>
                 )}
               </figcaption>
             </figure>
@@ -222,7 +223,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 </a>
               ))}
             </nav>
-            <a href={BOOKING_URL}>Sprawdź termin <BlogIcon type="arrow" /></a>
+            <a href={BOOKING_URL}>Sprawdź termin <ArrowUpRight /></a>
           </aside>
 
           <div className="article-content">
@@ -285,7 +286,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               <p className="eyebrow">Czytaj dalej</p>
               <h2 id="related-title">Kolejne historie znad jeziora.</h2>
             </div>
-            <Link href="/blog">Wszystkie artykuły <BlogIcon type="arrow" /></Link>
+            <Link href="/blog">Wszystkie artykuły <ArrowUpRight /></Link>
           </div>
           <div className="article-related__grid">
             {related.map((item) => (
@@ -297,7 +298,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 <div>
                   <small>{item.readingTime} min czytania</small>
                   <h3><Link href={`/blog/${item.slug}`}>{item.shortTitle}</Link></h3>
-                  <Link href={`/blog/${item.slug}`}>Czytaj <BlogIcon type="arrow" /></Link>
+                  <Link href={`/blog/${item.slug}`}>Czytaj <ArrowUpRight /></Link>
                 </div>
               </article>
             ))}
@@ -317,8 +318,8 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               Mrągowa, Piecek i najciekawszych miejsc regionu.
             </p>
             <div>
-              <a className="button button--primary" href={BOOKING_URL}>Sprawdź termin <BlogIcon type="arrow" /></a>
-              <Link className="button article-cta__secondary" href="/domy-i-galeria">Zobacz domy <span aria-hidden="true">→</span></Link>
+              <a className="button button--primary" href={BOOKING_URL}>Sprawdź termin <ArrowUpRight /></a>
+              <Link className="button article-cta__secondary" href="/domy-i-galeria">Zobacz domy <ArrowRight /></Link>
             </div>
           </div>
         </div>

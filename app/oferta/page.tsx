@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { HomeIcon, type HomeIconName } from "../components/HomeIcon";
-import { ArrowDownRight, ArrowUpRight } from "../components/Icons";
+import { ArrowDown, ArrowDownRight, ArrowUpRight } from "../components/Icons";
 import { SiteHeader } from "../components/SiteHeader";
 import { DirectBookingPanel } from "../components/DirectBookingPanel";
 import { BOOKING_URL } from "../lib/booking";
@@ -252,7 +252,7 @@ export default function OfferPage() {
           </div>
         </div>
         <a className="offer-hero__scroll hero-scroll-cue" href="#pory-roku">
-          <span>Znajdź swoją porę</span><i aria-hidden="true">↓</i>
+          <span>Znajdź swoją porę</span><i aria-hidden="true"><ArrowDown /></i>
         </a>
       </section>
 

@@ -2,13 +2,18 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { HouseIcon } from "./HouseIcons";
+import { ArrowLeft, ArrowRight } from "../components/Icons";
 import type { GalleryImage, HouseName } from "./galleryData";
 
 const houseFilters: { value: "all" | HouseName; label: string }[] = [
   { value: "all", label: "Wszystkie" },
   { value: "modern", label: "Modern" },
   { value: "loft", label: "Loft" },
+  { value: "teren", label: "Teren" },
 ];
+
+const houseLabel = (house: HouseName) => house === "modern" ? "Modern" : house === "loft" ? "Loft" : "Teren";
+const lightboxLabel = (house: HouseName) => house === "teren" ? "Teren obiektu" : `Dom ${houseLabel(house)}`;
 
 export function HouseGallery({ images }: { images: GalleryImage[] }) {
   const [house, setHouse] = useState<"all" | HouseName>("all");
@@ -58,7 +63,7 @@ export function HouseGallery({ images }: { images: GalleryImage[] }) {
           </div>
           <p>
             Wybierz pełną galerię albo przejdź bezpośrednio do zdjęć domu
-            Modern lub Loft. Jeden wybór wystarczy, żeby znaleźć właściwy kadr.
+            Modern, Loft lub wspólnego terenu. Jeden wybór wystarczy, żeby znaleźć właściwy kadr.
           </p>
         </div>
 
@@ -102,7 +107,7 @@ export function HouseGallery({ images }: { images: GalleryImage[] }) {
                 aria-label={`Powiększ: ${item.caption}`}
               >
                 <img src={item.src} alt={item.alt} loading="lazy" />
-                <span><small>{item.house === "modern" ? "Modern" : "Loft"}</small>{item.caption.replace(/^(Modern|Loft|Wspólny ogród) · /, "")}</span>
+                <span><small>{houseLabel(item.house)}</small>{item.caption.replace(/^(Modern|Loft|Teren|Wspólny ogród) · /, "")}</span>
                 <i><HouseIcon type="arrow" /></i>
               </button>
             ))}
@@ -110,7 +115,7 @@ export function HouseGallery({ images }: { images: GalleryImage[] }) {
         ) : (
           <div className="house-gallery__empty">
             <HouseIcon type="grid" />
-            <strong>Galeria domu Loft jest w przygotowaniu.</strong>
+            <strong>{house === "teren" ? "Galeria terenu jest w przygotowaniu." : `Galeria domu ${houseLabel(house === "all" ? "loft" : house)} jest w przygotowaniu.`}</strong>
             <p>Dodamy tutaj wyłącznie właściwe zdjęcia obiektu.</p>
           </div>
         )}
@@ -140,15 +145,15 @@ export function HouseGallery({ images }: { images: GalleryImage[] }) {
             <figure>
               <img src={active.src} alt={active.alt} />
               <figcaption>
-                <span>{active.house === "modern" ? "Dom Modern" : "Dom Loft"}</span>
+                <span>{lightboxLabel(active.house)}</span>
                 <strong>{active.caption}</strong>
                 <small>{activeIndex + 1} / {filtered.length}</small>
               </figcaption>
             </figure>
             {filtered.length > 1 && (
               <div className="house-lightbox__nav">
-                <button type="button" onClick={() => setActiveId(filtered[(activeIndex - 1 + filtered.length) % filtered.length].id)} aria-label="Poprzednie zdjęcie">←</button>
-                <button type="button" onClick={() => setActiveId(filtered[(activeIndex + 1) % filtered.length].id)} aria-label="Następne zdjęcie">→</button>
+                <button type="button" onClick={() => setActiveId(filtered[(activeIndex - 1 + filtered.length) % filtered.length].id)} aria-label="Poprzednie zdjęcie"><ArrowLeft /></button>
+                <button type="button" onClick={() => setActiveId(filtered[(activeIndex + 1) % filtered.length].id)} aria-label="Następne zdjęcie"><ArrowRight /></button>
               </div>
             )}
           </div>

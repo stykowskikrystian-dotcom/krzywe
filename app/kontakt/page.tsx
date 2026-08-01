@@ -5,6 +5,7 @@ import { ContactForm } from "./ContactForm";
 import { HomeIcon } from "../components/HomeIcon";
 import {
   ArrowUpRight,
+  ArrowDown,
   Facebook,
   Instagram,
   Mail,
@@ -237,7 +238,7 @@ export default function ContactPage() {
         </div>
         <a className="contact-hero__scroll hero-scroll-cue" href="#dane-kontaktowe">
           <span>Wszystkie dane</span>
-          <i aria-hidden="true">↓</i>
+          <i aria-hidden="true"><ArrowDown /></i>
         </a>
       </section>
 

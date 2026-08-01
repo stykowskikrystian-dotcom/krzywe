@@ -4,6 +4,12 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Calendar, Facebook, Instagram, Mail, MapPin, Phone } from "./Icons";
 import { BedBookingWidget } from "./BedBookingWidget";
+import {
+  LANGUAGE_EVENT,
+  LANGUAGE_STORAGE_KEY,
+  setSiteLanguage,
+  type SiteLanguage,
+} from "./LanguageController";
 
 const FACEBOOK_URL = "https://www.facebook.com/krzywelakehousesmazury";
 const INSTAGRAM_URL = "https://www.instagram.com/krzywelakehousesmazury/";
@@ -20,10 +26,32 @@ const navigation = [
   { href: "/blog", label: "Blog" },
 ];
 
+function LanguageFlag({ language }: { language: SiteLanguage }) {
+  if (language === "pl") {
+    return (
+      <svg className="language-toggle__flag" viewBox="0 0 28 18" aria-hidden="true">
+        <rect width="28" height="18" rx="2.5" fill="#fff" />
+        <path d="M0 9h28v6.5A2.5 2.5 0 0 1 25.5 18h-23A2.5 2.5 0 0 1 0 15.5V9Z" fill="#dc143c" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className="language-toggle__flag" viewBox="0 0 28 18" aria-hidden="true">
+      <rect width="28" height="18" rx="2.5" fill="#17365d" />
+      <path d="M0 0 28 18M28 0 0 18" stroke="#fff" strokeWidth="4.4" />
+      <path d="M0 0 28 18M28 0 0 18" stroke="#c8102e" strokeWidth="1.7" />
+      <path d="M14 0v18M0 9h28" stroke="#fff" strokeWidth="6" />
+      <path d="M14 0v18M0 9h28" stroke="#c8102e" strokeWidth="3.2" />
+    </svg>
+  );
+}
+
 export function SiteHeader({ activePath = "" }: { activePath?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [language, setLanguage] = useState<SiteLanguage>("pl");
   const bookingButtonRef = useRef<HTMLButtonElement>(null);
   const bookingCloseRef = useRef<HTMLButtonElement>(null);
 
@@ -34,6 +62,29 @@ export function SiteHeader({ activePath = "" }: { activePath?: string }) {
     window.addEventListener("scroll", updateHeader, { passive: true });
 
     return () => window.removeEventListener("scroll", updateHeader);
+  }, []);
+
+  useEffect(() => {
+    const syncLanguage = () => {
+      const active = document.documentElement.dataset.language
+        || localStorage.getItem(LANGUAGE_STORAGE_KEY);
+      setLanguage(active === "en" ? "en" : "pl");
+    };
+
+    syncLanguage();
+    const onLanguage = (event: Event) => {
+      setLanguage((event as CustomEvent<SiteLanguage>).detail === "en" ? "en" : "pl");
+    };
+    const rootObserver = new MutationObserver(syncLanguage);
+    rootObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["lang", "data-language"],
+    });
+    window.addEventListener(LANGUAGE_EVENT, onLanguage);
+    return () => {
+      rootObserver.disconnect();
+      window.removeEventListener(LANGUAGE_EVENT, onLanguage);
+    };
   }, []);
 
   useEffect(() => {
@@ -130,6 +181,21 @@ export function SiteHeader({ activePath = "" }: { activePath?: string }) {
         </nav>
 
         <div className="site-header__actions">
+          <button
+            className="language-toggle"
+            type="button"
+            data-no-translate
+            aria-label={language === "pl" ? "Zmień język na angielski" : "Switch language to Polish"}
+            title={language === "pl" ? "English" : "Polski"}
+            onClick={() => {
+              const next = document.documentElement.dataset.language === "en" ? "pl" : "en";
+              setLanguage(next);
+              setSiteLanguage(next);
+            }}
+          >
+            <LanguageFlag language={language} />
+            <small>{language.toUpperCase()}</small>
+          </button>
           <div className="header-socials" aria-label="Szybki kontakt i media społecznościowe">
             <a
               className="header-social-link header-phone-link"

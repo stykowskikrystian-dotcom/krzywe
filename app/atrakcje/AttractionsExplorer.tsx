@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { BOOKING_URL } from "../lib/booking";
+import { ArrowDownRight, ArrowRight, ArrowUpRight } from "../components/Icons";
 import { AttractionIcon } from "./AttractionIcons";
 import { categoryLabels, type Attraction, type AttractionCategory } from "./attractions";
 
@@ -49,7 +50,7 @@ function AttractionCard({
           rel="noreferrer"
           title={`${attraction.imageArtist} · ${attraction.imageLicense}`}
         >
-          Zdjęcie ↗
+          Zdjęcie <ArrowUpRight />
         </a>
         <button
           type="button"
@@ -78,7 +79,7 @@ function AttractionCard({
         </div>
         <div className="attraction-card__actions">
           <a href={attraction.website} target="_blank" rel="noreferrer">
-            Przejdź do strony <span aria-hidden="true">↗</span>
+            Przejdź do strony <ArrowUpRight />
           </a>
           <a href={externalNavigation(attraction.mapQuery)} target="_blank" rel="noreferrer">
             <AttractionIcon type="route" /> Nawiguj
@@ -229,21 +230,21 @@ export function AttractionsExplorer({ attractions }: { attractions: Attraction[]
               <AttractionIcon type="woda" />
               <h3>Woda i las</h3>
               <p>Spływ Krutynią, rezerwat Zakręt i spokojny powrót przez Piecki.</p>
-              <strong>Uruchom ten plan ↘</strong>
+              <strong>Uruchom ten plan <ArrowDownRight /></strong>
             </button>
             <button type="button" onClick={() => { setArea("Kętrzyn"); setCategory("historia"); setVisible(12); document.getElementById("wyszukiwarka")?.scrollIntoView({ behavior: "smooth" }); }}>
               <span className="day-plans__index">02 / CAŁY DZIEŃ</span>
               <AttractionIcon type="historia" />
               <h3>Śladami historii</h3>
               <p>Wilczy Szaniec, zamek w Kętrzynie i barokowy finał w Świętej Lipce.</p>
-              <strong>Uruchom ten plan ↘</strong>
+              <strong>Uruchom ten plan <ArrowDownRight /></strong>
             </button>
             <button type="button" onClick={() => { setForKids(true); setCategory("rodzina"); setArea("Wszystkie"); setVisible(12); document.getElementById("wyszukiwarka")?.scrollIntoView({ behavior: "smooth" }); }}>
               <span className="day-plans__index">03 / RODZINNIE</span>
               <AttractionIcon type="rodzina" />
               <h3>Bez nudy</h3>
               <p>Kadzidłowo, Mazurolandia lub Tropikana — także na mniej pewną pogodę.</p>
-              <strong>Uruchom ten plan ↘</strong>
+              <strong>Uruchom ten plan <ArrowDownRight /></strong>
             </button>
           </div>
         </div>
@@ -409,8 +410,8 @@ export function AttractionsExplorer({ attractions }: { attractions: Attraction[]
               <span><strong>03</strong> dwa niezależne domy</span>
             </div>
             <div className="attractions-closing__actions">
-              <a className="button button--primary" href={BOOKING_URL}>Zaplanuj pobyt <span aria-hidden="true">↗</span></a>
-              <a className="button attractions-closing__secondary" href="/domy-i-galeria">Zobacz domy <span aria-hidden="true">→</span></a>
+              <a className="button button--primary" href={BOOKING_URL}>Zaplanuj pobyt <ArrowUpRight /></a>
+              <a className="button attractions-closing__secondary" href="/domy-i-galeria">Zobacz domy <ArrowRight /></a>
             </div>
           </div>
         </div>

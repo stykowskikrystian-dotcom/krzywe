@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "../components/SiteHeader";
+import { ArrowDown, ArrowDownRight } from "../components/Icons";
 import { attractions } from "./attractions";
 import { AttractionsExplorer } from "./AttractionsExplorer";
 
@@ -124,11 +125,11 @@ export default function AttractionsPage() {
             <div className="attractions-hero__actions">
               <a className="button button--primary" href="#wyszukiwarka">
                 Znajdź atrakcję
-                <span aria-hidden="true">↓</span>
+                <ArrowDown />
               </a>
               <a className="button button--quiet" href="#gotowe-plany">
                 Zobacz gotowe plany
-                <span aria-hidden="true">↘</span>
+                <ArrowDownRight />
               </a>
             </div>
             <div className="attractions-hero__stats property-facts" aria-label="Zakres przewodnika">
@@ -159,7 +160,7 @@ export default function AttractionsPage() {
         </div>
         <a className="attractions-hero__scroll hero-scroll-cue" href="#kategorie">
           <span>Przewiń po inspiracje</span>
-          <i aria-hidden="true">↓</i>
+          <i aria-hidden="true"><ArrowDown /></i>
         </a>
       </section>
 

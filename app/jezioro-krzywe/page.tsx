@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SiteHeader } from "../components/SiteHeader";
-import { ArrowUpRight, MapPin, Waves } from "../components/Icons";
+import { ArrowDown, ArrowRight, ArrowUpRight, MapPin, Waves } from "../components/Icons";
 import { BOOKING_URL } from "../lib/booking";
 import { LakeIcon } from "./LakeIcons";
 
@@ -182,7 +182,7 @@ export default function LakePage() {
             </p>
             <div className="lake-hero__actions">
               <a className="button button--primary" href="#poznaj-jezioro">
-                Poznaj jezioro <span aria-hidden="true">↓</span>
+                Poznaj jezioro <ArrowDown />
               </a>
               <Link className="button button--quiet" href="/domy-i-galeria">
                 Zobacz domy <ArrowUpRight />
@@ -225,7 +225,7 @@ export default function LakePage() {
           </div>
         </div>
         <a className="lake-hero__scroll hero-scroll-cue" href="#poznaj-jezioro">
-          <span>Przewiń nad wodę</span><i aria-hidden="true">↓</i>
+          <span>Przewiń nad wodę</span><i aria-hidden="true"><ArrowDown /></i>
         </a>
       </section>
 
@@ -253,7 +253,7 @@ export default function LakePage() {
               >
                 <MapPin /> Prowadź nad jezioro
               </a>
-              <a href="#dane-jeziora">Zobacz dane akwenu <span aria-hidden="true">↓</span></a>
+              <a href="#dane-jeziora">Zobacz dane akwenu <ArrowDown /></a>
             </div>
           </div>
           <figure className="lake-intro__photo">
@@ -515,7 +515,7 @@ export default function LakePage() {
                 Sprawdź termin <ArrowUpRight />
               </a>
               <Link className="button lake-closing__secondary" href="/domy-i-galeria">
-                Zobacz domy <span aria-hidden="true">→</span>
+                Zobacz domy <ArrowRight />
               </Link>
             </div>
           </div>
