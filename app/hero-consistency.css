@@ -285,7 +285,12 @@
     font-size: clamp(15px, 0.833333vw, 17px);
   }
 
-  :is(.home-shell, .section-shell, .offer-shell, .contact-shell) {
+  :is(
+    .home-shell,
+    .section-shell:not(.houses-waterline__grid):not(.houses-stay__card),
+    .offer-shell,
+    .contact-shell
+  ) {
     width: min(1480px, calc(100% - clamp(42px, 6vw, 120px))) !important;
   }
 
@@ -304,7 +309,12 @@
 }
 
 @media (min-width: 1920px) {
-  :is(.home-shell, .section-shell, .offer-shell, .contact-shell) {
+  :is(
+    .home-shell,
+    .section-shell:not(.houses-waterline__grid):not(.houses-stay__card),
+    .offer-shell,
+    .contact-shell
+  ) {
     width: min(1560px, calc(100% - 144px)) !important;
   }
 
@@ -318,5 +328,25 @@
     .contact-hero__grid
   ) {
     max-width: 1680px;
+  }
+}
+
+/* Domy i galeria: these two editorial bands are intentionally full-bleed. */
+@media (min-width: 901px) {
+  .houses-stay__card {
+    background:
+      radial-gradient(ellipse at 100% 42%, rgba(164, 93, 43, .23), transparent 38%),
+      var(--pine-deep);
+  }
+}
+
+@media (min-width: 1281px) {
+  .houses-waterline__grid {
+    grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
+  }
+
+  .houses-stay__card {
+    grid-template-columns: minmax(440px, .78fr) minmax(0, 1.22fr);
+    padding-right: clamp(28px, 3vw, 56px);
   }
 }

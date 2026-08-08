@@ -51,6 +51,7 @@ export function SiteHeader({ activePath = "" }: { activePath?: string }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [footerVisible, setFooterVisible] = useState(false);
   const [language, setLanguage] = useState<SiteLanguage>("pl");
   const bookingButtonRef = useRef<HTMLButtonElement>(null);
   const bookingCloseRef = useRef<HTMLButtonElement>(null);
@@ -62,6 +63,19 @@ export function SiteHeader({ activePath = "" }: { activePath?: string }) {
     window.addEventListener("scroll", updateHeader, { passive: true });
 
     return () => window.removeEventListener("scroll", updateHeader);
+  }, []);
+
+  useEffect(() => {
+    const footer = document.querySelector(".site-footer");
+    if (!footer) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setFooterVisible(entry.isIntersecting),
+      { threshold: 0.04 },
+    );
+
+    observer.observe(footer);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -314,7 +328,7 @@ export function SiteHeader({ activePath = "" }: { activePath?: string }) {
 
       <button
         ref={bookingButtonRef}
-        className={`booking-fab${menuOpen || bookingOpen ? " is-hidden" : ""}`}
+        className={`booking-fab${menuOpen || bookingOpen || footerVisible ? " is-hidden" : ""}`}
         type="button"
         aria-haspopup="dialog"
         aria-expanded={bookingOpen}

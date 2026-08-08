@@ -6514,7 +6514,7 @@ html {
   color: #f7f4ee;
   border-radius: 32px;
   background:
-    radial-gradient(circle at 88% 14%, rgba(164, 93, 43, .17), transparent 26%),
+    radial-gradient(ellipse at 100% 42%, rgba(164, 93, 43, .23), transparent 38%),
     var(--pine-deep);
 }
 
@@ -8773,7 +8773,7 @@ html {
 /* Final desktop corrections for the two full-width Houses sections. */
 @media (min-width: 901px) {
   .houses-waterline__grid {
-    grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr);
+    grid-template-columns: minmax(0, .72fr) minmax(0, 1.28fr);
   }
 
   .houses-waterline__copy {
@@ -8798,11 +8798,11 @@ html {
   }
 
   .houses-stay__card {
-    grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(440px, .78fr) minmax(0, 1.22fr);
     gap: clamp(42px, 5vw, 80px);
     align-items: center;
     padding-left: max(clamp(38px, 3.2vw, 60px), calc((100vw - 1460px) / 2 + 28px));
-    padding-right: max(clamp(38px, 3.2vw, 60px), calc((100vw - 1460px) / 2 + 28px));
+    padding-right: clamp(28px, 3vw, 56px);
   }
 
   .houses-stay__intro h2 {

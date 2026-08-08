@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { attractions } from "./atrakcje/attractions";
-import { ArrowDown, ArrowDownRight, ArrowUpRight, Facebook, Instagram, Mail, MapPin, Phone, Waves } from "./components/Icons";
+import { ArrowDown, ArrowDownRight, ArrowUpRight, Phone, Waves } from "./components/Icons";
 import { HomeIcon, type HomeIconName } from "./components/HomeIcon";
 import { DirectBookingPanel } from "./components/DirectBookingPanel";
 import { SiteHeader } from "./components/SiteHeader";
@@ -138,51 +138,6 @@ export default function Home() {
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "LodgingBusiness",
-        "@id": "https://www.krzywelakehouses.pl/#lodging",
-        name: "Krzywe Lake Houses",
-        url: "https://www.krzywelakehouses.pl/",
-        logo: "https://www.krzywelakehouses.pl/favicon.png",
-        image: [
-          "https://www.krzywelakehouses.pl/krzywe-hero.png",
-          lakeImages.strait,
-          lakeImages.summer,
-        ],
-        description: metadata.description,
-        telephone: "+48 505 586 950",
-        email: "krzywelakehouses@gmail.com",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Krzywe",
-          addressRegion: "warmińsko-mazurskie",
-          addressCountry: "PL",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 53.8024,
-          longitude: 21.2638,
-        },
-        amenityFeature: amenities.map((item) => ({
-          "@type": "LocationFeatureSpecification",
-          name: item.title,
-          value: true,
-        })),
-        sameAs: [
-          "https://www.facebook.com/krzywelakehousesmazury",
-          "https://www.instagram.com/krzywelakehousesmazury/",
-        ],
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://www.krzywelakehouses.pl/#website",
-        url: "https://www.krzywelakehouses.pl/",
-        name: "Krzywe Lake Houses",
-        inLanguage: "pl-PL",
-        publisher: {
-          "@id": "https://www.krzywelakehouses.pl/#lodging",
-        },
-      },
       {
         "@type": "FAQPage",
         mainEntity: faqs.map((item) => ({
@@ -794,38 +749,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="home-footer">
-        <div className="home-shell home-footer__grid">
-          <div className="home-footer__brand">
-            <img src="/brand-mark.png" alt="" />
-            <div><strong>Krzywe</strong><span>Lake Houses · Mazury</span></div>
-          </div>
-          <nav aria-label="Nawigacja w stopce">
-            <Link href="/domy-i-galeria">Domy i galeria</Link>
-            <Link href="/jezioro-krzywe">Jezioro Krzywe</Link>
-            <Link href="/atrakcje">Atrakcje</Link>
-            <Link href="/blog">Blog</Link>
-            <Link href="/kontakt">Kontakt</Link>
-          </nav>
-          <div className="home-footer__contact">
-            <a href="tel:+48505586950"><Phone />505 586 950</a>
-            <a href="mailto:krzywelakehouses@gmail.com"><Mail />krzywelakehouses@gmail.com</a>
-          </div>
-          <div className="home-footer__socials">
-            <a href="https://www.facebook.com/krzywelakehousesmazury" target="_blank" rel="noreferrer" aria-label="Facebook"><Facebook /></a>
-            <a href="https://www.instagram.com/krzywelakehousesmazury/" target="_blank" rel="noreferrer" aria-label="Instagram"><Instagram /></a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=53.8024%2C21.2638" target="_blank" rel="noreferrer" aria-label="Prowadź na miejsce"><MapPin /></a>
-          </div>
-        </div>
-        <div className="home-shell home-footer__bottom">
-          <span>© {new Date().getFullYear()} Krzywe Lake Houses</span>
-          <div className="home-footer__legal">
-            <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
-            <Link href="/regulamin">Regulamin</Link>
-          </div>
-          <span>Krzywe · powiat mrągowski · Mazury</span>
-        </div>
-      </footer>
     </main>
   );
 }

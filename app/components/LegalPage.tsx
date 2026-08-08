@@ -123,20 +123,6 @@ export function LegalPage({
         </div>
       </section>
 
-      <footer className="legal-footer">
-        <div className="legal-shell">
-          <Link className="legal-footer__brand" href="/">
-            <img src="/brand-mark.png" alt="" />
-            <span><strong>Krzywe</strong><small>Lake Houses · Mazury</small></span>
-          </Link>
-          <nav aria-label="Dokumenty i nawigacja pomocnicza">
-            <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
-            <Link href="/regulamin">Regulamin</Link>
-            <Link href="/kontakt">Kontakt</Link>
-            <Link href="/">Strona główna</Link>
-          </nav>
-        </div>
-      </footer>
     </main>
   );
 }

@@ -101,41 +101,6 @@ export default function ContactPage() {
         mainEntity: { "@id": "https://www.krzywelakehouses.pl/#lodging" },
       },
       {
-        "@type": "LodgingBusiness",
-        "@id": "https://www.krzywelakehouses.pl/#lodging",
-        name: "Krzywe Lake Houses",
-        url: "https://www.krzywelakehouses.pl/",
-        logo: "https://www.krzywelakehouses.pl/favicon.png",
-        image: "https://www.krzywelakehouses.pl/krzywe-hero.webp",
-        telephone: "+48 505 586 950",
-        email: EMAIL,
-        priceRange: "$$",
-        petsAllowed: false,
-        checkinTime: "16:00",
-        checkoutTime: "11:00",
-        areaServed: ["Krzywe", "Mrągowo", "Mikołajki", "Ryn", "Mazury"],
-        contactPoint: {
-          "@type": "ContactPoint",
-          telephone: "+48 505 586 950",
-          email: EMAIL,
-          contactType: "reservations",
-          availableLanguage: ["pl", "en"],
-        },
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Krzywe",
-          postalCode: "11-700",
-          addressRegion: "warmińsko-mazurskie",
-          addressCountry: "PL",
-        },
-        geo: {
-          "@type": "GeoCoordinates",
-          latitude: 53.8024,
-          longitude: 21.2638,
-        },
-        sameAs: [FACEBOOK_URL, INSTAGRAM_URL],
-      },
-      {
         "@type": "BreadcrumbList",
         itemListElement: [
           {
@@ -514,29 +479,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <footer className="contact-footer">
-        <div className="contact-shell contact-footer__grid">
-          <div>
-            <img src="/brand-logo.png" alt="Krzywe Lake Houses" />
-            <p>Dwa całoroczne domy nad Jeziorem Krzywe.</p>
-          </div>
-          <nav aria-label="Stopka">
-            <Link href="/">Strona główna</Link>
-            <Link href="/domy-i-galeria">Domy i galeria</Link>
-            <Link href="/oferta">Oferta</Link>
-            <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
-            <Link href="/regulamin">Regulamin</Link>
-          </nav>
-          <div className="contact-footer__contact">
-            <a href={PHONE_URL}><Phone />{PHONE_DISPLAY}</a>
-            <a href={`mailto:${EMAIL}`}><Mail />{EMAIL}</a>
-          </div>
-        </div>
-        <div className="contact-shell contact-footer__bottom">
-          <span>© {new Date().getFullYear()} Krzywe Lake Houses</span>
-          <span>Krzywe · Mazury · Jezioro Krzywe</span>
-        </div>
-      </footer>
     </main>
   );
 }

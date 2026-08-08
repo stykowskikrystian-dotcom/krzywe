@@ -9,8 +9,10 @@ import "./legal.css";
 import "./direct-booking.css";
 import "./hero-consistency.css";
 import "./entry-intro.css";
+import "./footer.css";
 import { FirstEntryExperience } from "./components/FirstEntryExperience";
 import { LanguageController } from "./components/LanguageController";
+import { SiteFooter } from "./components/SiteFooter";
 import {
   CONTACT,
   SITE_DESCRIPTION,
@@ -129,10 +131,25 @@ const globalStructuredData = {
       image: SITE_IMAGE_ABSOLUTE,
       email: CONTACT.email,
       telephone: CONTACT.phoneInternational,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: CONTACT.streetAddress,
+        postalCode: CONTACT.postalCode,
+        addressLocality: CONTACT.locality,
+        addressRegion: CONTACT.region,
+        addressCountry: CONTACT.country,
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "reservations",
+        telephone: CONTACT.phoneInternational,
+        email: CONTACT.email,
+        availableLanguage: ["pl", "en"],
+      },
       sameAs: SOCIAL_LINKS,
     },
     {
-      "@type": ["LodgingBusiness", "VacationRental"],
+      "@type": "LodgingBusiness",
       "@id": `${SITE_URL}/#lodging`,
       name: SITE_NAME,
       url: SITE_URL,
@@ -142,6 +159,8 @@ const globalStructuredData = {
       telephone: CONTACT.phoneInternational,
       address: {
         "@type": "PostalAddress",
+        streetAddress: CONTACT.streetAddress,
+        postalCode: CONTACT.postalCode,
         addressLocality: CONTACT.locality,
         addressRegion: CONTACT.region,
         addressCountry: CONTACT.country,
@@ -194,6 +213,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <FirstEntryExperience />
         <LanguageController />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );
