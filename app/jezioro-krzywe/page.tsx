@@ -11,24 +11,59 @@ const images = {
     page: "https://commons.wikimedia.org/wiki/File:Krzywe_przesmyk.JPG",
   },
   bay: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Krzywe_zatoka.JPG",
-    page: "https://commons.wikimedia.org/wiki/File:Krzywe_zatoka.JPG",
+    src: "/lake-bays.webp",
+    page: "",
   },
   pier: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/b/be/Krzywe_pomost.JPG",
-    page: "https://commons.wikimedia.org/wiki/File:Krzywe_pomost.JPG",
+    src: "/lake-east-shore.jpg",
+    page: "",
   },
   summer: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Krzywe_widok_latem.JPG",
-    page: "https://commons.wikimedia.org/wiki/File:Krzywe_widok_latem.JPG",
+    src: "/mazury-summer-commons.jpg",
+    page: "https://commons.wikimedia.org/wiki/File:Mazurskie_jezioro.jpg",
   },
   winter: {
-    src: "https://upload.wikimedia.org/wikipedia/commons/6/6f/Krzywe_widok_zima.JPG",
-    page: "https://commons.wikimedia.org/wiki/File:Krzywe_widok_zima.JPG",
+    src: "/mazury-winter-commons.jpg",
+    page: "https://commons.wikimedia.org/wiki/File:Zdr%C3%B3%C5%BCno_Lake_in_winter,_2021.jpg",
   },
 } as const;
 
 const fish = ["Szczupak", "Sandacz", "Lin", "Leszcz", "Płoć", "Węgorz"];
+
+const lakeMoments = [
+  {
+    time: "06:30",
+    label: "Pierwsze światło",
+    title: "Poranek zaczyna się przy trzcinach.",
+    text: "Zanim dzień nabierze tempa, tafla jest spokojniejsza, a brzeg pachnie wodą i lasem. To najlepsza pora na kawę, krótki spacer albo kilka cichych minut bez planu.",
+    image: "/home-rhythm-morning.webp",
+    alt: "Spokojny, zielony brzeg mazurskiego jeziora o poranku",
+  },
+  {
+    time: "10:15",
+    label: "Na wodzie",
+    title: "Kajak wtedy, kiedy naprawdę masz ochotę.",
+    text: "Bez dojazdu, szukania parkingu i pakowania całego dnia do samochodu. Wystarczy zejść nad brzeg, sprawdzić warunki i pozwolić, żeby zatoki wyznaczyły trasę.",
+    image: "/home-rhythm-day.webp",
+    alt: "Kajakarka płynąca wśród roślinności na spokojnym jeziorze",
+  },
+  {
+    time: "19:40",
+    label: "Złota godzina",
+    title: "Wieczór zatrzymuje się na pomoście.",
+    text: "Gdy światło robi się cieplejsze, jezioro zmienia kolor z zieleni w grafit i miedź. To moment na rozmowę, zdjęcia albo patrzenie, jak wiatr układa wodę.",
+    image: "/home-signature-rhythm.webp",
+    alt: "Wieczorny odpoczynek na pomoście nad mazurskim jeziorem",
+  },
+  {
+    time: "21:30",
+    label: "Po zachodzie",
+    title: "Ognisko domyka dzień nad wodą.",
+    text: "Po powrocie z brzegu nie kończy się mazurski rytm. Ciepło ognia, spokojny ogród i bliskość domu pozwalają zostać razem jeszcze trochę dłużej.",
+    image: "/home-rhythm-evening-family.webp",
+    alt: "Rodzinny wieczór przy ognisku po dniu spędzonym nad wodą",
+  },
+] as const;
 
 const faqs = [
   {
@@ -55,6 +90,16 @@ const faqs = [
     question: "Jak daleko domy Krzywe Lake Houses stoją od jeziora?",
     answer:
       "Oba domy znajdują się około 10 metrów od linii brzegowej i mają bezpośredni dostęp do Jeziora Krzywe.",
+  },
+  {
+    question: "Co można robić nad Jeziorem Krzywe?",
+    answer:
+      "Spokojny charakter akwenu sprzyja kajakom, deskom SUP, odpoczynkowi nad brzegiem, obserwowaniu przyrody i wędkowaniu po wykupieniu aktualnego zezwolenia. Każdą aktywność trzeba dopasować do pogody i własnych umiejętności.",
+  },
+  {
+    question: "Czy warto przyjechać nad jezioro poza latem?",
+    answer:
+      "Tak. Wiosna i jesień są spokojniejsze, pełne zmiennego światła i intensywnych kolorów, a zimą okolica wycisza się najmocniej. Domy są całoroczne, dlatego pobyt nie musi kończyć się wraz z wakacjami.",
   },
 ];
 
@@ -112,7 +157,11 @@ export default function LakePage() {
         "@id": "https://www.krzywelakehouses.pl/jezioro-krzywe#lake",
         name: "Jezioro Krzywe na Pojezierzu Mrągowskim",
         description: metadata.description,
-        image: Object.values(images).map((image) => image.src),
+        image: Object.values(images).map((image) =>
+          image.src.startsWith("http")
+            ? image.src
+            : `https://www.krzywelakehouses.pl${image.src}`,
+        ),
         geo: {
           "@type": "GeoCoordinates",
           latitude: 53.7953,
@@ -172,13 +221,13 @@ export default function LakePage() {
           <div className="lake-hero__copy">
             <p className="eyebrow">Krzywe · powiat mrągowski</p>
             <h1 id="lake-title">
-              <span className="hero-title__primary">Jezioro zostaje</span>
-              <em>za oknem.</em>
+              <span className="hero-title__primary">Jezioro zaczyna się</span>
+              <em>tuż za oknem.</em>
             </h1>
             <p className="lake-hero__lead">
-              Rynnowe jezioro na Pojezierzu Mrągowskim, którego spokojny brzeg
-              zaczyna się około 10 metrów od domów. Bez codziennych dojazdów,
-              pakowania samochodu i szukania miejsca nad wodą.
+              Tu pobyt nie ma „wyjścia nad jezioro” wpisanego w plan. Rynnowy
+              akwen, zalesione zatoki i spokojny brzeg zaczynają się około
+              10 metrów od domów — zawsze blisko, od pierwszego światła po wieczór.
             </p>
             <div className="lake-hero__actions">
               <a className="button button--primary" href="#poznaj-jezioro">
@@ -328,33 +377,55 @@ export default function LakePage() {
         <div className="section-shell">
           <div className="lake-rhythm__heading">
             <div>
-              <p className="eyebrow">Dzień bez dojazdów</p>
-              <h2 id="lake-rhythm-title">Woda układa plan sama.</h2>
+              <p className="eyebrow">Od świtu do ogniska</p>
+              <h2 id="lake-rhythm-title">Jeden dzień. Cztery zupełnie różne jeziora.</h2>
             </div>
             <p>
-              Największa różnica nie polega na widoku. Polega na tym, że między
-              pomysłem a wejściem nad wodę nie ma logistyki.
+              Światło, wiatr i pora dnia zmieniają Jezioro Krzywe z godziny na
+              godzinę. Bliskość brzegu pozwala zobaczyć każdą z tych odsłon bez
+              organizowania osobnej wyprawy.
             </p>
           </div>
           <div className="lake-rhythm__grid">
-            <article>
-              <span><LakeIcon name="paddle" /></span>
-              <small>Rano</small>
-              <h3>Kajak przed śniadaniem</h3>
-              <p>Spokojniejsza tafla, chłodne światło i kilka chwil na wodzie, zanim zacznie się dzień.</p>
-            </article>
-            <article>
-              <span><LakeIcon name="shore" /></span>
-              <small>W ciągu dnia</small>
-              <h3>Brzeg zawsze blisko</h3>
-              <p>SUP, odpoczynek przy wodzie albo powrót do domu po ręcznik bez pakowania samochodu.</p>
-            </article>
-            <article>
-              <span><LakeIcon name="quiet" /></span>
-              <small>Wieczorem</small>
-              <h3>Ciszej niż w marinie</h3>
-              <p>Strefa ciszy pomaga usłyszeć wodę, ptaki i las zamiast silników łodzi motorowych.</p>
-            </article>
+            {lakeMoments.map((moment, index) => (
+              <article key={moment.time}>
+                <figure>
+                  <img src={moment.image} alt={moment.alt} loading="lazy" />
+                  <figcaption><span>{moment.time}</span>{moment.label}</figcaption>
+                </figure>
+                <div>
+                  <span className="lake-rhythm__index">0{index + 1}</span>
+                  <h3>{moment.title}</h3>
+                  <p>{moment.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="lake-atmosphere" aria-labelledby="lake-atmosphere-title">
+        <figure className="lake-atmosphere__media">
+          <img
+            src="/mazury-intro.webp"
+            alt="Zachód słońca nad spokojnym mazurskim jeziorem widziany spomiędzy drzew"
+            loading="lazy"
+          />
+        </figure>
+        <div className="lake-atmosphere__veil" />
+        <div className="section-shell lake-atmosphere__content">
+          <div>
+            <p className="eyebrow">Strefa ciszy</p>
+            <h2 id="lake-atmosphere-title">Cisza, która nie jest pustką.</h2>
+            <p>
+              Słychać trzcinę, ptaki, kroki na pomoście i wodę uderzającą o brzeg.
+              Brak ruchu motorowego nie odbiera jezioru energii — pozwala ją wreszcie zauważyć.
+            </p>
+          </div>
+          <div className="lake-atmosphere__notes" aria-label="Charakter spokojnego jeziora">
+            <span><strong>01</strong> naturalny rytm brzegu</span>
+            <span><strong>02</strong> zatoki osłonięte zielenią</span>
+            <span><strong>03</strong> wieczory bez mariny</span>
           </div>
         </div>
       </section>
@@ -401,30 +472,77 @@ export default function LakePage() {
           <div className="lake-seasons__heading">
             <div>
               <p className="eyebrow">To samo jezioro · inny rytm</p>
-              <h2 id="lake-seasons-title">Dwie prawdziwe odsłony Jeziora Krzywe.</h2>
+              <h2 id="lake-seasons-title">Dwie piękne odsłony Mazur nad wodą.</h2>
             </div>
             <p>
-              Latem zieleń domyka linię brzegową. Zimą tafla i śnieg wyciszają
-              krajobraz jeszcze mocniej. Oba zdjęcia wykonano nad tym akwenem.
+              Latem niebo i tafla przejmują kolory zachodu. Zimą trzcinowiska,
+              lód i niskie światło wyciszają krajobraz jeszcze mocniej. To prawdziwe
+              kadry znad mazurskich jezior.
             </p>
           </div>
           <div className="lake-seasons__gallery">
             <figure>
               <img
                 src={images.summer.src}
-                alt="Letni widok na Jezioro Krzywe i zielony brzeg"
+                alt="Letni zachód słońca odbijający się w spokojnym mazurskim jeziorze"
                 loading="lazy"
               />
-              <figcaption><span>Lato</span> Zieleń schodzi aż do wody</figcaption>
+              <figcaption>
+                <span>Lato</span>
+                Niebo odbija się w spokojnej tafli
+                <a href={images.summer.page} target="_blank" rel="noreferrer">Wszatanka · CC BY 3.0</a>
+              </figcaption>
             </figure>
             <figure>
               <img
                 src={images.winter.src}
-                alt="Zimowy widok na zamarznięte Jezioro Krzywe"
+                alt="Zimowy widok na zamarznięte Jezioro Zdróżno na Mazurach"
                 loading="lazy"
               />
-              <figcaption><span>Zima</span> Najcichsza odsłona Mazur</figcaption>
+              <figcaption>
+                <span>Zima</span>
+                Najcichsza odsłona Mazur
+                <a href={images.winter.page} target="_blank" rel="noreferrer">Mateusz Giełczyński · CC BY-SA 4.0</a>
+              </figcaption>
             </figure>
+          </div>
+        </div>
+      </section>
+
+      <section className="lake-proximity" aria-labelledby="lake-proximity-title">
+        <div className="section-shell lake-proximity__grid">
+          <figure>
+            <img
+              src="/modern-sypialnia-glowna.webp"
+              alt="Panoramiczne okno domu Modern otwarte na zieleń i Jezioro Krzywe"
+              loading="lazy"
+            />
+            <figcaption><span>Dom Modern</span> Woda pozostaje częścią wnętrza</figcaption>
+          </figure>
+          <div className="lake-proximity__copy">
+            <p className="eyebrow">Około 10 metrów od brzegu</p>
+            <h2 id="lake-proximity-title">Krótki dystans. Ogromna różnica w pobycie.</h2>
+            <p>
+              Bliskość jeziora nie jest tylko pięknym widokiem. Zmienia sposób,
+              w jaki korzystacie z całego dnia — spontanicznie, bez presji i bez logistyki.
+            </p>
+            <div className="lake-proximity__benefits">
+              <article>
+                <span>01</span>
+                <div><h3>Wracasz, kiedy chcesz</h3><p>Po ręcznik, książkę albo ciepłą bluzę — bez kończenia czasu nad wodą.</p></div>
+              </article>
+              <article>
+                <span>02</span>
+                <div><h3>Nie trzeba planować całego dnia</h3><p>Kwadrans na brzegu może być równie naturalny jak kilkugodzinna wyprawa kajakiem.</p></div>
+              </article>
+              <article>
+                <span>03</span>
+                <div><h3>Jezioro jest obecne przez cały rok</h3><p>Latem otwarte i zielone, jesienią miedziane, zimą minimalistyczne i spokojne.</p></div>
+              </article>
+            </div>
+            <Link className="lake-proximity__link" href="/domy-i-galeria">
+              Zobacz wnętrza nad wodą <ArrowRight />
+            </Link>
           </div>
         </div>
       </section>

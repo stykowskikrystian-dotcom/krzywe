@@ -7,7 +7,7 @@ import { AttractionsExplorer } from "./AttractionsExplorer";
 export const metadata: Metadata = {
   title: "Atrakcje Mikołajki, Mrągowo, Ryn i Mazury — ponad 50 miejsc",
   description:
-    "Ponad 50 atrakcji w Mikołajkach, Mrągowie, Rynie, Pieckach i Kętrzynie. Interaktywna wyszukiwarka, prawdziwe zdjęcia, dojazd i domy nad jeziorem na Mazurach.",
+    "Ponad 50 atrakcji oraz 21 tras rowerowych w Mikołajkach, Mrągowie, Pieckach i okolicy. Interaktywna wyszukiwarka, ślady GPS i domy nad jeziorem na Mazurach.",
   keywords: [
     "atrakcje Mikołajki",
     "atrakcje Mrągowo",
@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     "atrakcje Piecki",
     "atrakcje Kętrzyn",
     "atrakcje Mazury",
+    "trasy rowerowe Mrągowo",
+    "trasy rowerowe Mikołajki",
+    "trasy rowerowe Piecki",
+    "szlaki rowerowe Mazury",
+    "Mazurska Pętla Rowerowa",
     "domy na wynajem Mrągowo",
     "domy na wynajem Mikołajki",
     "domy na wynajem Ryn",
